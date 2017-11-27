@@ -42,6 +42,7 @@ for method in methods:
         changes.append({'method': name, 'url': method_url})
 
 if changes:
+    print('Discovered %d changes' % len(changes))
     plural = 's' if len(changes) > 1 else ''
 
     message = "Detected modified endpoint" + plural + ":\n"
@@ -50,3 +51,5 @@ if changes:
         message += '\n<%s|%s>' % (change['url'], change['method'])
 
     slack.notify(text=message)
+else:
+    print('No changes found')
