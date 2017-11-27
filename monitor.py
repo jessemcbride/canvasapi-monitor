@@ -36,7 +36,7 @@ for method in methods:
         cached.write(str(method))
         cached.close()
     except IOError:
-        cached = open('cache/%s' % identifier.replace('/', '+'), 'w+')
+        cached = open(path + '/cache/%s' % identifier.replace('/', '+'), 'w+')
         cached.write(str(method))
         cached.close()
         changes.append({'method': name, 'url': method_url})
