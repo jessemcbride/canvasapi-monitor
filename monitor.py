@@ -1,3 +1,4 @@
+import os
 import requests
 
 from bs4 import BeautifulSoup
@@ -5,7 +6,8 @@ from slackweb import Slack
 
 from settings import SLACK_URL
 
-
+path = os.path.split(os.path.abspath(__file__))[0]
+import pdb; pdb.set_trace()
 url = "https://canvas.instructure.com/doc/api/all_resources.html"
 changes = []
 
@@ -25,7 +27,7 @@ for method in methods:
         print("Couldn't find method name for method:\n%s" % method)
 
     try:
-        cached = open('cache/%s' % identifier.replace('/', '+'), 'r+')
+        cached = open(path + '/cache/%s' % identifier.replace('/', '+'), 'r+')
 
         if cached.read() != str(method):
             changes.append({'method': name, 'url': method_url})
