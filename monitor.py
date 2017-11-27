@@ -7,7 +7,6 @@ from slackweb import Slack
 from settings import SLACK_URL
 
 path = os.path.split(os.path.abspath(__file__))[0]
-import pdb; pdb.set_trace()
 url = "https://canvas.instructure.com/doc/api/all_resources.html"
 changes = []
 
