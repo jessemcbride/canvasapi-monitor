@@ -1,0 +1,63 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Poll Sessions" name="method.polling/poll_sessions.create">
+<a href="#method.polling/poll_sessions.create" name="method.polling/poll_sessions.create">
+      Create a single poll session
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/polling/poll_sessions_controller.rb">Polling::PollSessionsController#create</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/polls/:poll_id/poll_sessions
+  </h3>
+<p>Create a new poll session for this poll</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>poll_sessions[][course_id]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The id of the course this session is associated with.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>poll_sessions[][course_section_id]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The id of the course section this session is associated with.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>poll_sessions[][has_public_results]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether or not results are viewable by students.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "poll_sessions": [PollSession]
+}</code></pre>
+</div>
+</div>

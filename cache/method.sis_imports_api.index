@@ -1,0 +1,44 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="SIS Imports" name="method.sis_imports_api.index">
+<a href="#method.sis_imports_api.index" name="method.sis_imports_api.index">
+      Get SIS import list
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/sis_imports_api_controller.rb">SisImportsApiController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/sis_imports
+  </h3>
+<p>Returns the list of SIS imports for an account</p>
+<p>Example:</p>
+<pre class="code ruby"><code class="ruby">curl 'https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/sis_imports' \
+  -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>created_since</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>If set, only shows imports created after the specified date (use ISO8601
+format)</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="sis_imports.html#SisImport">SisImports</a>
+</div>

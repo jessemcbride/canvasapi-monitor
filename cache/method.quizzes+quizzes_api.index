@@ -1,0 +1,46 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quizzes" name="method.quizzes/quizzes_api.index">
+<a href="#method.quizzes/quizzes_api.index" name="method.quizzes/quizzes_api.index">
+      List quizzes in a course
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quizzes_api_controller.rb">Quizzes::QuizzesApiController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/quizzes
+  </h3>
+<p>Returns the paginated list of Quizzes in this course.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>search_term</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The partial title of the quizzes to match and return.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/quizzes \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="quizzes.html#Quiz">Quizzes</a>
+</div>

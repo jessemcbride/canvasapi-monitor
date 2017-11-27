@@ -1,0 +1,27 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Pages" name="method.wiki_pages_api.show_front_page">
+<a href="#method.wiki_pages_api.show_front_page" name="method.wiki_pages_api.show_front_page">
+      Show front page
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/wiki_pages_api_controller.rb">WikiPagesApiController#show_front_page</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/front_page
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/front_page
+  </h3>
+<p>Retrieve the content of the front page</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -H 'Authorization: Bearer &lt;token&gt;' \
+     https://&lt;canvas&gt;/api/v1/courses/123/front_page</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="pages.html#Page">Page</a>
+</div>

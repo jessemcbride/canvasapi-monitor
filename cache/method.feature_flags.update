@@ -1,0 +1,71 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Feature Flags" name="method.feature_flags.update">
+<a href="#method.feature_flags.update" name="method.feature_flags.update">
+      Set feature flag
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/feature_flags_controller.rb">FeatureFlagsController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/features/flags/:feature
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/accounts/:account_id/features/flags/:feature
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/users/:user_id/features/flags/:feature
+  </h3>
+<p>Set a feature flag for a given Account, Course, or User. This call will
+fail if a parent account sets a feature flag for the same feature in any
+state other than âallowedâ.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>state</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<dl class="rdoc-list note-list"><dt>âoffâ
+<dd>
+<p>The feature is not available for the course, user, or account and
+sub-accounts.</p>
+</dd><dt>âallowedâ
+<dd>
+<p>(valid only on accounts) The feature is off in the account, but may be
+enabled in sub-accounts and courses by setting a feature flag on the
+sub-account or course.</p>
+</dd><dt>âonâ
+<dd>
+<p>The feature is turned on unconditionally for the user, course, or account
+and sub-accounts.</p>
+</dd></dt></dt></dt></dl>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">off</code>, <code class="enum">allowed</code>, <code class="enum">on</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -X PUT 'http://&lt;canvas&gt;/api/v1/courses/1/features/flags/fancy_wickets' \
+  -H "Authorization: Bearer " \
+  -F "state=on"</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="feature_flags.html#FeatureFlag">FeatureFlag</a>
+</div>

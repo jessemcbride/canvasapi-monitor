@@ -1,0 +1,34 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Feature Flags" name="method.feature_flags.delete">
+<a href="#method.feature_flags.delete" name="method.feature_flags.delete">
+      Remove feature flag
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/feature_flags_controller.rb">FeatureFlagsController#delete</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/features/flags/:feature
+  </h3>
+<h3 class="endpoint">
+    DELETE /api/v1/accounts/:account_id/features/flags/:feature
+  </h3>
+<h3 class="endpoint">
+    DELETE /api/v1/users/:user_id/features/flags/:feature
+  </h3>
+<p>Remove feature flag for a given Account, Course, or User.  (Note that the
+flag must be defined on the Account, Course, or User directly.)  The object
+will then inherit the feature flags from a higher account, if any exist. 
+If this flag was 'on' or 'off', then lower-level account
+flags that were masked by this one will apply again.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -X DELETE 'http://&lt;canvas&gt;/api/v1/courses/1/features/flags/fancy_wickets' \
+  -H "Authorization: Bearer "</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="feature_flags.html#FeatureFlag">FeatureFlag</a>
+</div>

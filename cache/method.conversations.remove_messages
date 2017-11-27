@@ -1,0 +1,55 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Conversations" name="method.conversations.remove_messages">
+<a href="#method.conversations.remove_messages" name="method.conversations.remove_messages">
+      Delete a message
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/conversations_controller.rb">ConversationsController#remove_messages</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/conversations/:id/remove_messages
+  </h3>
+<p>Delete messages from this conversation. Note that this only affects this
+user's view of the conversation. If all messages are deleted, the
+conversation will be as well (equivalent to DELETE)</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>remove[]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>Array of message ids to be deleted</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "id": 2,
+  "subject": "conversations api example",
+  "workflow_state": "read",
+  "last_message": "sure thing, here's the file",
+  "last_message_at": "2011-09-02T12:00:00-06:00",
+  "message_count": 1,
+  "subscribed": true,
+  "private": true,
+  "starred": null,
+  "properties": ["attachments"]
+}</code></pre>
+</div>
+</div>

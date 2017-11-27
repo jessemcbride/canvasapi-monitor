@@ -1,0 +1,18 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Webhooks Subscriptions" name="method.lti/subscriptions_api.index">
+<a href="#method.lti/subscriptions_api.index" name="method.lti/subscriptions_api.index">
+      List all Webhook Subscription for a tool proxy
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/lti/subscriptions_api_controller.rb">Lti::SubscriptionsApiController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/lti/subscriptions
+  </h3>
+<p>This endpoint returns a paginated list with a default limit of 100 items
+per result set. You can retrieve the next result set by setting a
+'StartKey' header in your next request with the value of the
+'EndKey' header in the response.</p>
+<p>Example use of a 'StartKey' header object:</p>
+<pre class="code ruby"><code class="ruby"><span class="lbrace">{</span> <span class="tstring"><span class="tstring_beg">"</span><span class="tstring_content">Id</span><span class="label_end">":</span><span class="tstring"><span class="tstring_beg">"</span><span class="tstring_content">71d6dfba-0547-477d-b41d-db8cb528c6d1</span><span class="tstring_end">"</span></span><span class="comma">,</span><span class="tstring"><span class="tstring_beg">"</span><span class="tstring_content">DeveloperKey</span><span class="label_end">":</span><span class="tstring"><span class="tstring_beg">"</span><span class="tstring_content">10000000000001</span><span class="tstring_end">"</span></span> <span class="rbrace">}</span>
+</span></span></code></pre>
+</div>

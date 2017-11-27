@@ -1,0 +1,11 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quizzes" name="method.quizzes/quizzes_api.destroy">
+<a href="#method.quizzes/quizzes_api.destroy" name="method.quizzes/quizzes_api.destroy">
+      Delete a quiz
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quizzes_api_controller.rb">Quizzes::QuizzesApiController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/quizzes/:id
+  </h3>
+</div>

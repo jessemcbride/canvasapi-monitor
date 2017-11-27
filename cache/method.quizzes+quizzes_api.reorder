@@ -1,0 +1,52 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quizzes" name="method.quizzes/quizzes_api.reorder">
+<a href="#method.quizzes/quizzes_api.reorder" name="method.quizzes/quizzes_api.reorder">
+      Reorder quiz items
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quizzes_api_controller.rb">Quizzes::QuizzesApiController#reorder</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/quizzes/:id/reorder
+  </h3>
+<p>Change order of the quiz questions or groups within the quiz</p>
+<p><strong>204 No Content</strong> response code is returned if the reorder
+was successful.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>order[][id]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The associated item's unique identifier</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>order[][type]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The type of item is either 'question' or 'group'</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">question</code>, <code class="enum">group</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -1,0 +1,24 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Bookmarks" name="method.bookmarks/bookmarks.index">
+<a href="#method.bookmarks/bookmarks.index" name="method.bookmarks/bookmarks.index">
+      List bookmarks
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/bookmarks/bookmarks_controller.rb">Bookmarks::BookmarksController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/users/self/bookmarks
+  </h3>
+<p>Returns the paginated list of bookmarks.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/users/self/bookmarks' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="bookmarks.html#Bookmark">Bookmarks</a>
+</div>

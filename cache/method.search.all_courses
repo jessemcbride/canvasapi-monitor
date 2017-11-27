@@ -1,0 +1,54 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Search" name="method.search.all_courses">
+<a href="#method.search.all_courses" name="method.search.all_courses">
+      List all courses
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/search_controller.rb">SearchController#all_courses</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/search/all_courses
+  </h3>
+<p>A paginated list of all courses visible in the public index</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>search</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Search terms used for matching users/courses/groups (e.g. âbob smithâ). If
+multiple terms are given (separated via whitespace), only results matching
+all terms will be returned.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>public_only</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Only return courses with public content. Defaults to false.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>open_enrollment_only</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Only return courses that allow self enrollment. Defaults to false.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

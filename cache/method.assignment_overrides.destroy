@@ -1,0 +1,26 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Assignment Overrides" name="method.assignment_overrides.destroy">
+<a href="#method.assignment_overrides.destroy" name="method.assignment_overrides.destroy">
+      Delete an assignment override
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/assignment_overrides_controller.rb">AssignmentOverridesController#destroy</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/assignments/:assignment_id/overrides/:id
+  </h3>
+<p>Deletes an override and returns its former details.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/1/assignments/2/overrides/3.json' \
+     -X DELETE \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="assignments.html#AssignmentOverride">AssignmentOverride</a>
+</div>

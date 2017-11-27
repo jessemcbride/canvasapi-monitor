@@ -1,0 +1,88 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Outcome Groups" name="method.outcome_groups_api.create">
+<a href="#method.outcome_groups_api.create" name="method.outcome_groups_api.create">
+      Create a subgroup
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/outcome_groups_api_controller.rb">OutcomeGroupsApiController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/global/outcome_groups/:id/subgroups
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/outcome_groups/:id/subgroups
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/outcome_groups/:id/subgroups
+  </h3>
+<p>Creates a new empty subgroup under the outcome group with the given title
+and description.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>title</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The title of the new outcome group.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>description</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The description of the new outcome group.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>vendor_guid</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A custom GUID for the learning standard</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/accounts/1/outcome_groups/1/subgroups.json' \
+     -X POST \
+     -F 'title=Outcome Group Title' \
+     -F 'description=Outcome group description' \
+     -F 'vendor_guid=customid9000' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/accounts/1/outcome_groups/1/subgroups.json' \
+     -X POST \
+     --data-binary '{
+           "title": "Outcome Group Title",
+           "description": "Outcome group description",
+           "vendor_guid": "customid9000"
+         }' \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="outcome_groups.html#OutcomeGroup">OutcomeGroup</a>
+</div>

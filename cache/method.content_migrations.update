@@ -1,0 +1,33 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Content Migrations" name="method.content_migrations.update">
+<a href="#method.content_migrations.update" name="method.content_migrations.update">
+      Update a content migration
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/content_migrations_controller.rb">ContentMigrationsController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/accounts/:account_id/content_migrations/:id
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/content_migrations/:id
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/groups/:group_id/content_migrations/:id
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/users/:user_id/content_migrations/:id
+  </h3>
+<p>Update a content migration. Takes same arguments as create except that you
+can't change the migration type. However, changing most settings after
+the migration process has started will not do anything. Generally updating
+the content migration will be used when there is a file upload problem. If
+the first upload has a problem you can supply new <em>pre_attachment</em>
+values to start the process again.</p>
+
+
+
+
+  Returns a 
+
+<a href="content_migrations.html#ContentMigration">ContentMigration</a>
+</div>

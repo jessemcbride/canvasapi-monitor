@@ -1,0 +1,25 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_topics_api.mark_topic_read">
+<a href="#method.discussion_topics_api.mark_topic_read" name="method.discussion_topics_api.mark_topic_read">
+      Mark topic as read
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_topics_api_controller.rb">DiscussionTopicsApiController#mark_topic_read</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/discussion_topics/:topic_id/read
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/groups/:group_id/discussion_topics/:topic_id/read
+  </h3>
+<p>Mark the initial text of the discussion topic as read.</p>
+<p>No request fields are necessary.</p>
+<p>On success, the response will be 204 No Content with an empty body.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/discussion_topics/&lt;topic_id&gt;/read.json' \
+     -X PUT \
+     -H "Authorization: Bearer &lt;token&gt;" \
+     -H "Content-Length: 0"</code></pre>
+</div>
+</div>

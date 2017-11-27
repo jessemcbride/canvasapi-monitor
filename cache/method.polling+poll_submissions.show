@@ -1,0 +1,20 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="PollSubmissions" name="method.polling/poll_submissions.show">
+<a href="#method.polling/poll_submissions.show" name="method.polling/poll_submissions.show">
+      Get a single poll submission
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/polling/poll_submissions_controller.rb">Polling::PollSubmissionsController#show</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/polls/:poll_id/poll_sessions/:poll_session_id/poll_submissions/:id
+  </h3>
+<p>Returns the poll submission with the given id</p>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "poll_submissions": [PollSubmission]
+}</code></pre>
+</div>
+</div>

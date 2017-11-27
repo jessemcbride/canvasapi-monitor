@@ -1,0 +1,29 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Users" name="method.users.get_dashboard_positions">
+<a href="#method.users.get_dashboard_positions" name="method.users.get_dashboard_positions">
+      Get dashboard postions
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/users_controller.rb">UsersController#get_dashboard_positions</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/users/:id/dashboard_positions
+  </h3>
+<p>Returns all dashboard positions that have been saved for a user.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/users/&lt;user_id&gt;/dashboard_positions/ \
+  -X GET \
+  -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "dashboard_positions": {
+    "course_42": 2,
+    "course_88": 1
+  }
+}</code></pre>
+</div>
+</div>

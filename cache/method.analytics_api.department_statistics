@@ -1,0 +1,44 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Analytics" name="method.analytics_api.department_statistics">
+<a href="#method.analytics_api.department_statistics" name="method.analytics_api.department_statistics">
+      Get department-level statistics
+    </a>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/analytics/terms/:term_id/statistics
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/analytics/current/statistics
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/analytics/completed/statistics
+  </h3>
+<p>Returns numeric statistics about the department and term (or filter).</p>
+<p>Shares the same variations on endpoint as the participation data.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/analytics/current/statistics \
+    -H 'Authorization: Bearer &lt;token&gt;'
+
+curl https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/analytics/completed/statistics \
+    -H 'Authorization: Bearer &lt;token&gt;'
+
+curl https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/analytics/terms/&lt;term_id&gt;/statistics \
+    -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "courses": 27,
+  "subaccounts": 3,
+  "teachers": 36,
+  "students": 418,
+  "discussion_topics": 77,
+  "media_objects": 219,
+  "attachments": 1268,
+  "assignments": 290,
+}</code></pre>
+</div>
+</div>

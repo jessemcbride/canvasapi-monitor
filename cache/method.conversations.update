@@ -1,0 +1,115 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Conversations" name="method.conversations.update">
+<a href="#method.conversations.update" name="method.conversations.update">
+      Edit a conversation
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/conversations_controller.rb">ConversationsController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/conversations/:id
+  </h3>
+<p>Updates attributes for a single conversation.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>conversation[workflow_state]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Change the state of this conversation</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">read</code>, <code class="enum">unread</code>, <code class="enum">archived</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>conversation[subscribed]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Toggle the current user's subscription to the conversation (only valid
+for group conversations). If unsubscribed, the user will still have access
+to the latest messages, but the conversation won't be automatically
+flagged as unread, nor will it jump to the top of the inbox.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>conversation[starred]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Toggle the starred state of the current user's view of the
+conversation.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>scope</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Used when generating âvisibleâ in the API response. See the explanation
+under the <a href="conversations.html#method.conversations.index" title="index API action">index API action</a></p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">unread</code>, <code class="enum">starred</code>, <code class="enum">archived</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>filter[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Used when generating âvisibleâ in the API response. See the explanation
+under the <a href="conversations.html#method.conversations.index" title="index API action">index API action</a></p>
+</td>
+</tr>
+<tr class="request-param">
+<td>filter_mode</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Used when generating âvisibleâ in the API response. See the explanation
+under the <a href="conversations.html#method.conversations.index" title="index API action">index API action</a></p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">and</code>, <code class="enum">or</code>, <code class="enum">default or</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "id": 2,
+  "subject": "conversations api example",
+  "workflow_state": "read",
+  "last_message": "sure thing, here's the file",
+  "last_message_at": "2011-09-02T12:00:00-06:00",
+  "message_count": 2,
+  "subscribed": true,
+  "private": true,
+  "starred": false,
+  "properties": ["attachments"],
+  "audience": [2],
+  "audience_contexts": {"courses": {"1": []}, "groups": {}},
+  "avatar_url": "https://canvas.instructure.com/images/messages/avatar-50.png",
+  "participants": [{"id": 1, "name": "Joe", "full_name": "Joe TA"}]
+}</code></pre>
+</div>
+</div>

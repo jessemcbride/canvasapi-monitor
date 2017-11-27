@@ -1,0 +1,79 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Accounts" name="method.sub_accounts.create">
+<a href="#method.sub_accounts.create" name="method.sub_accounts.create">
+      Create a new sub-account
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/sub_accounts_controller.rb">SubAccountsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/sub_accounts
+  </h3>
+<p>Add a new sub-account to a given account.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>account[name]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The name of the new sub-account.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>account[sis_account_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The account's identifier in the Student Information System.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>account[default_storage_quota_mb]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The default course storage quota to be used, if not otherwise specified.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>account[default_user_storage_quota_mb]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The default user storage quota to be used, if not otherwise specified.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>account[default_group_storage_quota_mb]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The default group storage quota to be used, if not otherwise specified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="accounts.html#Account">Account</a>
+</div>

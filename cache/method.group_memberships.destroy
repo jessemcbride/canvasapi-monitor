@@ -1,0 +1,28 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Group Memberships" name="method.group_memberships.destroy">
+<a href="#method.group_memberships.destroy" name="method.group_memberships.destroy">
+      Leave a group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/group_memberships_controller.rb">GroupMembershipsController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/groups/:group_id/memberships/:membership_id
+  </h3>
+<h3 class="endpoint">
+    DELETE /api/v1/groups/:group_id/users/:user_id
+  </h3>
+<p>Leave a group if you are allowed to leave (some groups, such as sets of
+course groups created by teachers, cannot be left). You may also use
+'self' in place of a membership_id.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/groups/&lt;group_id&gt;/memberships/&lt;membership_id&gt; \
+     -X DELETE \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/groups/&lt;group_id&gt;/users/&lt;user_id&gt; \
+     -X DELETE \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+</div>

@@ -1,0 +1,19 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Progress" name="method.progress.show">
+<a href="#method.progress.show" name="method.progress.show">
+      Query progress
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/progress_controller.rb">ProgressController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/progress/:id
+  </h3>
+<p>Return completion and status information about an asynchronous job</p>
+
+
+
+
+  Returns a 
+
+<a href="progress.html#Progress">Progress</a>
+</div>

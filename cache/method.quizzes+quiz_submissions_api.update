@@ -1,0 +1,105 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quiz Submissions" name="method.quizzes/quiz_submissions_api.update">
+<a href="#method.quizzes/quiz_submissions_api.update" name="method.quizzes/quiz_submissions_api.update">
+      Update student question scores and comments.
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quiz_submissions_api_controller.rb">Quizzes::QuizSubmissionsApiController#update</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/:id
+  </h3>
+<p>Update the amount of points a student has scored for questions they've
+answered, provide comments for the student about their answer(s), or simply
+fudge the total score by a specific amount of points.</p>
+<p><strong>Responses</strong></p>
+<ul><li>
+<p><strong>200 OK</strong> if the request was successful</p>
+</li><li>
+<p><strong>403 Forbidden</strong> if you are not a teacher in this course</p>
+</li><li>
+<p><strong>400 Bad Request</strong> if the attempt parameter is missing or
+invalid</p>
+</li><li>
+<p><strong>400 Bad Request</strong> if the specified QS attempt is not yet
+complete</p>
+</li></ul>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>attempt</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The attempt number of the quiz submission that should be updated. This
+attempt MUST be already completed.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>fudge_points</td>
+<td>
+</td>
+<td>Float</td>
+<td class="param-desc">
+<p>Amount of positive or negative points to fudge the total score by.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>questions</td>
+<td>
+</td>
+<td>Hash</td>
+<td class="param-desc">
+<p>A set of scores and comments for each question answered by the student. The
+keys are the question IDs, and the values are hashes of `score` and
+`comment` entries. See <a href="quiz_submissions.html#Manual+Scoring-appendix" title="Appendix: Manual Scoring">Appendix: Manual Scoring</a> for more on this
+parameter.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">{
+  "quiz_submissions": [{
+    "attempt": 1,
+    "fudge_points": -2.4,
+    "questions": {
+      "1": {
+        "score": 2.5,
+        "comment": "This can't be right, but I'll let it pass this one time."
+      },
+      "2": {
+        "score": 0,
+        "comment": "Good thinking. Almost!"
+      }
+    }
+  }]
+}</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "quiz_submissions": [QuizSubmission]
+}</code></pre>
+</div>
+<p class="see_tag_title"><strong>See Also:</strong></p>
+<ul class="see">
+<li><a href="quiz_submissions.html#Manual+Scoring-appendix" title="Appendix: Manual Scoring">Appendix: Manual Scoring</a></li>
+</ul>
+</div>

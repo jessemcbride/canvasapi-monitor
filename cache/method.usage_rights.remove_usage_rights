@@ -1,0 +1,53 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Usage Rights" name="method.usage_rights.remove_usage_rights">
+<a href="#method.usage_rights.remove_usage_rights" name="method.usage_rights.remove_usage_rights">
+      Remove usage rights
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/usage_rights_controller.rb">UsageRightsController#remove_usage_rights</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/usage_rights
+  </h3>
+<h3 class="endpoint">
+    DELETE /api/v1/groups/:group_id/usage_rights
+  </h3>
+<h3 class="endpoint">
+    DELETE /api/v1/users/:user_id/usage_rights
+  </h3>
+<p>Removes copyright and license information associated with one or more files</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>file_ids[]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>List of ids of files to remove associated usage rights from.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>folder_ids[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>List of ids of folders. Usage rights will be removed from all files in
+these folders.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

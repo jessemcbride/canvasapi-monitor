@@ -1,0 +1,24 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Bookmarks" name="method.bookmarks/bookmarks.show">
+<a href="#method.bookmarks/bookmarks.show" name="method.bookmarks/bookmarks.show">
+      Get bookmark
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/bookmarks/bookmarks_controller.rb">Bookmarks::BookmarksController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/users/self/bookmarks/:id
+  </h3>
+<p>Returns the details for a bookmark.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/users/self/bookmarks/1' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="bookmarks.html#Bookmark">Bookmark</a>
+</div>

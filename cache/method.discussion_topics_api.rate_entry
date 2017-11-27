@@ -1,0 +1,45 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_topics_api.rate_entry">
+<a href="#method.discussion_topics_api.rate_entry" name="method.discussion_topics_api.rate_entry">
+      Rate entry
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_topics_api_controller.rb">DiscussionTopicsApiController#rate_entry</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/discussion_topics/:topic_id/entries/:entry_id/rating
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/groups/:group_id/discussion_topics/:topic_id/entries/:entry_id/rating
+  </h3>
+<p>Rate a discussion entry.</p>
+<p>On success, the response will be 204 No Content with an empty body.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>rating</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>A rating to set on this entry. Only 0 and 1 are accepted.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/discussion_topics/&lt;topic_id&gt;/entries/&lt;entry_id&gt;/rating.json' \
+     -X POST \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+</div>

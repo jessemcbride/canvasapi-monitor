@@ -1,0 +1,57 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quiz Assignment Overrides" name="method.quizzes/quiz_assignment_overrides.index">
+<a href="#method.quizzes/quiz_assignment_overrides.index" name="method.quizzes/quiz_assignment_overrides.index">
+      Retrieve assignment-overridden dates for quizzes
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quiz_assignment_overrides_controller.rb">Quizzes::QuizAssignmentOverridesController#index</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/quizzes/assignment_overrides
+  </h3>
+<p>Retrieve the actual due-at, unlock-at, and available-at dates for quizzes
+based on the assignment overrides active for the current API user.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>quiz_assignment_overrides[0][quiz_ids][]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>An array of quiz IDs. If omitted, overrides for all quizzes available to
+the operating user will be returned.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+   "quiz_assignment_overrides": [{
+     "quiz_id": "1",
+     "due_dates": [QuizAssignmentOverride],
+     "all_dates": [QuizAssignmentOverride]
+   },{
+     "quiz_id": "2",
+     "due_dates": [QuizAssignmentOverride],
+     "all_dates": [QuizAssignmentOverride]
+   }]
+}</code></pre>
+</div>
+
+
+  Returns a 
+
+<a href="quiz_assignment_overrides.html#QuizAssignmentOverrideSetContainer">QuizAssignmentOverrideSetContainer</a>
+</div>

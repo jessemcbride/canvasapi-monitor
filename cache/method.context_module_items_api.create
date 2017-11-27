@@ -1,0 +1,154 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Module Items" name="method.context_module_items_api.create">
+<a href="#method.context_module_items_api.create" name="method.context_module_items_api.create">
+      Create a module item
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/context_module_items_api_controller.rb">ContextModuleItemsApiController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/modules/:module_id/items
+  </h3>
+<p>Create and return a new module item</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>module_item[title]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The name of the module item and associated content</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[type]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The type of content linked to the item</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">File</code>, <code class="enum">Page</code>, <code class="enum">Discussion</code>, <code class="enum">Assignment</code>, <code class="enum">Quiz</code>, <code class="enum">SubHeader</code>, <code class="enum">ExternalUrl</code>, <code class="enum">ExternalTool</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[content_id]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The id of the content to link to the module item. Required, except for
+'ExternalUrl', 'Page', and 'SubHeader' types.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[position]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The position of this item in the module (1-based).</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[indent]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>0-based indent level; module items may be indented to show a hierarchy</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[page_url]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Suffix for the linked wiki page (e.g. 'front-page'). Required for
+'Page' type.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[external_url]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>External url that the item points to. [Required for 'ExternalUrl'
+and 'ExternalTool' types.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[new_tab]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether the external tool opens in a new tab. Only applies to
+'ExternalTool' type.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[completion_requirement][type]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Completion requirement for this module item. âmust_viewâ: Applies to all
+item types âmust_contributeâ: Only applies to âAssignmentâ, âDiscussionâ,
+and âPageâ types âmust_submitâ, âmin_scoreâ: Only apply to âAssignmentâ and
+âQuizâ types Inapplicable types will be ignored</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">must_view</code>, <code class="enum">must_contribute</code>, <code class="enum">must_submit</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module_item[completion_requirement][min_score]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Minimum score required to complete. Required for completion_requirement
+type 'min_score'.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/modules/&lt;module_id&gt;/items \
+  -X POST \
+  -H 'Authorization: Bearer &lt;token&gt;' \
+  -d 'module_item[title]=module item' \
+  -d 'module_item[type]=ExternalTool' \
+  -d 'module_item[content_id]=10' \
+  -d 'module_item[position]=2' \
+  -d 'module_item[indent]=1' \
+  -d 'module_item[new_tab]=true'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="modules.html#ModuleItem">ModuleItem</a>
+</div>

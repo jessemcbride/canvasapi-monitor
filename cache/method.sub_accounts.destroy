@@ -1,0 +1,20 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Accounts" name="method.sub_accounts.destroy">
+<a href="#method.sub_accounts.destroy" name="method.sub_accounts.destroy">
+      Delete a sub-account
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/sub_accounts_controller.rb">SubAccountsController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/accounts/:account_id/sub_accounts/:id
+  </h3>
+<p>Cannot delete an account with active courses or active sub_accounts. Cannot
+delete a root_account</p>
+
+
+
+
+  Returns a 
+
+<a href="accounts.html#Account">Account</a>
+</div>

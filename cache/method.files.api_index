@@ -1,0 +1,123 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Files" name="method.files.api_index">
+<a href="#method.files.api_index" name="method.files.api_index">
+      List files
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/files_controller.rb">FilesController#api_index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/files
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/files
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/files
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/folders/:id/files
+  </h3>
+<p>Returns the paginated list of files for the folder or course.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>content_types[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Filter results by content-type. You can specify type/subtype pairs (e.g.,
+'image/jpeg'), or simply types (e.g., 'image', which will
+match 'image/gif', 'image/jpeg', etc.).</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>search_term</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The partial name of the files to match and return.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Array of additional information to include.</p>
+<dl class="rdoc-list note-list"><dt>âuserâ
+<dd>
+<p>the user who uploaded the file or last edited its content</p>
+</dd><dt>âusage_rightsâ
+<dd>
+<p>copyright and license information for the file (see UsageRights)</p>
+</dd></dt></dt></dl>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">user</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>only[]</td>
+<td>
+</td>
+<td>Array</td>
+<td class="param-desc">
+<p>Array of information to restrict to. Overrides include[]</p>
+<dl class="rdoc-list note-list"><dt>ânamesâ
+<dd>
+<p>only returns file name information</p>
+</dd></dt></dl>
+</td>
+</tr>
+<tr class="request-param">
+<td>sort</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Sort results by this field. Defaults to 'name'. Note that
+`sort=user` implies `include[]=user`.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">name</code>, <code class="enum">size</code>, <code class="enum">created_at</code>, <code class="enum">updated_at</code>, <code class="enum">content_type</code>, <code class="enum">user</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>order</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The sorting order. Defaults to 'asc'.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">asc</code>, <code class="enum">desc</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/folders/&lt;folder_id&gt;/files?content_types[]=image&amp;content_types[]=text/plain \
+      -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="files.html#File">Files</a>
+</div>

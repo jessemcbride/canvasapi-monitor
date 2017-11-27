@@ -1,0 +1,34 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Feature Flags" name="method.feature_flags.show">
+<a href="#method.feature_flags.show" name="method.feature_flags.show">
+      Get feature flag
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/feature_flags_controller.rb">FeatureFlagsController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/features/flags/:feature
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/features/flags/:feature
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/features/flags/:feature
+  </h3>
+<p>Get the feature flag that applies to a given Account, Course, or User. The
+flag may be defined on the object, or it may be inherited from a parent
+account. You can look at the context_id and context_type of the returned
+object to determine which is the case. If these fields are missing, then
+the object is the global Canvas default.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'http://&lt;canvas&gt;/api/v1/courses/1/features/flags/fancy_wickets' \
+  -H "Authorization: Bearer "</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="feature_flags.html#FeatureFlag">FeatureFlag</a>
+</div>

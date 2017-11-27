@@ -1,0 +1,177 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Appointment Groups" name="method.appointment_groups.create">
+<a href="#method.appointment_groups.create" name="method.appointment_groups.create">
+      Create an appointment group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/appointment_groups_controller.rb">AppointmentGroupsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/appointment_groups
+  </h3>
+<p>Create and return a new appointment group. If new_appointments are
+specified, the response will return a new_appointments array (same format
+as appointments array, see âList appointment groupsâ action)</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>appointment_group[context_codes][]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>Array of context codes (courses, e.g. course_1) this group should be linked
+to (1 or more). Users in the course(s) with appropriate permissions will be
+able to sign up for this appointment group.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[sub_context_codes][]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Array of sub context codes (course sections or a single group category)
+this group should be linked to. Used to limit the appointment group to
+particular sections. If a group category is specified, students will sign
+up in groups and the participant_type will be âGroupâ instead of âUserâ.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[title]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>Short title for the appointment group.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[description]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Longer text description of the appointment group.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[location_name]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Location name of the appointment group.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[location_address]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Location address.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[publish]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Indicates whether this appointment group should be published (i.e. made
+available for signup). Once published, an appointment group cannot be
+unpublished. Defaults to false.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[participants_per_appointment]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Maximum number of participants that may register for each time slot.
+Defaults to null (no limit).</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[min_appointments_per_participant]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Minimum number of time slots a user must register for. If not set, users do
+not need to sign up for any time slots.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[max_appointments_per_participant]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Maximum number of time slots a user may register for.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[new_appointments][X][]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Nested array of start time/end time pairs indicating time slots for this
+appointment group. Refer to the example request.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>appointment_group[participant_visibility]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<dl class="rdoc-list note-list"><dt>âprivateâ
+<dd>
+<p>participants cannot see who has signed up for a particular time slot</p>
+</dd><dt>âprotectedâ
+<dd>
+<p>participants can see who has signed up.  Defaults to âprivateâ.</p>
+</dd></dt></dt></dl>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">private</code>, <code class="enum">protected</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/appointment_groups.json' \
+     -X POST \
+     -F 'appointment_group[context_codes][]=course_123' \
+     -F 'appointment_group[sub_context_codes][]=course_section_234' \
+     -F 'appointment_group[title]=Final Presentation' \
+     -F 'appointment_group[participants_per_appointment]=1' \
+     -F 'appointment_group[min_appointments_per_participant]=1' \
+     -F 'appointment_group[max_appointments_per_participant]=1' \
+     -F 'appointment_group[new_appointments][0][]=2012-07-19T21:00:00Z' \
+     -F 'appointment_group[new_appointments][0][]=2012-07-19T22:00:00Z' \
+     -F 'appointment_group[new_appointments][1][]=2012-07-19T22:00:00Z' \
+     -F 'appointment_group[new_appointments][1][]=2012-07-19T23:00:00Z' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+</div>

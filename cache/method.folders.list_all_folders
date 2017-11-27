@@ -1,0 +1,31 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Folders" name="method.folders.list_all_folders">
+<a href="#method.folders.list_all_folders" name="method.folders.list_all_folders">
+      List all folders
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/folders_controller.rb">FoldersController#list_all_folders</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/folders
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/folders
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/folders
+  </h3>
+<p>Returns the paginated list of all folders for the given context. This will
+be returned as a flat list containing all subfolders as well.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/folders' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="files.html#Folder">Folders</a>
+</div>

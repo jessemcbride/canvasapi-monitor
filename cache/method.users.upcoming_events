@@ -1,0 +1,77 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Users" name="method.users.upcoming_events">
+<a href="#method.users.upcoming_events" name="method.users.upcoming_events">
+      List upcoming assignments, calendar events
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/users_controller.rb">UsersController#upcoming_events</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/users/self/upcoming_events
+  </h3>
+<p>A paginated list of the current user's upcoming events, i.e. the same
+things shown in the dashboard 'Coming Up' sidebar.</p>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">[
+  {
+    "id"=&gt;597,
+    "title"=&gt;"Upcoming Course Event",
+    "description"=&gt;"Attendance is correlated with passing!",
+    "start_at"=&gt;"2013-04-27T14:33:14Z",
+    "end_at"=&gt;"2013-04-27T14:33:14Z",
+    "location_name"=&gt;"Red brick house",
+    "location_address"=&gt;"110 Top of the Hill Dr.",
+    "all_day"=&gt;false,
+    "all_day_date"=&gt;nil,
+    "created_at"=&gt;"2013-04-26T14:33:14Z",
+    "updated_at"=&gt;"2013-04-26T14:33:14Z",
+    "workflow_state"=&gt;"active",
+    "context_code"=&gt;"course_12938",
+    "child_events_count"=&gt;0,
+    "child_events"=&gt;[],
+    "parent_event_id"=&gt;nil,
+    "hidden"=&gt;false,
+    "url"=&gt;"http://www.example.com/api/v1/calendar_events/597",
+    "html_url"=&gt;"http://www.example.com/calendar?event_id=597&amp;include_contexts=course_12938"
+  },
+  {
+    "id"=&gt;"assignment_9729",
+    "title"=&gt;"Upcoming Assignment",
+    "description"=&gt;nil,
+    "start_at"=&gt;"2013-04-28T14:47:32Z",
+    "end_at"=&gt;"2013-04-28T14:47:32Z",
+    "all_day"=&gt;false,
+    "all_day_date"=&gt;"2013-04-28",
+    "created_at"=&gt;"2013-04-26T14:47:32Z",
+    "updated_at"=&gt;"2013-04-26T14:47:32Z",
+    "workflow_state"=&gt;"published",
+    "context_code"=&gt;"course_12942",
+    "assignment"=&gt;{
+      "id"=&gt;9729,
+      "name"=&gt;"Upcoming Assignment",
+      "description"=&gt;nil,
+      "points_possible"=&gt;10,
+      "due_at"=&gt;"2013-04-28T14:47:32Z",
+      "assignment_group_id"=&gt;2439,
+      "automatic_peer_reviews"=&gt;false,
+      "grade_group_students_individually"=&gt;nil,
+      "grading_standard_id"=&gt;nil,
+      "grading_type"=&gt;"points",
+      "group_category_id"=&gt;nil,
+      "lock_at"=&gt;nil,
+      "peer_reviews"=&gt;false,
+      "position"=&gt;1,
+      "unlock_at"=&gt;nil,
+      "course_id"=&gt;12942,
+      "submission_types"=&gt;["none"],
+      "muted"=&gt;false,
+      "needs_grading_count"=&gt;0,
+      "html_url"=&gt;"http://www.example.com/courses/12942/assignments/9729"
+    },
+    "url"=&gt;"http://www.example.com/api/v1/calendar_events/assignment_9729",
+    "html_url"=&gt;"http://www.example.com/courses/12942/assignments/9729"
+  }
+]</code></pre>
+</div>
+</div>

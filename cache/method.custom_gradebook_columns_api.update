@@ -1,0 +1,19 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Custom Gradebook Columns" name="method.custom_gradebook_columns_api.update">
+<a href="#method.custom_gradebook_columns_api.update" name="method.custom_gradebook_columns_api.update">
+      Update a custom gradebook column
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/custom_gradebook_columns_api_controller.rb">CustomGradebookColumnsApiController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/custom_gradebook_columns/:id
+  </h3>
+<p>Accepts the same parameters as custom gradebook column creation</p>
+
+
+
+
+  Returns a 
+
+<a href="custom_gradebook_columns.html#CustomColumn">CustomColumn</a>
+</div>

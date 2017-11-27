@@ -1,0 +1,38 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Custom Gradebook Columns" name="method.custom_gradebook_columns_api.reorder">
+<a href="#method.custom_gradebook_columns_api.reorder" name="method.custom_gradebook_columns_api.reorder">
+      Reorder custom columns
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/custom_gradebook_columns_api_controller.rb">CustomGradebookColumnsApiController#reorder</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/custom_gradebook_columns/reorder
+  </h3>
+<p>Puts the given columns in the specified order</p>
+<p><strong>200 OK</strong> is returned if successful</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>order[]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>no description</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

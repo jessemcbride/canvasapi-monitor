@@ -1,0 +1,54 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Users" name="method.users.set_custom_color">
+<a href="#method.users.set_custom_color" name="method.users.set_custom_color">
+      Update custom color
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/users_controller.rb">UsersController#set_custom_color</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/users/:id/colors/:asset_string
+  </h3>
+<p>Updates a custom color for a user for a given context.  This allows colors
+for the calendar and elsewhere to be customized on a user basis.</p>
+<p>The asset string parameter should be in the format 'context_id',
+for example 'course_42'</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>hexcode</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The hexcode of the color to set for the context, if you choose to pass the
+hexcode as a query parameter rather than in the request body you should NOT
+include the '#' unless you escape it first.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/users/&lt;user_id&gt;/colors/&lt;asset_string&gt; \
+  -X PUT \
+  -F 'hexcode=fffeee'
+  -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "hexcode": "#abc123"
+}</code></pre>
+</div>
+</div>

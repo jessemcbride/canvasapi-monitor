@@ -1,0 +1,74 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="User Observees" name="method.user_observees.create">
+<a href="#method.user_observees.create" name="method.user_observees.create">
+      Add an observee with credentials
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/user_observees_controller.rb">UserObserveesController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/users/:user_id/observees
+  </h3>
+<p>Register the given user to observe another user, given the observee's
+credentials.</p>
+<p><strong>Note:</strong> all users are allowed to add their own observees,
+given the observee's credentials or access token are provided.
+Administrators can add observees given credentials, access token or the
+<a href="user_observees.html#method.user_observees.update" title="observee&amp;#39;s id">observee's id</a>.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>observee[unique_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The login id for the user to observe.  Required if access_token is omitted.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>observee[password]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The password for the user to observe. Required if access_token is omitted.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>access_token</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The access token for the user to observe.  Required if
+<code>observee[unique_id]</code> or <code>observee[password]</code> are
+omitted.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/users/&lt;user_id&gt;/observees \
+     -X POST \
+     -H 'Authorization: Bearer &lt;token&gt;' \
+     -F 'observee[unique_id]=UNIQUE_ID' \
+     -F 'observee[password]=PASSWORD'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="users.html#User">User</a>
+</div>

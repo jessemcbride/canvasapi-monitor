@@ -1,0 +1,20 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="ePub Exports" name="method.epub_exports.show">
+<a href="#method.epub_exports.show" name="method.epub_exports.show">
+      Show ePub export
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/epub_exports_controller.rb">EpubExportsController#show</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/epub_exports/:id
+  </h3>
+<p>Get information about a single ePub export.</p>
+
+
+
+
+  Returns a 
+
+<a href="e_pub_exports.html#EpubExport">EpubExport</a>
+</div>

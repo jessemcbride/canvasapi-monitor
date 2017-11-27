@@ -1,0 +1,108 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Modules" name="method.context_modules_api.update">
+<a href="#method.context_modules_api.update" name="method.context_modules_api.update">
+      Update a module
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/context_modules_api_controller.rb">ContextModulesApiController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/modules/:id
+  </h3>
+<p>Update and return an existing module</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>module[name]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The name of the module</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module[unlock_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>The date the module will unlock</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module[position]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The position of the module in the course (1-based)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module[require_sequential_progress]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether module items must be unlocked in order</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module[prerequisite_module_ids][]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>IDs of Modules that must be completed before this one is unlocked
+Prerequisite modules must precede this module (i.e. have a lower position
+value), otherwise they will be ignored</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module[publish_final_grade]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether to publish the student's final grade for the course upon
+completion of this module.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>module[published]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether the module is published and visible to students</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/modules/&lt;module_id&gt; \
+  -X PUT \
+  -H 'Authorization: Bearer &lt;token&gt;' \
+  -d 'module[name]=module' \
+  -d 'module[position]=2' \
+  -d 'module[prerequisite_module_ids][]=121' \
+  -d 'module[prerequisite_module_ids][]=122'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="modules.html#Module">Module</a>
+</div>

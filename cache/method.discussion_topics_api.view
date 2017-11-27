@@ -1,0 +1,75 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_topics_api.view">
+<a href="#method.discussion_topics_api.view" name="method.discussion_topics_api.view">
+      Get the full topic
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_topics_api_controller.rb">DiscussionTopicsApiController#view</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/discussion_topics/:topic_id/view
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/discussion_topics/:topic_id/view
+  </h3>
+<p>Return a cached structure of the discussion topic, containing all entries,
+their authors, and their message bodies.</p>
+<p>May require (depending on the topic) that the user has posted in the topic.
+If it is required, and the user has not posted, will respond with a 403
+Forbidden status and the body 'require_initial_post'.</p>
+<p>In some rare situations, this cached structure may not be available yet. In
+that case, the server will respond with a 503 error, and the caller should
+try again soon.</p>
+<p>The response is an object containing the following keys:</p>
+<ul><li>
+<p>âparticipantsâ: A list of summary information on users who have posted to
+the discussion. Each value is an object containing their id, display_name,
+and avatar_url.</p>
+</li><li>
+<p>âunread_entriesâ: A list of entry ids that are unread by the current user.
+this implies that any entry not in this list is read.</p>
+</li><li>
+<p>âentry_ratingsâ: A map of entry ids to ratings by the current user. Entries
+not in this list have no rating. Only populated if rating is enabled.</p>
+</li><li>
+<p>âforced_entriesâ: A list of entry ids that have forced_read_state set to
+true. This flag is meant to indicate the entry's read_state has been
+manually set to 'unread' by the user, so the entry should not be
+automatically marked as read.</p>
+</li><li>
+<p>âviewâ: A threaded view of all the entries in the discussion, containing
+the id, user_id, and message.</p>
+</li><li>
+<p>ânew_entriesâ: Because this view is eventually consistent, it's
+possible that newly created or updated entries won't yet be reflected
+in the view. If the application wants to also get a flat list of all
+entries not yet reflected in the view, pass include_new_entries=1 to the
+request and this array of entries will be returned. These entries are
+returned in a flat array, in ascending created_at order.</p>
+</li></ul>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/discussion_topics/&lt;topic_id&gt;/view' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "unread_entries": [1,3,4],
+  "entry_ratings": {3: 1},
+  "forced_entries": [1],
+  "participants": [
+    { "id": 10, "display_name": "user 1", "avatar_image_url": "https://...", "html_url": "https://..." },
+    { "id": 11, "display_name": "user 2", "avatar_image_url": "https://...", "html_url": "https://..." }
+  ],
+  "view": [
+    { "id": 1, "user_id": 10, "parent_id": null, "message": "...html text...", "replies": [
+      { "id": 3, "user_id": 11, "parent_id": 1, "message": "...html....", "replies": [...] }
+    ]},
+    { "id": 2, "user_id": 11, "parent_id": null, "message": "...html..." },
+    { "id": 4, "user_id": 10, "parent_id": null, "message": "...html..." }
+  ]
+}</code></pre>
+</div>
+</div>

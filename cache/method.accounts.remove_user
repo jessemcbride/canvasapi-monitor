@@ -1,0 +1,30 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Accounts" name="method.accounts.remove_user">
+<a href="#method.accounts.remove_user" name="method.accounts.remove_user">
+      Delete a user from the root account
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/accounts_controller.rb">AccountsController#remove_user</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/accounts/:account_id/users/:user_id
+  </h3>
+<p>Delete a user record from a Canvas root account. If a user is associated
+with multiple root accounts (in a multi-tenant instance of Canvas), this
+action will NOT remove them from the other accounts.</p>
+<p>WARNING: This API will allow a user to remove themselves from the account.
+If they do this, they won't be able to make API calls or log into
+Canvas at that account.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/accounts/3/users/5 \
+  -H 'Authorization: Bearer &lt;ACCESS_TOKEN&gt;' \
+  -X DELETE</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="users.html#User">User</a>
+</div>

@@ -1,0 +1,87 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Sections" name="method.sections.create">
+<a href="#method.sections.create" name="method.sections.create">
+      Create course section
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/sections_controller.rb">SectionsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/sections
+  </h3>
+<p>Creates a new section for this course.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>course_section[name]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The name of the section</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>course_section[sis_section_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The sis ID of the section</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>course_section[start_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>Section start date in ISO8601 format, e.g. 2011-01-01T01:00Z</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>course_section[end_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>Section end date in ISO8601 format. e.g. 2011-01-01T01:00Z</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>course_section[restrict_enrollments_to_section_dates]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Set to true to restrict user enrollments to the start and end dates of the
+section.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enable_sis_reactivation</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>When true, will first try to re-activate a deleted section with matching
+sis_section_id if possible.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="sections.html#Section">Section</a>
+</div>

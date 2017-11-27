@@ -1,0 +1,12 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Webhooks Subscriptions" name="method.lti/subscriptions_api.update">
+<a href="#method.lti/subscriptions_api.update" name="method.lti/subscriptions_api.update">
+      Update a Webhook Subscription
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/lti/subscriptions_api_controller.rb">Lti::SubscriptionsApiController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/lti/subscriptions/:id
+  </h3>
+<p>This endpoint uses the same parameters as the create endpoint</p>
+</div>

@@ -1,0 +1,40 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Account Reports" name="method.account_reports.create">
+<a href="#method.account_reports.create" name="method.account_reports.create">
+      Start a Report
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/account_reports_controller.rb">AccountReportsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/reports/:report
+  </h3>
+<p>Generates a report instance for the account.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>[parameters]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The parameters will vary for each report</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="account_reports.html#Report">Report</a>
+</div>

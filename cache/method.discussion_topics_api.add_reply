@@ -1,0 +1,60 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_topics_api.add_reply">
+<a href="#method.discussion_topics_api.add_reply" name="method.discussion_topics_api.add_reply">
+      Post a reply
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_topics_api_controller.rb">DiscussionTopicsApiController#add_reply</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/discussion_topics/:topic_id/entries/:entry_id/replies
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/groups/:group_id/discussion_topics/:topic_id/entries/:entry_id/replies
+  </h3>
+<p>Add a reply to an entry in a discussion topic. Returns a json
+representation of the created reply (see documentation for
+'replies' method) on success.</p>
+<p>May require (depending on the topic) that the user has posted in the topic.
+If it is required, and the user has not posted, will respond with a 403
+Forbidden status and the body 'require_initial_post'.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>message</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The body of the entry.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>attachment</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>a multipart/form-data form-field-style attachment. Attachments larger than
+1 kilobyte are subject to quota restrictions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/discussion_topics/&lt;topic_id&gt;/entries/&lt;entry_id&gt;/replies.json' \
+     -F 'message=&lt;message&gt;' \
+     -F 'attachment=@&lt;filename&gt;' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+</div>

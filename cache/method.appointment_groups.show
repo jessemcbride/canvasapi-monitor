@@ -1,0 +1,48 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Appointment Groups" name="method.appointment_groups.show">
+<a href="#method.appointment_groups.show" name="method.appointment_groups.show">
+      Get a single appointment group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/appointment_groups_controller.rb">AppointmentGroupsController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/appointment_groups/:id
+  </h3>
+<p>Returns information for a single appointment group</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Array of additional information to include. See include[] argument of âList
+appointment groupsâ action.</p>
+<dl class="rdoc-list note-list"><dt>âchild_eventsâ
+<dd>
+<p>reservations of time slots time slots</p>
+</dd><dt>âappointmentsâ
+<dd>
+<p>will always be returned</p>
+</dd><dt>âall_context_codesâ
+<dd>
+<p>all context codes associated with this appointment group</p>
+</dd></dt></dt></dt></dl>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">child_events</code>, <code class="enum">appointments</code>, <code class="enum">all_context_codes</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

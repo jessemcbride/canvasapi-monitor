@@ -1,0 +1,89 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Late Policy" name="method.late_policy.update">
+<a href="#method.late_policy.update" name="method.late_policy.update">
+      Patch a late policy
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/late_policy_controller.rb">LatePolicyController#update</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    PATCH /api/v1/courses/:id/late_policy
+  </h3>
+<p>Patch a late policy. No body is returned upon success.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>late_policy[missing_submission_deduction_enabled]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether to enable the missing submission deduction late policy.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>late_policy[missing_submission_deduction]</td>
+<td>
+</td>
+<td>number</td>
+<td class="param-desc">
+<p>How many percentage points to deduct from a missing submission.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>late_policy[late_submission_deduction_enabled]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether to enable the late submission deduction late policy.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>late_policy[late_submission_deduction]</td>
+<td>
+</td>
+<td>number</td>
+<td class="param-desc">
+<p>How many percentage points to deduct per the late submission interval.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>late_policy[late_submission_interval]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The interval for late policies.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>late_policy[late_submission_minimum_percent_enabled]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether to enable the late submission minimum percent for a late policy.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>late_policy[late_submission_minimum_percent]</td>
+<td>
+</td>
+<td>number</td>
+<td class="param-desc">
+<p>The minimum grade a submissions can have in percentage points.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -1,0 +1,45 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="PollSubmissions" name="method.polling/poll_submissions.create">
+<a href="#method.polling/poll_submissions.create" name="method.polling/poll_submissions.create">
+      Create a single poll submission
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/polling/poll_submissions_controller.rb">Polling::PollSubmissionsController#create</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/polls/:poll_id/poll_sessions/:poll_session_id/poll_submissions
+  </h3>
+<p>Create a new poll submission for this poll session</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>poll_submissions[][poll_choice_id]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The chosen poll choice for this submission.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "poll_submissions": [PollSubmission]
+}</code></pre>
+</div>
+</div>

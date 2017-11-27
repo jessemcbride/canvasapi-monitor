@@ -1,0 +1,48 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Outcome Groups" name="method.outcome_groups_api.outcomes">
+<a href="#method.outcome_groups_api.outcomes" name="method.outcome_groups_api.outcomes">
+      List linked outcomes
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/outcome_groups_api_controller.rb">OutcomeGroupsApiController#outcomes</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/global/outcome_groups/:id/outcomes
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/outcome_groups/:id/outcomes
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/outcome_groups/:id/outcomes
+  </h3>
+<p>A paginated list of the immediate OutcomeLink children of the outcome
+group.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>outcome_style</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The detail level of the outcomes. Defaults to âabbrevâ. Specify âfullâ for
+more information.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="outcome_groups.html#OutcomeLink">OutcomeLinks</a>
+</div>

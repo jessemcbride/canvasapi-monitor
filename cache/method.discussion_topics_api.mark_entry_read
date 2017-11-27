@@ -1,0 +1,48 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_topics_api.mark_entry_read">
+<a href="#method.discussion_topics_api.mark_entry_read" name="method.discussion_topics_api.mark_entry_read">
+      Mark entry as read
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_topics_api_controller.rb">DiscussionTopicsApiController#mark_entry_read</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/discussion_topics/:topic_id/entries/:entry_id/read
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/groups/:group_id/discussion_topics/:topic_id/entries/:entry_id/read
+  </h3>
+<p>Mark a discussion entry as read.</p>
+<p>No request fields are necessary.</p>
+<p>On success, the response will be 204 No Content with an empty body.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>forced_read_state</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>A boolean value to set the entry's forced_read_state. No change is made
+if this argument is not specified.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/discussion_topics/&lt;topic_id&gt;/entries/&lt;entry_id&gt;/read.json' \
+     -X PUT \
+     -H "Authorization: Bearer &lt;token&gt;"\
+     -H "Content-Length: 0"</code></pre>
+</div>
+</div>

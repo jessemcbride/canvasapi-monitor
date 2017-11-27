@@ -1,0 +1,65 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Logins" name="method.pseudonyms.update">
+<a href="#method.pseudonyms.update" name="method.pseudonyms.update">
+      Edit a user login
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/pseudonyms_controller.rb">PseudonymsController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/accounts/:account_id/logins/:id
+  </h3>
+<p>Update an existing login for a user in the given account.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>login[unique_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The new unique ID for the login.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>login[password]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The new password for the login. Can only be set by an admin user if admins
+are allowed to change passwords for the account.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>login[sis_user_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>SIS ID for the login. To set this parameter, the caller must be able to
+manage SIS permissions on the account.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>login[integration_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Integration ID for the login. To set this parameter, the caller must be
+able to manage SIS permissions on the account. The Integration ID is a
+secondary identifier useful for more complex SIS integrations.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -1,0 +1,15 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Submissions" name="method.submissions_api.gradeable_students">
+<a href="#method.submissions_api.gradeable_students" name="method.submissions_api.gradeable_students">
+      List gradeable students
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/submissions_api_controller.rb">SubmissionsApiController#gradeable_students</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/assignments/:assignment_id/gradeable_students
+  </h3>
+<p>A paginated list of students eligible to submit the assignment. The caller
+must have permission to view grades.</p>
+<p>Section-limited instructors will only see students in their own sections.</p>
+<p>returns [UserDisplay]</p>
+</div>

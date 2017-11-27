@@ -1,0 +1,157 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_topics_api.entries">
+<a href="#method.discussion_topics_api.entries" name="method.discussion_topics_api.entries">
+      List topic entries
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_topics_api_controller.rb">DiscussionTopicsApiController#entries</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/discussion_topics/:topic_id/entries
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/discussion_topics/:topic_id/entries
+  </h3>
+<p>Retrieve the (paginated) top-level entries in a discussion topic.</p>
+<p>May require (depending on the topic) that the user has posted in the topic.
+If it is required, and the user has not posted, will respond with a 403
+Forbidden status and the body 'require_initial_post'.</p>
+<p>Will include the 10 most recent replies, if any, for each entry returned.</p>
+<p>If the topic is a root topic with children corresponding to groups of a
+group assignment, entries from those subtopics for which the user belongs
+to the corresponding group will be returned.</p>
+<p>Ordering of returned entries is newest-first by posting timestamp (reply
+activity is ignored).</p>
+<h4>API response field:</h4>
+<ul class="response_field">
+<li>
+<span class="type"></span>
+<span class="name">id</span>
+<div class="inline">
+<p>The unique identifier for the entry.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">user_id</span>
+<div class="inline">
+<p>The unique identifier for the author of the entry.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">editor_id</span>
+<div class="inline">
+<p>The unique user id of the person to last edit the entry, if different than
+user_id.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">user_name</span>
+<div class="inline">
+<p>The name of the author of the entry.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">message</span>
+<div class="inline">
+<p>The content of the entry.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">read_state</span>
+<div class="inline">
+<p>The read state of the entry, âreadâ or âunreadâ.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">forced_read_state</span>
+<div class="inline">
+<p>Whether the read_state was forced (was set manually)</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">created_at</span>
+<div class="inline">
+<p>The creation time of the entry, in ISO8601 format.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">updated_at</span>
+<div class="inline">
+<p>The updated time of the entry, in ISO8601 format.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">attachment</span>
+<div class="inline">
+<p>JSON representation of the attachment for the entry, if any. Present only
+if there is an attachment.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">attachments</span>
+<div class="inline">
+<p><strong>Deprecated</strong>. Same as attachment, but returned as a
+one-element array. Present only if there is an attachment.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">recent_replies</span>
+<div class="inline">
+<p>The 10 most recent replies for the entry, newest first. Present only if
+there is at least one reply.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">has_more_replies</span>
+<div class="inline">
+<p>True if there are more than 10 replies for the entry (i.e., not all were
+included in this response). Present only if there is at least one reply.</p>
+</div>
+</li>
+</ul>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">[ {
+    "id": 1019,
+    "user_id": 7086,
+    "user_name": "nobody@example.com",
+    "message": "Newer entry",
+    "read_state": "read",
+    "forced_read_state": false,
+    "created_at": "2011-11-03T21:33:29Z",
+    "attachment": {
+      "content-type": "unknown/unknown",
+      "url": "http://www.example.com/files/681/download?verifier=JDG10Ruitv8o6LjGXWlxgOb5Sl3ElzVYm9cBKUT3",
+      "filename": "content.txt",
+      "display_name": "content.txt" } },
+  {
+    "id": 1016,
+    "user_id": 7086,
+    "user_name": "nobody@example.com",
+    "message": "first top-level entry",
+    "read_state": "unread",
+    "forced_read_state": false,
+    "created_at": "2011-11-03T21:32:29Z",
+    "recent_replies": [
+      {
+        "id": 1017,
+        "user_id": 7086,
+        "user_name": "nobody@example.com",
+        "message": "Reply message",
+        "created_at": "2011-11-03T21:32:29Z"
+      } ],
+    "has_more_replies": false } ]</code></pre>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Authentication Providers" name="method.account_authorization_configs.show_sso_settings">
+<a href="#method.account_authorization_configs.show_sso_settings" name="method.account_authorization_configs.show_sso_settings">
+      show account auth settings
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/account_authorization_configs_controller.rb">AccountAuthorizationConfigsController#show_sso_settings</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/sso_settings
+  </h3>
+<p>The way to get the current state of each account level setting that's
+relevant to Single Sign On configuration</p>
+<p>You can list the current state of each setting with âupdate_sso_settingsâ</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -XGET 'https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/sso_settings' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="authentication_providers.html#SSOSettings">SSOSettings</a>
+</div>

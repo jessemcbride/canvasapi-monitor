@@ -1,0 +1,166 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Courses" name="method.courses.users">
+<a href="#method.courses.users" name="method.courses.users">
+      List users in course
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/courses_controller.rb">CoursesController#users</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/users
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/search_users
+  </h3>
+<p>Returns the paginated list of users in this course. And optionally the
+user's enrollments in the course.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>search_term</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The partial name or full ID of the users to match and return in the results
+list.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_type[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>When set, only return users where the user is enrolled as this type.
+âstudent_viewâ implies include[]=test_student. This argument is ignored if
+enrollment_role is given.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">teacher</code>, <code class="enum">student</code>, <code class="enum">student_view</code>, <code class="enum">ta</code>, <code class="enum">observer</code>, <code class="enum">designer</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_role</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Deprecated When set, only return users enrolled with the specified
+course-level role.  This can be a role created with the
+<a href="roles.html#method.role_overrides.add_role" title="Add Role API">Add Role API</a> or a base role type of
+'StudentEnrollment', 'TeacherEnrollment',
+'TaEnrollment', 'ObserverEnrollment', or
+'DesignerEnrollment'.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_role_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>When set, only return courses where the user is enrolled with the specified
+course-level role.  This can be a role created with the
+<a href="roles.html#method.role_overrides.add_role" title="Add Role API">Add Role API</a> or a built_in role id
+with type 'StudentEnrollment', 'TeacherEnrollment',
+'TaEnrollment', 'ObserverEnrollment', or
+'DesignerEnrollment'.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<ul><li>
+<p>âemailâ: Optional user email.</p>
+</li><li>
+<p>âenrollmentsâ:</p>
+</li></ul>
+<p>Optionally include with each Course the user's current and invited
+enrollments. If the user is enrolled as a student, and the account has
+permission to manage or view all grades, each enrollment will include a
+'grades' key with 'current_score', 'final_score',
+'current_grade' and 'final_grade' values.</p>
+<ul><li>
+<p>âlockedâ: Optionally include whether an enrollment is locked.</p>
+</li><li>
+<p>âavatar_urlâ: Optionally include avatar_url.</p>
+</li><li>
+<p>âbioâ: Optionally include each user's bio.</p>
+</li><li>
+<p>âtest_studentâ: Optionally include the course's Test Student,</p>
+</li></ul>
+<p>if present. Default is to not include Test Student.</p>
+<ul><li>
+<p>âcustom_linksâ: Optionally include plugin-supplied custom links for each
+student,</p>
+</li></ul>
+<p>such as analytics information</p>
+<ul><li>
+<p>âcurrent_grading_period_scoresâ: if enrollments is included as</p>
+</li></ul>
+<p>well as this directive, the scores returned in the enrollment will be for
+the current grading period if there is one. A 'grading_period_id'
+value will also be included with the scores. if grading_period_id is nil
+there is no current grading period and the score is a total score.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">email</code>, <code class="enum">enrollments</code>, <code class="enum">locked</code>, <code class="enum">avatar_url</code>, <code class="enum">test_student</code>, <code class="enum">bio</code>, <code class="enum">custom_links</code>, <code class="enum">current_grading_period_scores</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>user_id</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If this parameter is given and it corresponds to a user in the course, the
+<code>page</code> parameter will be ignored and the page containing the
+specified user will be returned instead.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>user_ids[]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>If included, the course users set will only include users with IDs
+specified by the param. Note: this will not work in conjunction with the
+âuser_idâ argument but multiple user_ids can be included.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_state[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>When set, only return users where the enrollment workflow state is of one
+of the given types. âactiveâ and âinvitedâ enrollments are returned by
+default.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">active</code>, <code class="enum">invited</code>, <code class="enum">rejected</code>, <code class="enum">completed</code>, <code class="enum">inactive</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="users.html#User">Users</a>
+</div>

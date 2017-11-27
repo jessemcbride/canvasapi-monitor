@@ -1,0 +1,203 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Conversations" name="method.conversations.show">
+<a href="#method.conversations.show" name="method.conversations.show">
+      Get a single conversation
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/conversations_controller.rb">ConversationsController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/conversations/:id
+  </h3>
+<p>Returns information for a single conversation for the current user.
+Response includes all fields that are present in the list/index action as
+well as messages and extended participant information.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>interleave_submissions</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>(Obsolete) Submissions are no longer linked to conversations. This
+parameter is ignored.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>scope</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Used when generating âvisibleâ in the API response. See the explanation
+under the <a href="conversations.html#method.conversations.index" title="index API action">index API action</a></p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">unread</code>, <code class="enum">starred</code>, <code class="enum">archived</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>filter[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Used when generating âvisibleâ in the API response. See the explanation
+under the <a href="conversations.html#method.conversations.index" title="index API action">index API action</a></p>
+</td>
+</tr>
+<tr class="request-param">
+<td>filter_mode</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Used when generating âvisibleâ in the API response. See the explanation
+under the <a href="conversations.html#method.conversations.index" title="index API action">index API action</a></p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">and</code>, <code class="enum">or</code>, <code class="enum">default or</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>auto_mark_as_read</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Default true. If true, unread conversations will be automatically marked as
+read. This will default to false in a future API release, so clients should
+explicitly send true if that is the desired behavior.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4>API response field:</h4>
+<ul class="response_field">
+<li>
+<span class="type"></span>
+<span class="name">participants</span>
+<div class="inline">
+<p>Array of relevant users. Includes current user. If there are forwarded
+messages in this conversation, the authors of those messages will also be
+included, even if they are not participating in this conversation. Fields
+include:</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">messages</span>
+<div class="inline">
+<p>Array of messages, newest first. Fields include:</p>
+<dl class="rdoc-list note-list"><dt>id
+<dd>
+<p>The unique identifier for the message</p>
+</dd><dt>created_at
+<dd>
+<p>The timestamp of the message</p>
+</dd><dt>body
+<dd>
+<p>The actual message body</p>
+</dd><dt>author_id
+<dd>
+<p>The id of the user who sent the message (see audience, participants)</p>
+</dd><dt>generated
+<dd>
+<p>If true, indicates this is a system-generated message (e.g. âBob added
+Alice to the conversationâ)</p>
+</dd><dt>media_comment
+<dd>
+<p>Audio/video comment data for this message (if applicable). Fields include:
+display_name, content-type, media_id, media_type, url</p>
+</dd><dt>forwarded_messages
+<dd>
+<p>If this message contains forwarded messages, they will be included here
+(same format as this list). Note that those messages may have forwarded
+messages of their own, etc.</p>
+</dd><dt>attachments
+<dd>
+<p>Array of attachments for this message. Fields include: display_name,
+content-type, filename, url</p>
+</dd></dt></dt></dt></dt></dt></dt></dt></dt></dl>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">submissions</span>
+<div class="inline">
+<p>(Obsolete) Array of assignment submissions having comments relevant to this
+conversation. Submissions are no longer linked to conversations. This field
+will always be nil or empty.</p>
+</div>
+</li>
+</ul>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "id": 2,
+  "subject": "conversations api example",
+  "workflow_state": "unread",
+  "last_message": "sure thing, here's the file",
+  "last_message_at": "2011-09-02T12:00:00-06:00",
+  "message_count": 2,
+  "subscribed": true,
+  "private": true,
+  "starred": false,
+  "properties": ["attachments"],
+  "audience": [2],
+  "audience_contexts": {"courses": {"1": []}, "groups": {}},
+  "avatar_url": "https://canvas.instructure.com/images/messages/avatar-50.png",
+  "participants": [
+    {"id": 1, "name": "Joe", "full_name": "Joe TA"},
+    {"id": 2, "name": "Jane", "full_name": "Jane Teacher"},
+    {"id": 3, "name": "Bob", "full_name": "Bob Student"}
+  ],
+  "messages":
+    [
+      {
+        "id": 3,
+        "created_at": "2011-09-02T12:00:00Z",
+        "body": "sure thing, here's the file",
+        "author_id": 2,
+        "generated": false,
+        "media_comment": null,
+        "forwarded_messages": [],
+        "attachments": [{"id": 1, "display_name": "notes.doc", "uuid": "abcdefabcdefabcdefabcdefabcdef"}]
+      },
+      {
+        "id": 2,
+        "created_at": "2011-09-02T11:00:00Z",
+        "body": "hey, bob didn't get the notes. do you have a copy i can give him?",
+        "author_id": 2,
+        "generated": false,
+        "media_comment": null,
+        "forwarded_messages":
+          [
+            {
+              "id": 1,
+              "created_at": "2011-09-02T10:00:00Z",
+              "body": "can i get a copy of the notes? i was out",
+              "author_id": 3,
+              "generated": false,
+              "media_comment": null,
+              "forwarded_messages": [],
+              "attachments": []
+            }
+          ],
+        "attachments": []
+      }
+    ],
+  "submissions": []
+}</code></pre>
+</div>
+</div>

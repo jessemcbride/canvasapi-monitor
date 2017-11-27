@@ -1,0 +1,59 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Pages" name="method.wiki_pages_api.show_revision">
+<a href="#method.wiki_pages_api.show_revision" name="method.wiki_pages_api.show_revision">
+      Show revision
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/wiki_pages_api_controller.rb">WikiPagesApiController#show_revision</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/pages/:url/revisions/latest
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/pages/:url/revisions/latest
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/pages/:url/revisions/:revision_id
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/pages/:url/revisions/:revision_id
+  </h3>
+<p>Retrieve the metadata and optionally content of a revision of the page.
+Note that retrieving historic versions of pages requires edit rights.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>summary</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If set, exclude page content from results</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -H 'Authorization: Bearer &lt;token&gt;' \
+https://&lt;canvas&gt;/api/v1/courses/123/pages/the-page-url/revisions/latest</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -H 'Authorization: Bearer &lt;token&gt;' \
+https://&lt;canvas&gt;/api/v1/courses/123/pages/the-page-url/revisions/4</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="pages.html#PageRevision">PageRevision</a>
+</div>

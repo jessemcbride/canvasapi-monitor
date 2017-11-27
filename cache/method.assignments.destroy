@@ -1,0 +1,25 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Assignments" name="method.assignments.destroy">
+<a href="#method.assignments.destroy" name="method.assignments.destroy">
+      Delete an assignment
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/assignments_controller.rb">AssignmentsController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/assignments/:id
+  </h3>
+<p>Delete the given assignment.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/assignments/&lt;assignment_id&gt; \
+     -X DELETE \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="assignments.html#Assignment">Assignment</a>
+</div>

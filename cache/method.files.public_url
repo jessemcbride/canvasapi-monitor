@@ -1,0 +1,48 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Files" name="method.files.public_url">
+<a href="#method.files.public_url" name="method.files.public_url">
+      Get public inline preview url
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/files_controller.rb">FilesController#public_url</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/files/:id/public_url
+  </h3>
+<p>Determine the URL that should be used for inline preview of the file.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>submission_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The id of the submission the file is associated with.  Provide this
+argument to gain access to a file that has been submitted to an assignment
+(Canvas will verify that the file belongs to the submission and the calling
+user has rights to view the submission).</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/files/1/public_url' \
+      -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{ "public_url": "https://example-bucket.s3.amazonaws.com/example-namespace/attachments/1/example-filename?AWSAccessKeyId=example-key&amp;Expires=1400000000&amp;Signature=example-signature" }</code></pre>
+</div>
+</div>

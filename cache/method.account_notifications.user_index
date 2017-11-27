@@ -1,0 +1,25 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Account Notifications" name="method.account_notifications.user_index">
+<a href="#method.account_notifications.user_index" name="method.account_notifications.user_index">
+      Index of active global notification for the user
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/account_notifications_controller.rb">AccountNotificationsController#user_index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/users/:user_id/account_notifications
+  </h3>
+<p>Returns a list of all global notifications in the account for this user Any
+notifications that have been closed by the user will not be returned</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -H 'Authorization: Bearer &lt;token&gt;' \
+https://&lt;canvas&gt;/api/v1/accounts/2/users/4/account_notifications</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="account_notifications.html#AccountNotification">AccountNotifications</a>
+</div>

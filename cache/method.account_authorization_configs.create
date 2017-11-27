@@ -1,0 +1,359 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Authentication Providers" name="method.account_authorization_configs.create">
+<a href="#method.account_authorization_configs.create" name="method.account_authorization_configs.create">
+      Add authentication provider
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/account_authorization_configs_controller.rb">AccountAuthorizationConfigsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/authentication_providers
+  </h3>
+<p>Add external authentication provider(s) for the account. Services may be
+CAS, Facebook, GitHub, Google, LDAP, LinkedIn, Microsoft, OpenID Connect,
+SAML, or Twitter.</p>
+<p>Each authentication provider is specified as a set of parameters as
+described below. A provider specification must include an
+'auth_type' parameter with a value of 'canvas',
+'cas', 'clever', 'facebook', 'github',
+'google', 'ldap', 'linkedin', 'microsoft',
+'openid_connect', 'saml', or 'twitter'. The other
+recognized parameters depend on this auth_type; unrecognized parameters are
+discarded. Provider specifications not specifying a valid auth_type are
+ignored.</p>
+<p>You can set the 'position' for any configuration. The config in the
+1st position is considered the default. You can set
+'jit_provisioning' for any configuration besides Canvas.</p>
+<p>For Canvas, the additional recognized parameter is:</p>
+<ul><li>
+<p>self_registration</p>
+<p>'all', 'none', or 'observer' - who is allowed to
+register as a new user</p>
+</li></ul>
+<p>For CAS, the additional recognized parameters are:</p>
+<ul><li>
+<p>auth_base</p>
+<p>The CAS server's URL.</p>
+</li><li>
+<p>log_in_url [Optional]</p>
+<p>An alternate SSO URL for logging into CAS. You probably should not set
+this.</p>
+</li></ul>
+<p>For Clever, the additional recognized parameters are:</p>
+<ul><li>
+<p>client_id [Required]</p>
+<p>The Clever application's Client ID. Not available if configured
+globally for Canvas.</p>
+</li><li>
+<p>client_secret [Required]</p>
+<p>The Clever application's Client Secret. Not available if configured
+globally for Canvas.</p>
+</li><li>
+<p>district_id [Optional]</p>
+<p>A district's Clever ID. Leave this blank to let Clever handle the
+details with its District Picker. This is required for Clever Instant Login
+to work in a multi-tenant environment.</p>
+</li><li>
+<p>login_attribute [Optional]</p>
+<p>The attribute to use to look up the user's login in Canvas. Either
+'id' (the default), 'sis_id', 'email',
+'student_number', or 'teacher_number'. Note that some
+fields may not be populated for all users at Clever.</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Valid provider attributes are 'id',
+'sis_id', 'email', 'student_number', and
+'teacher_number'.</p>
+</li></ul>
+<p>For Facebook, the additional recognized parameters are:</p>
+<ul><li>
+<p>app_id [Required]</p>
+<p>The Facebook App ID. Not available if configured globally for Canvas.</p>
+</li><li>
+<p>app_secret [Required]</p>
+<p>The Facebook App Secret. Not available if configured globally for Canvas.</p>
+</li><li>
+<p>login_attribute [Optional]</p>
+<p>The attribute to use to look up the user's login in Canvas. Either
+'id' (the default), or 'email'</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Valid provider attributes are
+'email', 'first_name', 'id', 'last_name',
+'locale', and 'name'.</p>
+</li></ul>
+<p>For GitHub, the additional recognized parameters are:</p>
+<ul><li>
+<p>domain [Optional]</p>
+<p>The domain of a GitHub Enterprise installation. I.e. github.mycompany.com.
+If not set, it will default to the public github.com.</p>
+</li><li>
+<p>client_id [Required]</p>
+<p>The GitHub application's Client ID. Not available if configured
+globally for Canvas.</p>
+</li><li>
+<p>client_secret [Required]</p>
+<p>The GitHub application's Client Secret. Not available if configured
+globally for Canvas.</p>
+</li><li>
+<p>login_attribute [Optional]</p>
+<p>The attribute to use to look up the user's login in Canvas. Either
+'id' (the default), or 'login'</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Valid provider attributes are
+'email', 'id', 'login', and 'name'.</p>
+</li></ul>
+<p>For Google, the additional recognized parameters are:</p>
+<ul><li>
+<p>client_id [Required]</p>
+<p>The Google application's Client ID. Not available if configured
+globally for Canvas.</p>
+</li><li>
+<p>client_secret [Required]</p>
+<p>The Google application's Client Secret. Not available if configured
+globally for Canvas.</p>
+</li><li>
+<p>hosted_domain [Optional]</p>
+<p>A Google Apps domain to restrict logins to. See <a href="https://developers.google.com/identity/protocols/OpenIDConnect?hl=en#hd-param">developers.google.com/identity/protocols/OpenIDConnect?hl=en#hd-param</a></p>
+</li><li>
+<p>login_attribute [Optional]</p>
+<p>The attribute to use to look up the user's login in Canvas. Either
+'sub' (the default), or 'email'</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Valid provider attributes are
+'email', 'family_name', 'given_name',
+'locale', 'name', and 'sub'.</p>
+</li></ul>
+<p>For LDAP, the additional recognized parameters are:</p>
+<ul><li>
+<p>auth_host</p>
+<p>The LDAP server's URL.</p>
+</li><li>
+<p>auth_port [Optional, Integer]</p>
+<p>The LDAP server's TCP port. (default: 389)</p>
+</li><li>
+<p>auth_over_tls [Optional]</p>
+<p>Whether to use TLS. Can be '', 'simple_tls', or
+'start_tls'. For backwards compatibility, booleans are also
+accepted, with true meaning simple_tls. If not provided, it will default to
+start_tls.</p>
+</li><li>
+<p>auth_base [Optional]</p>
+<p>A default treebase parameter for searches performed against the LDAP
+server.</p>
+</li><li>
+<p>auth_filter</p>
+<p>LDAP search filter. Use {{login}} as a placeholder for the username
+supplied by the user. For example: â(sAMAccountName={{login}})â.</p>
+</li><li>
+<p>identifier_format [Optional]</p>
+<p>The LDAP attribute to use to look up the Canvas login. Omit to use the
+username supplied by the user.</p>
+</li><li>
+<p>auth_username</p>
+<p>Username</p>
+</li><li>
+<p>auth_password</p>
+<p>Password</p>
+</li></ul>
+<p>For LinkedIn, the additional recognized parameters are:</p>
+<ul><li>
+<p>client_id [Required]</p>
+<p>The LinkedIn application's Client ID. Not available if configured
+globally for Canvas.</p>
+</li><li>
+<p>client_secret [Required]</p>
+<p>The LinkedIn application's Client Secret. Not available if configured
+globally for Canvas.</p>
+</li><li>
+<p>login_attribute [Optional]</p>
+<p>The attribute to use to look up the user's login in Canvas. Either
+'id' (the default), or 'emailAddress'</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Valid provider attributes are
+'emailAddress', 'firstName', 'id',
+'formattedName', and 'lastName'.</p>
+</li></ul>
+<p>For Microsoft, the additional recognized parameters are:</p>
+<ul><li>
+<p>application_id [Required]</p>
+<p>The application's ID.</p>
+</li><li>
+<p>application_secret [Required]</p>
+<p>The application's Client Secret (Password)</p>
+</li><li>
+<p>tenant [Optional]</p>
+<p>See <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols">azure.microsoft.com/en-us/documentation/articles/active-directory-v2-protocols</a>/
+Valid values are 'common', 'organizations',
+'consumers', or an Azure Active Directory Tenant (as either a UUID
+or domain, such as contoso.onmicrosoft.com). Defaults to 'common'</p>
+</li><li>
+<p>login_attribute [Optional]</p>
+<p>See <a href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-tokens/#idtokens">azure.microsoft.com/en-us/documentation/articles/active-directory-v2-tokens/#idtokens</a>
+Valid values are 'sub', 'email', 'oid', or
+'preferred_username'. Note that email may not always be populated
+in the user's profile at Microsoft. Oid will not be populated for
+personal Microsoft accounts. Defaults to 'sub'</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Valid provider attributes are
+'email', 'name', 'preferred_username',
+'oid', and 'sub'.</p>
+</li></ul>
+<p>For OpenID Connect, the additional recognized parameters are:</p>
+<ul><li>
+<p>client_id [Required]</p>
+<p>The application's Client ID.</p>
+</li><li>
+<p>client_secret [Required]</p>
+<p>The application's Client Secret.</p>
+</li><li>
+<p>authorize_url [Required]</p>
+<p>The URL for getting starting the OAuth 2.0 web flow</p>
+</li><li>
+<p>token_url [Required]</p>
+<p>The URL for exchanging the OAuth 2.0 authorization code for an Access Token
+and ID Token</p>
+</li><li>
+<p>scope [Optional]</p>
+<p>Space separated additional scopes to request for the token. Note that you
+need not specify the 'openid' scope, or any scopes that can be
+automatically inferred by the rules defined at <a href="http://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims">openid.net/specs/openid-connect-core-1_0.html#ScopeClaims</a></p>
+</li><li>
+<p>end_session_endpoint [Optional]</p>
+<p>URL to send the end user to after logging out of Canvas. See <a href="https://openid.net/specs/openid-connect-session-1_0.html#RPLogout">openid.net/specs/openid-connect-session-1_0.html#RPLogout</a></p>
+</li><li>
+<p>userinfo_endpoint [Optional]</p>
+<p>URL to request additional claims from. If the initial ID Token received
+from the provider cannot be used to satisfy the login_attribute and all
+federated_attributes, this endpoint will be queried for additional
+information.</p>
+</li><li>
+<p>login_attribute [Optional]</p>
+<p>The attribute of the ID Token to look up the user's login in Canvas.
+Defaults to 'sub'.</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Any value is allowed for the provider
+attribute names, but standard claims are listed at <a href="http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims">openid.net/specs/openid-connect-core-1_0.html#StandardClaims</a></p>
+</li></ul>
+<p>For SAML, the additional recognized parameters are:</p>
+<ul><li>
+<p>metadata [Optional]</p>
+<p>An XML document to parse as SAML metadata, and automatically populate
+idp_entity_id, log_in_url, log_out_url, certificate_fingerprint, and
+identifier_format</p>
+</li><li>
+<p>metadata_uri [Optional]</p>
+<p>A URI to download the SAML metadata from, and automatically populate
+idp_entity_id, log_in_url, log_out_url, certificate_fingerprint, and
+identifier_format. This URI will also be saved, and the metadata
+periodically refreshed, automatically. If the metadata contains multiple
+entities, also supply idp_entity_id to distinguish which one you want
+(otherwise the only entity in the metadata will be inferred). If you
+provide the URI 'urn:mace:incommon' or '<a href="http://ukfederation.org.uk">ukfederation.org.uk</a>', the
+InCommon or UK Access Management Federation metadata aggregate,
+respectively, will be used instead, and additional validation checks will
+happen (including validating that the metadata has been properly signed
+with the appropriate key).</p>
+</li><li>
+<p>idp_entity_id</p>
+<p>The SAML IdP's entity ID</p>
+</li><li>
+<p>log_in_url</p>
+<p>The SAML service's SSO target URL</p>
+</li><li>
+<p>log_out_url [Optional]</p>
+<p>The SAML service's SLO target URL</p>
+</li><li>
+<p>certificate_fingerprint</p>
+<p>The SAML service's certificate fingerprint.</p>
+</li><li>
+<p>identifier_format</p>
+<p>The SAML service's identifier format. Must be one of:</p>
+<ul><li>
+<p>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</p>
+</li><li>
+<p>urn:oasis:names:tc:SAML:2.0:nameid-format:entity</p>
+</li><li>
+<p>urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos</p>
+</li><li>
+<p>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</p>
+</li><li>
+<p>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</p>
+</li><li>
+<p>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</p>
+</li><li>
+<p>urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName</p>
+</li><li>
+<p>urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName</p>
+</li></ul>
+</li><li>
+<p>requested_authn_context [Optional]</p>
+<p>The SAML AuthnContext</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Any value is allowed for the provider
+attribute names.</p>
+</li></ul>
+<p>For Twitter, the additional recognized parameters are:</p>
+<ul><li>
+<p>consumer_key [Required]</p>
+<p>The Twitter Consumer Key. Not available if configured globally for Canvas.</p>
+</li><li>
+<p>consumer_secret [Required]</p>
+<p>The Twitter Consumer Secret. Not available if configured globally for
+Canvas.</p>
+</li><li>
+<p>login_attribute [Optional]</p>
+<p>The attribute to use to look up the user's login in Canvas. Either
+'user_id' (the default), or 'screen_name'</p>
+</li><li>
+<p>parent_registration [Optional]</p>
+<p>Accepts a boolean value, true designates the authentication service for use
+on parent registrations.  Only one service can be selected at a time so if
+set to true all others will be set to false</p>
+</li><li>
+<p>federated_attributes [Optional]</p>
+<p>See FederatedAttributesConfig. Valid provider attributes are
+'name', 'screen_name', 'time_zone', and
+'user_id'.</p>
+</li></ul>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash"># Create LDAP config
+curl 'https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/authentication_providers' \
+     -F 'auth_type=ldap' \
+     -F 'auth_host=ldap.mydomain.edu' \
+     -F 'auth_filter=(sAMAccountName={{login}})' \
+     -F 'auth_username=username' \
+     -F 'auth_password=bestpasswordever' \
+     -F 'position=1' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash"># Create SAML config
+curl 'https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/authentication_providers' \
+     -F 'auth_type=saml' \
+     -F 'idp_entity_id=&lt;idp_entity_id&gt;' \
+     -F 'log_in_url=&lt;login_url&gt;' \
+     -F 'log_out_url=&lt;logout_url&gt;' \
+     -F 'certificate_fingerprint=&lt;fingerprint&gt;' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash"># Create CAS config
+curl 'https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/authentication_providers' \
+     -F 'auth_type=cas' \
+     -F 'auth_base=cas.mydomain.edu' \
+     -F 'log_in_url=&lt;login_url&gt;' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="authentication_providers.html#AuthenticationProvider">AuthenticationProvider</a>
+</div>

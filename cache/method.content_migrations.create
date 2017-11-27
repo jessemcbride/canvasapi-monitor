@@ -1,0 +1,247 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Content Migrations" name="method.content_migrations.create">
+<a href="#method.content_migrations.create" name="method.content_migrations.create">
+      Create a content migration
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/content_migrations_controller.rb">ContentMigrationsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/content_migrations
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/content_migrations
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/groups/:group_id/content_migrations
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/users/:user_id/content_migrations
+  </h3>
+<p>Create a content migration. If the migration requires a file to be uploaded
+the actual processing of the file will start once the file upload process
+is completed. File uploading works as described in the
+<a href="file_uploads.html" title="File Upload Documentation">File Upload Documentation</a> except that the values
+are set on a <strong>pre_attachment</strong> sub-hash.</p>
+<p>For migrations that don't require a file to be uploaded, like course
+copy, the processing will begin as soon as the migration is created.</p>
+<p>You can use the <a href="progress.html#method.progress.show" title="Progress API">Progress API</a> to track the
+progress of the migration. The migration's progress is linked to with
+the <em>progress_url</em> value.</p>
+<p>The two general workflows are:</p>
+<p>If no file upload is needed:</p>
+<ol><li>
+<p>POST to create</p>
+</li><li>
+<p>Use the <a href="progress.html#method.progress.show" title="Progress">Progress</a> specified in
+<em>progress_url</em> to monitor progress</p>
+</li></ol>
+<p>For file uploading:</p>
+<ol><li>
+<p>POST to create with file info in <strong>pre_attachment</strong></p>
+</li><li>
+<p>Do <a href="file_uploads.html" title="file upload processing">file upload processing</a> using the data in the
+<strong>pre_attachment</strong> data</p>
+</li><li>
+<p><a href="content_migrations.html#method.content_migrations.show" title="GET">GET</a> the ContentMigration</p>
+</li><li>
+<p>Use the <a href="progress.html#method.progress.show" title="Progress">Progress</a> specified in
+<em>progress_url</em> to monitor progress</p>
+</li></ol>
+<pre class="code ruby"><code class="ruby"><span class="lparen">(</span><span class="id identifier rubyid_required">required</span> <span class="kw">if</span> <span class="id identifier rubyid_doing">doing</span> <span class="period">.</span><span class="id identifier rubyid_zip">zip</span> <span class="id identifier rubyid_file">file</span> <span class="id identifier rubyid_upload">upload</span><span class="rparen">)</span>
+</code></pre>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>migration_type</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The type of the migration. Use the
+<a href="content_migrations.html#method.content_migrations.available_migrators" title="Migrator">Migrator</a> endpoint to
+see all available migrators. Default allowed values:
+canvas_cartridge_importer, common_cartridge_importer, course_copy_importer,
+zip_file_importer, qti_converter, moodle_converter</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>pre_attachment[name]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Required if uploading a file. This is the first step in uploading a file to
+the content migration. See the <a href="file_uploads.html" title="File Upload Documentation">File Upload Documentation</a> for details on the file upload workflow.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>pre_attachment[*]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Other file upload properties, See <a href="file_uploads.html" title="File Upload Documentation">File Upload Documentation</a></p>
+</td>
+</tr>
+<tr class="request-param">
+<td>settings[file_url]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A URL to download the file from. Must not require authentication.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>settings[source_course_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The course to copy from for a course copy migration. (required if doing
+course copy)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>settings[folder_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The folder to unzip the .zip file into for a zip_file_import.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>settings[overwrite_quizzes]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether to overwrite quizzes with the same identifiers between content
+packages.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>settings[question_bank_id]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The existing question bank ID to import questions into if not specified in
+the content package.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>settings[question_bank_name]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The question bank to import questions into if not specified in the content
+package, if both bank id and name are set, id will take precedence.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>date_shift_options[shift_dates]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether to shift dates in the copied course</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>date_shift_options[old_start_date]</td>
+<td>
+</td>
+<td>Date</td>
+<td class="param-desc">
+<p>The original start date of the source content/course</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>date_shift_options[old_end_date]</td>
+<td>
+</td>
+<td>Date</td>
+<td class="param-desc">
+<p>The original end date of the source content/course</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>date_shift_options[new_start_date]</td>
+<td>
+</td>
+<td>Date</td>
+<td class="param-desc">
+<p>The new start date for the content/course</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>date_shift_options[new_end_date]</td>
+<td>
+</td>
+<td>Date</td>
+<td class="param-desc">
+<p>The new end date for the source content/course</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>date_shift_options[day_substitutions][X]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Move anything scheduled for day 'X' to the specified day.
+(0-Sunday, 1-Monday, 2-Tuesday, 3-Wednesday, 4-Thursday, 5-Friday,
+6-Saturday)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>date_shift_options[remove_dates]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether to remove dates in the copied course. Cannot be used in conjunction
+with <strong>shift_dates</strong>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/content_migrations' \
+     -F 'migration_type=common_cartridge_importer' \
+     -F 'settings[question_bank_name]=importquestions' \
+     -F 'date_shift_options[old_start_date]=1999-01-01' \
+     -F 'date_shift_options[new_start_date]=2013-09-01' \
+     -F 'date_shift_options[old_end_date]=1999-04-15' \
+     -F 'date_shift_options[new_end_date]=2013-12-15' \
+     -F 'date_shift_options[day_substitutions][1]=2' \
+     -F 'date_shift_options[day_substitutions][2]=3' \
+     -F 'date_shift_options[shift_dates]=true' \
+     -F 'pre_attachment[name]=mycourse.imscc' \
+     -F 'pre_attachment[size]=12345' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="content_migrations.html#ContentMigration">ContentMigration</a>
+</div>

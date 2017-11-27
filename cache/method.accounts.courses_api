@@ -1,0 +1,213 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Accounts" name="method.accounts.courses_api">
+<a href="#method.accounts.courses_api" name="method.accounts.courses_api">
+      List active courses in an account
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/accounts_controller.rb">AccountsController#courses_api</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/courses
+  </h3>
+<p>Retrieve a paginated list of courses in this account.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>with_enrollments</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If true, include only courses with at least one enrollment.  If false,
+include only courses with no enrollments.  If not present, do not filter on
+course enrollment status.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_type[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If set, only return courses that have at least one user enrolled in in the
+course with one of the specified enrollment types.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">teacher</code>, <code class="enum">student</code>, <code class="enum">ta</code>, <code class="enum">observer</code>, <code class="enum">designer</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>published</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If true, include only published courses.  If false, exclude published
+courses.  If not present, do not filter on published status.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>completed</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If true, include only completed courses (these may be in state
+'completed', or their enrollment term may have ended).  If false,
+exclude completed courses.  If not present, do not filter on completed
+status.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>blueprint</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If true, include only blueprint courses. If false, exclude them. If not
+present, do not filter on this basis.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>blueprint_associated</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If true, include only courses that inherit content from a blueprint course.
+If false, exclude them. If not present, do not filter on this basis.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>by_teachers[]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>List of User IDs of teachers; if supplied, include only courses taught by
+one of the referenced users.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>by_subaccounts[]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>List of Account IDs; if supplied, include only courses associated with one
+of the referenced subaccounts.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>hide_enrollmentless_courses</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If present, only return courses that have at least one enrollment.
+Equivalent to 'with_enrollments=true'; retained for compatibility.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>state[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If set, only return courses that are in the given state(s). By default, all
+states but âdeletedâ are returned.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">created</code>, <code class="enum">claimed</code>, <code class="enum">available</code>, <code class="enum">completed</code>, <code class="enum">deleted</code>, <code class="enum">all</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_term_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>If set, only includes courses from the specified term.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>search_term</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The partial course name, code, or full ID to match and return in the
+results list. Must be at least 3 characters.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<ul><li>
+<p>All explanations can be seen in the <a href="courses.html#method.courses.index" title="Course API index documentation">Course API index documentation</a></p>
+</li><li>
+<p>âsectionsâ, âneeds_grading_countâ and âtotal_scoresâ are not valid options
+at the account level</p>
+</li></ul>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">syllabus_body</code>, <code class="enum">term</code>, <code class="enum">course_progress</code>, <code class="enum">storage_quota_used_mb</code>, <code class="enum">total_students</code>, <code class="enum">teachers</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>sort</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The column to sort results by.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">course_name</code>, <code class="enum">sis_course_id</code>, <code class="enum">teacher</code>, <code class="enum">subaccount</code>, <code class="enum">enrollments</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>order</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The order to sort the given column by.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">asc</code>, <code class="enum">desc</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>search_by</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The filter to search by. âcourseâ searches for course names, course codes,
+and SIS IDs. âteacherâ searches for teacher names</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">course</code>, <code class="enum">teacher</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="courses.html#Course">Courses</a>
+</div>

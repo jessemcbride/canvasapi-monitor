@@ -1,0 +1,19 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Planner Note" name="method.planner_notes.show">
+<a href="#method.planner_notes.show" name="method.planner_notes.show">
+      Show a PlannerNote
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/planner_notes_controller.rb">PlannerNotesController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/planner_notes/:id
+  </h3>
+<p>Retrieve a planner note for the current user</p>
+
+
+
+
+  Returns a 
+
+<a href="planner_note.html#PlannerNote">PlannerNote</a>
+</div>

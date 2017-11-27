@@ -1,0 +1,25 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="ePub Exports" name="method.epub_exports.create">
+<a href="#method.epub_exports.create" name="method.epub_exports.create">
+      Create ePub Export
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/epub_exports_controller.rb">EpubExportsController#create</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/epub_exports
+  </h3>
+<p>Begin an ePub export for a course.</p>
+<p>You can use the <a href="progress.html#method.progress.show" title="Progress API">Progress API</a> to track the
+progress of the export. The export's progress is linked to with the
+<em>progress_url</em> value.</p>
+<p>When the export completes, use the <a href="e_pub_exports.html#method.epub_exports.show" title="Show content export">Show content export</a> endpoint to retrieve a download URL for the exported
+content.</p>
+
+
+
+
+  Returns a 
+
+<a href="e_pub_exports.html#EpubExport">EpubExport</a>
+</div>

@@ -1,0 +1,19 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Outcome Groups" name="method.outcome_groups_api.redirect">
+<a href="#method.outcome_groups_api.redirect" name="method.outcome_groups_api.redirect">
+      Redirect to root outcome group for context
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/outcome_groups_api_controller.rb">OutcomeGroupsApiController#redirect</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/global/root_outcome_group
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/root_outcome_group
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/root_outcome_group
+  </h3>
+<p>Convenience redirect to find the root outcome group for a particular
+context. Will redirect to the appropriate outcome group's URL.</p>
+</div>

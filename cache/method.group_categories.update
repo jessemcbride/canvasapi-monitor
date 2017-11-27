@@ -1,0 +1,120 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Group Categories" name="method.group_categories.update">
+<a href="#method.group_categories.update" name="method.group_categories.update">
+      Update a Group Category
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/group_categories_controller.rb">GroupCategoriesController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/group_categories/:group_category_id
+  </h3>
+<p>Modifies an existing group category.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>name</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Name of the group category</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>self_signup</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Allow students to sign up for a group themselves (Course Only). Valid
+values are:</p>
+<dl class="rdoc-list note-list"><dt>âenabledâ
+<dd>
+<p>allows students to self sign up for any group in course</p>
+</dd><dt>ârestrictedâ
+<dd>
+<p>allows students to self sign up only for groups in the same section null
+disallows self sign up</p>
+</dd></dt></dt></dl>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">enabled</code>, <code class="enum">restricted</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>auto_leader</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Assigns group leaders automatically when generating and allocating students
+to groups Valid values are:</p>
+<dl class="rdoc-list note-list"><dt>âfirstâ
+<dd>
+<p>the first student to be allocated to a group is the leader</p>
+</dd><dt>ârandomâ
+<dd>
+<p>a random student from all members is chosen as the leader</p>
+</dd></dt></dt></dl>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">first</code>, <code class="enum">random</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>group_limit</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Limit the maximum number of users in each group (Course Only). Requires
+self signup.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>create_group_count</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Create this number of groups (Course Only).</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>split_group_count</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>(Deprecated) Create this number of groups, and evenly distribute students
+among them. not allowed with âenable_self_signupâ. because the group
+assignment happens synchronously, it's recommended that you instead use
+the assign_unassigned_members endpoint. (Course Only)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/group_categories/&lt;group_category_id&gt; \
+    -X PUT \
+    -F 'name=Project Groups' \
+    -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="group_categories.html#GroupCategory">GroupCategory</a>
+</div>

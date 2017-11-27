@@ -1,0 +1,57 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Group Categories" name="method.group_categories.users">
+<a href="#method.group_categories.users" name="method.group_categories.users">
+      List users in group category
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/group_categories_controller.rb">GroupCategoriesController#users</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/group_categories/:group_category_id/users
+  </h3>
+<p>Returns a paginated list of users in the group category.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>search_term</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The partial name or full ID of the users to match and return in the results
+list. Must be at least 3 characters.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>unassigned</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Set this value to true if you wish only to search unassigned users in the
+group category.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/group_categories/1/users \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="users.html#User">Users</a>
+</div>

@@ -1,0 +1,100 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Webhooks Subscriptions" name="method.lti/subscriptions_api.create">
+<a href="#method.lti/subscriptions_api.create" name="method.lti/subscriptions_api.create">
+      Create a Webhook Subscription
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/lti/subscriptions_api_controller.rb">Lti::SubscriptionsApiController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/lti/subscriptions
+  </h3>
+<p>Creates a webook subscription for the specified event type and context.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>submission[ContextId]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The id of the context for the subscription.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>subscription[ContextType]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The type of context for the subscription. Must be 'assignment',
+'account', or 'course'.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>subscription[EventTypes]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>Array</td>
+<td class="param-desc">
+<p>Array of strings representing the event types for the subscription.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>subscription[Format]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>Format to deliver the live events. Must be 'live-event' or
+'caliper'.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>subscription[TransportMetadata]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>Object</td>
+<td class="param-desc">
+<p>An object with a single key: 'Url'. Example: { âUrlâ: âsqs.exampleâ
+}</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>subscription[TransportType]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>Must be either 'sqs' or 'https'.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -1,0 +1,169 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Submissions" name="method.submissions_api.for_students">
+<a href="#method.submissions_api.for_students" name="method.submissions_api.for_students">
+      List submissions for multiple assignments
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/submissions_api_controller.rb">SubmissionsApiController#for_students</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/students/submissions
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/sections/:section_id/students/submissions
+  </h3>
+<p>A paginated list of all existing submissions for a given set of students
+and assignments.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>student_ids[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>List of student ids to return submissions for. If this argument is omitted,
+return submissions for the calling user. Students may only list their own
+submissions. Observers may only list those of associated students. The
+special id âallâ will return submissions for all students in the
+course/section as appropriate.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>assignment_ids[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>List of assignments to return submissions for. If none are given,
+submissions for all assignments are returned.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grouped</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If this argument is present, the response will be grouped by student,
+rather than a flat array of submissions.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>post_to_sis</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If this argument is set to true, the response will only include submissions
+for assignments that have the post_to_sis flag set to true and user
+enrollments that were added through sis.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grading_period_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The id of the grading period in which submissions are being requested
+(Requires grading periods to exist on the account)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>workflow_state</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The current status of the submission</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">submitted</code>, <code class="enum">unsubmitted</code>, <code class="enum">graded</code>, <code class="enum">pending_review</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_state</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The current state of the enrollments. If omitted will include all
+enrollments that are not deleted.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">active</code>, <code class="enum">concluded</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>order</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The order submissions will be returned in.  Defaults to âidâ.  Doesn't
+affect results for âgroupedâ mode.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">id</code>, <code class="enum">graded_at</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>order_direction</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Determines whether ordered results are retured in ascending or descending
+order.  Defaults to âascendingâ.  Doesn't affect results for âgroupedâ
+mode.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">ascending</code>, <code class="enum">descending</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Associations to include with the group. `total_scores` requires the
+`grouped` argument.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">submission_history</code>, <code class="enum">submission_comments</code>, <code class="enum">rubric_assessment</code>, <code class="enum">assignment</code>, <code class="enum">total_scores</code>, <code class="enum">visibility</code>, <code class="enum">course</code>, <code class="enum">user</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js"># Without grouped:
+
+[
+  { "assignment_id": 100, grade: 5, "user_id": 1, ... },
+  { "assignment_id": 101, grade: 6, "user_id": 2, ... }
+
+# With grouped:
+
+[
+  {
+    "user_id": 1,
+    "submissions": [
+      { "assignment_id": 100, grade: 5, ... },
+      { "assignment_id": 101, grade: 6, ... }
+    ]
+  }
+]</code></pre>
+</div>
+</div>

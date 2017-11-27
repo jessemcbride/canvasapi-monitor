@@ -1,0 +1,40 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Custom Gradebook Columns" name="method.custom_gradebook_columns_api.index">
+<a href="#method.custom_gradebook_columns_api.index" name="method.custom_gradebook_columns_api.index">
+      List custom gradebook columns
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/custom_gradebook_columns_api_controller.rb">CustomGradebookColumnsApiController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/custom_gradebook_columns
+  </h3>
+<p>A paginated list of all custom gradebook columns for a course</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>include_hidden</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Include hidden parameters (defaults to false)</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="custom_gradebook_columns.html#CustomColumn">CustomColumns</a>
+</div>

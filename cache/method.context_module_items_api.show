@@ -1,0 +1,60 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Module Items" name="method.context_module_items_api.show">
+<a href="#method.context_module_items_api.show" name="method.context_module_items_api.show">
+      Show module item
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/context_module_items_api_controller.rb">ContextModuleItemsApiController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/modules/:module_id/items/:id
+  </h3>
+<p>Get information about a single module item</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If included, will return additional details specific to the content
+associated with this item. Refer to the <a href="modules.html#Module%20Item" title="Module Item specification">Module Item specification</a> for more details. Includes standard lock information
+for each item.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">content_details</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>student_id</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Returns module completion information for the student with this id.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -H 'Authorization: Bearer &lt;token&gt;' \
+     https://&lt;canvas&gt;/api/v1/courses/222/modules/123/items/768</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="modules.html#ModuleItem">ModuleItem</a>
+</div>

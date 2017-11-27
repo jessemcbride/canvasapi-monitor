@@ -1,0 +1,41 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Moderation Set" name="method.moderation_set.create">
+<a href="#method.moderation_set.create" name="method.moderation_set.create">
+      Select students for moderation
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/moderation_set_controller.rb">ModerationSetController#create</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/assignments/:assignment_id/moderated_students
+  </h3>
+<p>Returns an array of users that were selected for moderation</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>student_ids[]</td>
+<td>
+</td>
+<td>number</td>
+<td class="param-desc">
+<p>user ids for students to select for moderation</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="users.html#User">Users</a>
+</div>

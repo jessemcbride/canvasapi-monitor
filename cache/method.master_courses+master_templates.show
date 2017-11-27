@@ -1,0 +1,27 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Blueprint Management" name="method.master_courses/master_templates.show">
+<a href="#method.master_courses/master_templates.show" name="method.master_courses/master_templates.show">
+      Get blueprint information
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/master_courses/master_templates_controller.rb">MasterCourses::MasterTemplatesController#show</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/blueprint_templates/:template_id
+  </h3>
+<p>Using 'default' as the template_id should suffice for the current
+implmentation (as there should be only one template per course). However,
+using specific template ids may become necessary in the future</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/1/blueprint_templates/default \
+  -H 'Authorization: Bearer &lt;ACCESS_TOKEN&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="blueprint_courses.html#BlueprintTemplate">BlueprintTemplate</a>
+</div>

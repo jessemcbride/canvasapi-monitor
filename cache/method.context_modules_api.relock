@@ -1,0 +1,28 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Modules" name="method.context_modules_api.relock">
+<a href="#method.context_modules_api.relock" name="method.context_modules_api.relock">
+      Re-lock module progressions
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/context_modules_api_controller.rb">ContextModulesApiController#relock</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/modules/:id/relock
+  </h3>
+<p>Resets module progressions to their default locked state and recalculates
+them based on the current requirements.</p>
+<p>Adding progression requirements to an active course will not lock students
+out of modules they have already unlocked unless this action is called.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/modules/&lt;module_id&gt;/relock \
+  -X PUT \
+  -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="modules.html#Module">Module</a>
+</div>

@@ -1,0 +1,49 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Course Audit log" name="method.course_audit_api.for_course">
+<a href="#method.course_audit_api.for_course" name="method.course_audit_api.for_course">
+      Query by course.
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/course_audit_api_controller.rb">CourseAuditApiController#for_course</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/audit/course/courses/:course_id
+  </h3>
+<p>List course change events for a given course.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>start_time</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>The beginning of the time range from which you want events.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>end_time</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>The end of the time range from which you want events.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="course_audit_log.html#CourseEvent">CourseEvents</a>
+</div>

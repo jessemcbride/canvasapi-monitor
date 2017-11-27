@@ -1,0 +1,42 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_topics.reorder">
+<a href="#method.discussion_topics.reorder" name="method.discussion_topics.reorder">
+      Reorder pinned topics
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_topics_controller.rb">DiscussionTopicsController#reorder</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/discussion_topics/reorder
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/groups/:group_id/discussion_topics/reorder
+  </h3>
+<p>Puts the pinned discussion topics in the specified order. All pinned topics
+should be included.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>order[]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The ids of the pinned discussion topics in the desired order. (For example,
+âorder=104,102,103â.)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

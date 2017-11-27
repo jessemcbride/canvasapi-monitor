@@ -1,0 +1,24 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Authentication Providers" name="method.account_authorization_configs.index">
+<a href="#method.account_authorization_configs.index" name="method.account_authorization_configs.index">
+      List authentication providers
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/account_authorization_configs_controller.rb">AccountAuthorizationConfigsController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/authentication_providers
+  </h3>
+<p>Returns a paginated list of authentication providers</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/authentication_providers' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="authentication_providers.html#AuthenticationProvider">AuthenticationProviders</a>
+</div>

@@ -1,0 +1,191 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Enrollments" name="method.enrollments_api.create">
+<a href="#method.enrollments_api.create" name="method.enrollments_api.create">
+      Enroll a user
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/enrollments_api_controller.rb">EnrollmentsApiController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/enrollments
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/sections/:section_id/enrollments
+  </h3>
+<p>Create a new user enrollment for a course or section.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>enrollment[user_id]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The ID of the user to be enrolled in the course.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[type]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>Enroll the user as a student, teacher, TA, observer, or designer. If no
+value is given, the type will be inferred by <a href="role">enrollment</a>
+if supplied, otherwise 'StudentEnrollment' will be used.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">StudentEnrollment</code>, <code class="enum">TeacherEnrollment</code>, <code class="enum">TaEnrollment</code>, <code class="enum">ObserverEnrollment</code>, <code class="enum">DesignerEnrollment</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[role]</td>
+<td>
+</td>
+<td>Deprecated</td>
+<td class="param-desc">
+<p>Assigns a custom course-level role to the user.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[role_id]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Assigns a custom course-level role to the user.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[enrollment_state]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If set to 'active,' student will be immediately enrolled in the
+course. Otherwise they will be required to accept a course invitation.
+Default is 'invited.'.</p>
+<p>If set to 'inactive', student will be listed in the course roster
+for teachers, but will not be able to participate in the course until their
+enrollment is activated.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">active</code>, <code class="enum">invited</code>, <code class="enum">inactive</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[course_section_id]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The ID of the course section to enroll the student in. If the
+section-specific URL is used, this argument is redundant and will be
+ignored.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[limit_privileges_to_course_section]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If set, the enrollment will only allow the user to see and interact with
+users enrolled in the section given by course_section_id.</p>
+<ul><li>
+<p>For teachers and TAs, this includes grading privileges.</p>
+</li><li>
+<p>Section-limited students will not see any users (including teachers and
+TAs) not enrolled in their sections.</p>
+</li><li>
+<p>Users may have other enrollments that grant privileges to multiple sections
+in the same course.</p>
+</li></ul>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[notify]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If true, a notification will be sent to the enrolled user. Notifications
+are not sent by default.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[self_enrollment_code]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If the current user is not allowed to manage enrollments in this course,
+but the course allows self-enrollment, the user can self- enroll as a
+student in the default section by passing in a valid code. When
+self-enrolling, the user_id must be 'self'. The enrollment_state
+will be set to 'active' and all other arguments will be ignored.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[self_enrolled]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If true, marks the enrollment as a self-enrollment, which gives students
+the ability to drop the course if desired. Defaults to false.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment[associated_user_id]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>For an observer enrollment, the ID of a student to observe. The caller must
+have <code>manage_students</code> permission in the course. This is a
+one-off operation; to automatically observe all a student's enrollments
+(for example, as a parent), please use the
+<a href="user_observees.html#method.user_observees.create" title="User Observees API">User Observees API</a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/:course_id/enrollments \
+  -X POST \
+  -F 'enrollment[user_id]=1' \
+  -F 'enrollment[type]=StudentEnrollment' \
+  -F 'enrollment[enrollment_state]=active' \
+  -F 'enrollment[course_section_id]=1' \
+  -F 'enrollment[limit_privileges_to_course_section]=true' \
+  -F 'enrollment[notify]=false'</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/:course_id/enrollments \
+  -X POST \
+  -F 'enrollment[user_id]=2' \
+  -F 'enrollment[type]=StudentEnrollment'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="enrollments.html#Enrollment">Enrollment</a>
+</div>

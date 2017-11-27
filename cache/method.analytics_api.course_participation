@@ -1,0 +1,32 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Analytics" name="method.analytics_api.course_participation">
+<a href="#method.analytics_api.course_participation" name="method.analytics_api.course_participation">
+      Get course-level participation data
+    </a>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/analytics/activity
+  </h3>
+<p>Returns page view hits and participation numbers grouped by day through the
+entire history of the course. Page views is returned as a hash, where the
+hash keys are dates in the format âYYYY-MM-DDâ. The page_views result set
+includes page views broken out by access category. Participations is
+returned as an array of dates in the format âYYYY-MM-DDâ.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/analytics/activity \
+    -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">[
+  { 
+    "date": "2012-01-24",
+    "participations": 3,
+    "views": 10
+  }
+]</code></pre>
+</div>
+</div>

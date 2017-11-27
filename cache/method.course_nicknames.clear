@@ -1,0 +1,19 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Course Nicknames" name="method.course_nicknames.clear">
+<a href="#method.course_nicknames.clear" name="method.course_nicknames.clear">
+      Clear course nicknames
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/course_nicknames_controller.rb">CourseNicknamesController#clear</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/users/self/course_nicknames
+  </h3>
+<p>Remove all stored course nicknames.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/users/self/course_nicknames \
+  -X DELETE \
+  -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+</div>

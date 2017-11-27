@@ -1,0 +1,27 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Courses" name="method.courses.recent_students">
+<a href="#method.courses.recent_students" name="method.courses.recent_students">
+      List recently logged in students
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/courses_controller.rb">CoursesController#recent_students</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/recent_students
+  </h3>
+<p>Returns the paginated list of users in this course, ordered by how recently
+they have logged in. The records include the 'last_login' field
+which contains a timestamp of the last time that user logged into canvas. 
+The querying user must have the 'View usage reports' permission.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -H 'Authorization: Bearer &lt;token&gt;' \
+     https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/recent_users</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="users.html#User">Users</a>
+</div>

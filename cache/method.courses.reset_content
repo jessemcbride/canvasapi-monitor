@@ -1,0 +1,20 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Courses" name="method.courses.reset_content">
+<a href="#method.courses.reset_content" name="method.courses.reset_content">
+      Reset a course
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/courses_controller.rb">CoursesController#reset_content</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/reset_content
+  </h3>
+<p>Deletes the current course, and creates a new equivalent course with no
+content, but all sections and users moved over.</p>
+
+
+
+
+  Returns a 
+
+<a href="courses.html#Course">Course</a>
+</div>

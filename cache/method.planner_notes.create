@@ -1,0 +1,23 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Planner Note" name="method.planner_notes.create">
+<a href="#method.planner_notes.create" name="method.planner_notes.create">
+      Create a planner note
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/planner_notes_controller.rb">PlannerNotesController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/planner_notes
+  </h3>
+<p>Create a planner note for the current user</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash"></code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="planner_note.html#PlannerNote">PlannerNote</a>
+</div>

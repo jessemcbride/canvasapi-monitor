@@ -1,0 +1,30 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Provisional Grades" name="method.provisional_grades.copy_to_final_mark">
+<a href="#method.provisional_grades.copy_to_final_mark" name="method.provisional_grades.copy_to_final_mark">
+      Copy provisional grade
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/provisional_grades_controller.rb">ProvisionalGradesController#copy_to_final_mark</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/:provisional_grade_id/copy_to_final_mark
+  </h3>
+<p>Given a provisional grade, copy the grade (and associated submission
+comments and rubric assessments) to a âfinalâ mark which can be edited or
+commented upon by a moderator prior to publication of grades.</p>
+<p>Notes:</p>
+<ul><li>
+<p>The student must be in the moderation set for the assignment.</p>
+</li><li>
+<p>The newly created grade will be selected.</p>
+</li><li>
+<p>The caller must have âModerate Gradesâ rights in the course.</p>
+</li></ul>
+
+
+
+
+  Returns a 
+
+<a href="moderated_grading.html#ProvisionalGrade">ProvisionalGrade</a>
+</div>

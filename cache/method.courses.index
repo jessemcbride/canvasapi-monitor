@@ -1,0 +1,204 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Courses" name="method.courses.index">
+<a href="#method.courses.index" name="method.courses.index">
+      List your courses
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/courses_controller.rb">CoursesController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses
+  </h3>
+<p>Returns the paginated list of active courses for the current user.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>enrollment_type</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>When set, only return courses where the user is enrolled as this type. For
+example, set to âteacherâ to return only courses where the user is enrolled
+as a Teacher.  This argument is ignored if enrollment_role is given.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">teacher</code>, <code class="enum">student</code>, <code class="enum">ta</code>, <code class="enum">observer</code>, <code class="enum">designer</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_role</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Deprecated When set, only return courses where the user is enrolled with
+the specified course-level role.  This can be a role created with the
+<a href="roles.html#method.role_overrides.add_role" title="Add Role API">Add Role API</a> or a base role type of
+'StudentEnrollment', 'TeacherEnrollment',
+'TaEnrollment', 'ObserverEnrollment', or
+'DesignerEnrollment'.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_role_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>When set, only return courses where the user is enrolled with the specified
+course-level role.  This can be a role created with the
+<a href="roles.html#method.role_overrides.add_role" title="Add Role API">Add Role API</a> or a built_in role type
+of 'StudentEnrollment', 'TeacherEnrollment',
+'TaEnrollment', 'ObserverEnrollment', or
+'DesignerEnrollment'.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_state</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>When set, only return courses where the user has an enrollment with the
+given state. This will respect section/course/term date overrides.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">active</code>, <code class="enum">invited_or_pending</code>, <code class="enum">completed</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>exclude_blueprint_courses</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>When set, only return courses that are not configured as blueprint courses.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<ul><li>
+<p>âneeds_grading_countâ: Optional information to include with each Course.
+When needs_grading_count is given, and the current user has grading rights,
+the total number of submissions needing grading for all assignments is
+returned.</p>
+</li><li>
+<p>âsyllabus_bodyâ: Optional information to include with each Course. When
+syllabus_body is given the user-generated html for the course syllabus is
+returned.</p>
+</li><li>
+<p>âpublic_descriptionâ: Optional information to include with each Course.
+When public_description is given the user-generated text for the course
+public description is returned.</p>
+</li><li>
+<p>âtotal_scoresâ: Optional information to include with each Course. When
+total_scores is given, any student enrollments will also include the fields
+'computed_current_score', 'computed_final_score',
+'computed_current_grade', and 'computed_final_grade' (see
+Enrollment documentation for more information on these fields). This
+argument is ignored if the course is configured to hide final grades.</p>
+</li><li>
+<p>âcurrent_grading_period_scoresâ: Optional information to include with each
+Course. When current_grading_period_scores is given and total_scores is
+given, any student enrollments will also include the fields
+'has_grading_periods',
+'totals_for_all_grading_periods_option',
+'current_grading_period_title',
+'current_grading_period_id',
+current_period_computed_current_score',
+'current_period_computed_final_score',
+'current_period_computed_current_grade', and
+'current_period_computed_final_grade' (see Enrollment documentation
+for more information on these fields). In addition, when this argument is
+passed, the course will have a 'has_grading_periods' attribute on
+it. This argument is ignored if the course is configured to hide final
+grades or if the total_scores argument is not included.</p>
+</li><li>
+<p>âtermâ: Optional information to include with each Course. When term is
+given, the information for the enrollment term for each course is returned.</p>
+</li><li>
+<p>âcourse_progressâ: Optional information to include with each Course. When
+course_progress is given, each course will include a
+'course_progress' object with the fields:
+'requirement_count', an integer specifying the total number of
+requirements in the course, 'requirement_completed_count', an
+integer specifying the total number of requirements in this course that
+have been completed, and 'next_requirement_url', a string url to
+the next requirement item, and 'completed_at', the date the course
+was completed (null if incomplete). 'next_requirement_url' will be
+null if all requirements have been completed or the current module does not
+require sequential progress. âcourse_progressâ will return an error message
+if the course is not module based or the user is not enrolled as a student
+in the course.</p>
+</li><li>
+<p>âsectionsâ: Section enrollment information to include with each Course.
+Returns an array of hashes containing the section ID (id), section name
+(name), start and end dates (start_at, end_at), as well as the enrollment
+type (enrollment_role, e.g. 'StudentEnrollment').</p>
+</li><li>
+<p>âstorage_quota_used_mbâ: The amount of storage space used by the files in
+this course</p>
+</li><li>
+<p>âtotal_studentsâ: Optional information to include with each Course. Returns
+an integer for the total amount of active and invited students.</p>
+</li><li>
+<p>âpassback_statusâ: Include the grade passback_status</p>
+</li><li>
+<p>âfavoritesâ: Optional information to include with each Course. Indicates if
+the user has marked the course as a favorite course.</p>
+</li><li>
+<p>âteachersâ: Teacher information to include with each Course. Returns an
+array of hashes containing the <a href="users.html#UserDisplay" title="UserDisplay">UserDisplay</a>
+information for each teacher in the course.</p>
+</li><li>
+<p>âobserved_usersâ: Optional information to include with each Course. Will
+include data for observed users if the current user has an observer
+enrollment.</p>
+</li><li>
+<p>âtabsâ: Optional information to include with each Course. Will include the
+list of tabs configured for each course.  See the <a href="tabs.html#method.tabs.index" title="List available tabs API">List available tabs API</a> for more information.</p>
+</li><li>
+<p>âcourse_imageâ: Optional course image data for when there is a course image
+and the course image feature flag has been enabled</p>
+</li></ul>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">needs_grading_count</code>, <code class="enum">syllabus_body</code>, <code class="enum">public_description</code>, <code class="enum">total_scores</code>, <code class="enum">current_grading_period_scores</code>, <code class="enum">term</code>, <code class="enum">course_progress</code>, <code class="enum">sections</code>, <code class="enum">storage_quota_used_mb</code>, <code class="enum">total_students</code>, <code class="enum">passback_status</code>, <code class="enum">favorites</code>, <code class="enum">teachers</code>, <code class="enum">observed_users</code>, <code class="enum">course_image</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>state[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If set, only return courses that are in the given state(s). By default,
+âavailableâ is returned for students and observers, and anything except
+âdeletedâ, for all other enrollment types</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">unpublished</code>, <code class="enum">available</code>, <code class="enum">completed</code>, <code class="enum">deleted</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="courses.html#Course">Courses</a>
+</div>

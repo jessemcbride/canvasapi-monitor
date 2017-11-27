@@ -1,0 +1,62 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Rubrics" name="method.rubrics_api.show">
+<a href="#method.rubrics_api.show" name="method.rubrics_api.show">
+      Get a single rubric
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/rubrics_api_controller.rb">RubricsApiController#show</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/rubrics/:id
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/rubrics/:id
+  </h3>
+<p>Returns the rubric with the given id.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>include</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If included, the type of associated rubric assessments to return. If not
+included, assessments will be omitted.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">assessments</code>, <code class="enum">graded_assessments</code>, <code class="enum">peer_assessments</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>style</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Applicable only if assessments are being returned. If included, returns
+either all criteria data associated with the assessment, or just the
+comments. If not included, both data and comments are omitted.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">full</code>, <code class="enum">comments_only</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="rubrics.html#Rubric">Rubric</a>
+</div>

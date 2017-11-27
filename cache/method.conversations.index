@@ -1,0 +1,260 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Conversations" name="method.conversations.index">
+<a href="#method.conversations.index" name="method.conversations.index">
+      List conversations
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/conversations_controller.rb">ConversationsController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/conversations
+  </h3>
+<p>Returns the paginated list of conversations for the current user, most
+recent ones first.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>scope</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>When set, only return conversations of the specified type. For example, set
+to âunreadâ to return only conversations that haven't been read. The
+default behavior is to return all non-archived conversations (i.e. read and
+unread).</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">unread</code>, <code class="enum">starred</code>, <code class="enum">archived</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>filter[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>When set, only return conversations for the specified courses, groups or
+users. The id should be prefixed with its type, e.g. âuser_123â or
+âcourse_456â. Can be an array (by setting âfilter[]â) or single value (by
+setting âfilterâ)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>filter_mode</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>When filter[] contains multiple filters, combine them with this mode,
+filtering conversations that at have at least all of the contexts (âandâ)
+or at least one of the contexts (âorâ)</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">and</code>, <code class="enum">or</code>, <code class="enum">default or</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>interleave_submissions</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>(Obsolete) Submissions are no longer linked to conversations. This
+parameter is ignored.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include_all_conversation_ids</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Default is false. If true, the top-level element of the response will be an
+object rather than an array, and will have the keys âconversationsâ which
+will contain the paged conversation data, and âconversation_idsâ which will
+contain the ids of all conversations under this scope/filter in the same
+order.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<dl class="rdoc-list note-list"><dt>âparticipant_avatarsâ
+<dd>
+<p>Optionally include an âavatar_urlâ key for each user participanting in the
+conversation</p>
+</dd></dt></dl>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">participant_avatars</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4>API response field:</h4>
+<ul class="response_field">
+<li>
+<span class="type"></span>
+<span class="name">id</span>
+<div class="inline">
+<p>The unique identifier for the conversation.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">subject</span>
+<div class="inline">
+<p>The subject of the conversation.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">workflow_state</span>
+<div class="inline">
+<p>The current state of the conversation (read, unread or archived)</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">last_message</span>
+<div class="inline">
+<p>A &lt;=100 character preview from the most recent message</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">last_message_at</span>
+<div class="inline">
+<p>The timestamp of the latest message</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">message_count</span>
+<div class="inline">
+<p>The number of messages in this conversation</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">subscribed</span>
+<div class="inline">
+<p>Indicates whether the user is actively subscribed to the conversation</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">private</span>
+<div class="inline">
+<p>Indicates whether this is a private conversation (i.e. audience of one)</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">starred</span>
+<div class="inline">
+<p>Whether the conversation is starred</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">properties</span>
+<div class="inline">
+<p>Additional conversation flags (last_author, attachments, media_objects).
+Each listed property means the flag is set to true (i.e. the current user
+is the most recent author, there are attachments, or there are media
+objects)</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">audience</span>
+<div class="inline">
+<p>Array of user ids who are involved in the conversation, ordered by
+participation level, then alphabetical. Excludes current user, unless this
+is a monologue.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">audience_contexts</span>
+<div class="inline">
+<p>Most relevant shared contexts (courses and groups) between current user and
+other participants. If there is only one participant, it will also include
+that user's enrollment(s)/ membership type(s) in each course/group</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">avatar_url</span>
+<div class="inline">
+<p>URL to appropriate icon for this conversation (custom, individual or group
+avatar, depending on audience)</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">participants</span>
+<div class="inline">
+<p>Array of users (id, name, full_name) participating in the conversation.
+Includes current user. If `include[]=participant_avatars` was passed as an
+argument, each user in the array will also have an âavatar_urlâ field</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">visible</span>
+<div class="inline">
+<p>Boolean, indicates whether the conversation is visible under the current
+scope and filter. This attribute is always true in the index API response,
+and is primarily useful in create/update responses so that you can know if
+the record should be displayed in the UI. The default scope is assumed,
+unless a scope or filter is passed to the create/update API call.</p>
+</div>
+</li>
+</ul>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">[
+  {
+    "id": 2,
+    "subject": "conversations api example",
+    "workflow_state": "unread",
+    "last_message": "sure thing, here's the file",
+    "last_message_at": "2011-09-02T12:00:00Z",
+    "message_count": 2,
+    "subscribed": true,
+    "private": true,
+    "starred": false,
+    "properties": ["attachments"],
+    "audience": [2],
+    "audience_contexts": {"courses": {"1": ["StudentEnrollment"]}, "groups": {}},
+    "avatar_url": "https://canvas.instructure.com/images/messages/avatar-group-50.png",
+    "participants": [
+      {"id": 1, "name": "Joe", "full_name": "Joe TA"},
+      {"id": 2, "name": "Jane", "full_name": "Jane Teacher"}
+    ],
+    "visible": true,
+    "context_name": "Canvas 101"
+  }
+]</code></pre>
+</div>
+
+
+  Returns a list of 
+
+<a href="conversations.html#Conversation">Conversations</a>
+</div>

@@ -1,0 +1,201 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Outcome Groups" name="method.outcome_groups_api.link">
+<a href="#method.outcome_groups_api.link" name="method.outcome_groups_api.link">
+      Create/link an outcome
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/outcome_groups_api_controller.rb">OutcomeGroupsApiController#link</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/global/outcome_groups/:id/outcomes
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/global/outcome_groups/:id/outcomes/:outcome_id
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/outcome_groups/:id/outcomes
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/accounts/:account_id/outcome_groups/:id/outcomes/:outcome_id
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/outcome_groups/:id/outcomes
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/outcome_groups/:id/outcomes/:outcome_id
+  </h3>
+<p>Link an outcome into the outcome group. The outcome to link can either be
+specified by a PUT to the link URL for a specific outcome (the outcome_id
+in the PUT URLs) or by supplying the information for a new outcome (title,
+description, ratings, mastery_points) in a POST to the collection.</p>
+<p>If linking an existing outcome, the outcome_id must identify an outcome
+available to this context; i.e. an outcome owned by this group's
+context, an outcome owned by an associated account, or a global outcome.
+With outcome_id present, any other parameters are ignored.</p>
+<p>If defining a new outcome, the outcome is created in the outcome
+group's context using the provided title, description, ratings, and
+mastery points; the title is required but all other fields are optional.
+The new outcome is then linked into the outcome group.</p>
+<p>If ratings are provided when creating a new outcome, an embedded rubric
+criterion is included in the new outcome. This criterion's
+mastery_points default to the maximum points in the highest rating if not
+specified in the mastery_points parameter. Any ratings lacking a
+description are given a default of âNo descriptionâ. Any ratings lacking a
+point value are given a default of 0. If no ratings are provided, the
+mastery_points parameter is ignored.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>outcome_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The ID of the existing outcome to link.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>title</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The title of the new outcome. Required if outcome_id is absent.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>display_name</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A friendly name shown in reports for outcomes with cryptic titles, such as
+common core standards names.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>description</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The description of the new outcome.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>vendor_guid</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A custom GUID for the learning standard.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>mastery_points</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The mastery threshold for the embedded rubric criterion.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>ratings[][description]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The description of a rating level for the embedded rubric criterion.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>ratings[][points]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The points corresponding to a rating level for the embedded rubric
+criterion.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>calculation_method</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The new calculation method.  Defaults to âhighestâ</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">decaying_average</code>, <code class="enum">n_mastery</code>, <code class="enum">latest</code>, <code class="enum">highest</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>calculation_int</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The new calculation int.  Only applies if the calculation_method is
+âdecaying_averageâ or ân_masteryâ</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/accounts/1/outcome_groups/1/outcomes/1.json' \
+     -X PUT \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/accounts/1/outcome_groups/1/outcomes.json' \
+     -X POST \
+     -F 'title=Outcome Title' \
+     -F 'display_name=Title for reporting' \
+     -F 'description=Outcome description' \
+     -F 'vendor_guid=customid9000' \
+     -F 'mastery_points=3' \
+     -F 'calculation_method=decaying_average' \
+     -F 'calculation_int=75' \
+     -F 'ratings[][description]=Exceeds Expectations' \
+     -F 'ratings[][points]=5' \
+     -F 'ratings[][description]=Meets Expectations' \
+     -F 'ratings[][points]=3' \
+     -F 'ratings[][description]=Does Not Meet Expectations' \
+     -F 'ratings[][points]=0' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/accounts/1/outcome_groups/1/outcomes.json' \
+     -X POST \
+     --data-binary '{
+           "title": "Outcome Title",
+           "display_name": "Title for reporting",
+           "description": "Outcome description",
+           "vendor_guid": "customid9000",
+           "mastery_points": 3,
+           "ratings": [
+             { "description": "Exceeds Expectations", "points": 5 },
+             { "description": "Meets Expectations", "points": 3 },
+             { "description": "Does Not Meet Expectations", "points": 0 }
+           ]
+         }' \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="outcome_groups.html#OutcomeLink">OutcomeLink</a>
+</div>

@@ -1,0 +1,17 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Conversations" name="method.conversations.unread_count">
+<a href="#method.conversations.unread_count" name="method.conversations.unread_count">
+      Unread count
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/conversations_controller.rb">ConversationsController#unread_count</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/conversations/unread_count
+  </h3>
+<p>Get the number of unread conversations for the current user</p>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{'unread_count': '7'}</code></pre>
+</div>
+</div>

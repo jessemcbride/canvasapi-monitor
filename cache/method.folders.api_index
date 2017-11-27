@@ -1,0 +1,24 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Folders" name="method.folders.api_index">
+<a href="#method.folders.api_index" name="method.folders.api_index">
+      List folders
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/folders_controller.rb">FoldersController#api_index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/folders/:id/folders
+  </h3>
+<p>Returns the paginated list of folders in the folder.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/folders/&lt;folder_id&gt;/folders' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="files.html#Folder">Folders</a>
+</div>

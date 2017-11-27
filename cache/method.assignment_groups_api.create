@@ -1,0 +1,87 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Assignment Groups" name="method.assignment_groups_api.create">
+<a href="#method.assignment_groups_api.create" name="method.assignment_groups_api.create">
+      Create an Assignment Group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/assignment_groups_api_controller.rb">AssignmentGroupsApiController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/assignment_groups
+  </h3>
+<p>Create a new assignment group for this course.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>name</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The assignment group's name</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>position</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The position of this assignment group in relation to the other assignment
+groups</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>group_weight</td>
+<td>
+</td>
+<td>Float</td>
+<td class="param-desc">
+<p>The percent of the total grade that this assignment group represents</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>sis_source_id</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The sis source id of the Assignment Group</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>integration_data</td>
+<td>
+</td>
+<td>Object</td>
+<td class="param-desc">
+<p>The integration data of the Assignment Group</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>rules</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The grading rules that are applied within this assignment group See the
+Assignment Group object definition for format</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="assignment_groups.html#AssignmentGroup">AssignmentGroup</a>
+</div>

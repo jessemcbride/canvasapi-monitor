@@ -1,0 +1,37 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Users" name="method.users.set_dashboard_positions">
+<a href="#method.users.set_dashboard_positions" name="method.users.set_dashboard_positions">
+      Update dashboard positions
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/users_controller.rb">UsersController#set_dashboard_positions</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/users/:id/dashboard_positions
+  </h3>
+<p>Updates the dashboard positions for a user for a given context.  This
+allows positions for the dashboard cards and elsewhere to be customized on
+a per user basis.</p>
+<p>The asset string parameter should be in the format 'context_id',
+for example 'course_42'</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/users/&lt;user_id&gt;/dashboard_positions/ \
+  -X PUT \
+  -F 'dashboard_positions[course_42]=1' \
+  -F 'dashboard_positions[course_53]=2' \
+  -F 'dashboard_positions[course_10]=3' \
+  -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "dashboard_positions": {
+    "course_10": 3,
+    "course_42": 1,
+    "course_53": 2
+  }
+}</code></pre>
+</div>
+</div>

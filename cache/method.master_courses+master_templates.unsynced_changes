@@ -1,0 +1,21 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Blueprint Management" name="method.master_courses/master_templates.unsynced_changes">
+<a href="#method.master_courses/master_templates.unsynced_changes" name="method.master_courses/master_templates.unsynced_changes">
+      Get unsynced changes
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/master_courses/master_templates_controller.rb">MasterCourses::MasterTemplatesController#unsynced_changes</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/blueprint_templates/:template_id/unsynced_changes
+  </h3>
+<p>Retrieve a list of learning objects that have changed since the last
+blueprint sync operation.</p>
+
+
+
+
+  Returns a list of 
+
+<a href="blueprint_courses.html#ChangeRecord">ChangeRecords</a>
+</div>

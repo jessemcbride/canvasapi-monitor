@@ -1,0 +1,20 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Moderation Set" name="method.moderation_set.index">
+<a href="#method.moderation_set.index" name="method.moderation_set.index">
+      List students selected for moderation
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/moderation_set_controller.rb">ModerationSetController#index</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/assignments/:assignment_id/moderated_students
+  </h3>
+<p>Returns a paginated list of students selected for moderation</p>
+
+
+
+
+  Returns a list of 
+
+<a href="users.html#User">Users</a>
+</div>

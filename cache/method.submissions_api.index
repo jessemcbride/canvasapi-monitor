@@ -1,0 +1,178 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Submissions" name="method.submissions_api.index">
+<a href="#method.submissions_api.index" name="method.submissions_api.index">
+      List assignment submissions
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/submissions_api_controller.rb">SubmissionsApiController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/assignments/:assignment_id/submissions
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/sections/:section_id/assignments/:assignment_id/submissions
+  </h3>
+<p>A paginated list of all existing submissions for an assignment.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Associations to include with the group.  âgroupâ will add group_id and
+group_name.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">submission_history</code>, <code class="enum">submission_comments</code>, <code class="enum">rubric_assessment</code>, <code class="enum">assignment</code>, <code class="enum">visibility</code>, <code class="enum">course</code>, <code class="enum">user</code>, <code class="enum">group</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grouped</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If this argument is true, the response will be grouped by student groups.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h4>API response field:</h4>
+<ul class="response_field">
+<li>
+<span class="type"></span>
+<span class="name">assignment_id</span>
+<div class="inline">
+<p>The unique identifier for the assignment.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">user_id</span>
+<div class="inline">
+<p>The id of the user who submitted the assignment.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">grader_id</span>
+<div class="inline">
+<p>The id of the user who graded the submission. This will be null for
+submissions that haven't been graded yet. It will be a positive number
+if a real user has graded the submission and a negative number if the
+submission was graded by a process (e.g. Quiz autograder and autograding
+LTI tools).  Specifically autograded quizzes set grader_id to the negative
+of the quiz id.  Submissions autograded by LTI tools set grader_id to the
+negative of the tool id.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">canvadoc_document_id</span>
+<div class="inline">
+<p>The id for the canvadoc document associated with this submission, if it was
+a file upload.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">submitted_at</span>
+<div class="inline">
+<p>The timestamp when the assignment was submitted, if an actual submission
+has been made.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">score</span>
+<div class="inline">
+<p>The raw score for the assignment submission.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">attempt</span>
+<div class="inline">
+<p>If multiple submissions have been made, this is the attempt number.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">body</span>
+<div class="inline">
+<p>The content of the submission, if it was submitted directly in a text
+field.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">grade</span>
+<div class="inline">
+<p>The grade for the submission, translated into the assignment grading scheme
+(so a letter grade, for example).</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">grade_matches_current_submission</span>
+<div class="inline">
+<p>A boolean flag which is false if the student has re-submitted since the
+submission was last graded.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">preview_url</span>
+<div class="inline">
+<p>Link to the URL in canvas where the submission can be previewed. This will
+require the user to log in.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">url</span>
+<div class="inline">
+<p>If the submission was made as a URL.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">late</span>
+<div class="inline">
+<p>Whether the submission was made after the applicable due date.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">assignment_visible</span>
+<div class="inline">
+<p>Whether this assignment is visible to the user who submitted the
+assignment.</p>
+</div>
+</li>
+<li>
+<span class="type"></span>
+<span class="name">workflow_state</span>
+<div class="inline">
+<p>The current status of the submission. Possible values: âsubmittedâ,
+âunsubmittedâ, âgradedâ, âpending_reviewâ</p>
+</div>
+</li>
+</ul>
+
+
+
+  Returns a list of 
+
+<a href="submissions.html#Submission">Submissions</a>
+</div>

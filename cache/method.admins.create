@@ -1,0 +1,72 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Admins" name="method.admins.create">
+<a href="#method.admins.create" name="method.admins.create">
+      Make an account admin
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/admins_controller.rb">AdminsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/admins
+  </h3>
+<p>Flag an existing user as an admin within the account.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>user_id</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The id of the user to promote.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>role</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>(deprecated) The user's admin relationship with the account will be
+created with the given role. Defaults to 'AccountAdmin'.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>role_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The user's admin relationship with the account will be created with the
+given role. Defaults to the built-in role for 'AccountAdmin'.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>send_confirmation</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Send a notification email to the new admin if true. Default is true.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="admins.html#Admin">Admin</a>
+</div>

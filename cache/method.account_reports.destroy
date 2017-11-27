@@ -1,0 +1,25 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Account Reports" name="method.account_reports.destroy">
+<a href="#method.account_reports.destroy" name="method.account_reports.destroy">
+      Delete a Report
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/account_reports_controller.rb">AccountReportsController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/accounts/:account_id/reports/:report/:id
+  </h3>
+<p>Deletes a generated report instance.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -H 'Authorization: Bearer &lt;token&gt;' \
+     -X DELETE \
+     https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/reports/&lt;report_type&gt;/&lt;id&gt;</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="account_reports.html#Report">Report</a>
+</div>

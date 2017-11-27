@@ -1,0 +1,205 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Roles" name="method.role_overrides.add_role">
+<a href="#method.role_overrides.add_role" name="method.role_overrides.add_role">
+      Create a new role
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/role_overrides_controller.rb">RoleOverridesController#add_role</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/roles
+  </h3>
+<p>Create a new course-level or account-level role.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>label</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>Label for the role.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>role</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Deprecated alias for label.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>base_role_type</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Specifies the role type that will be used as a base for the permissions
+granted to this role.</p>
+<p>Defaults to 'AccountMembership' if absent</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">AccountMembership</code>, <code class="enum">StudentEnrollment</code>, <code class="enum">TeacherEnrollment</code>, <code class="enum">TaEnrollment</code>, <code class="enum">ObserverEnrollment</code>, <code class="enum">DesignerEnrollment</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][explicit]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>no description</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][enabled]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If explicit is 1 and enabled is 1, permission &lt;X&gt; will be explicitly
+granted to this role. If explicit is 1 and enabled has any other value
+(typically 0), permission &lt;X&gt; will be explicitly denied to this role.
+If explicit is any other value (typically 0) or absent, or if enabled is
+absent, the value for permission &lt;X&gt; will be inherited from upstream.
+Ignored if permission &lt;X&gt; is locked upstream (in an ancestor
+account).</p>
+<p>May occur multiple times with unique values for &lt;X&gt;. Recognized
+permission names for &lt;X&gt; are:</p>
+<pre class="code ruby"><code class="ruby">[For Account-Level Roles Only]
+become_user                      -- Become other users
+import_sis                       -- Import SIS data
+manage_account_memberships       -- Add/remove other admins for the account
+manage_account_settings          -- Manage account-level settings
+manage_alerts                    -- Manage global alerts
+manage_courses                   -- Manage ( add / edit / delete ) courses
+manage_developer_keys            -- Manage developer keys
+manage_global_outcomes           -- Manage learning outcomes
+manage_jobs                      -- Manage background jobs
+manage_role_overrides            -- Manage permissions
+manage_storage_quotas            -- Set storage quotas for courses, groups, and users
+manage_sis                       -- Manage SIS data
+manage_site_settings             -- Manage site-wide and plugin settings
+manage_user_logins               -- Modify login details for users
+read_course_content              -- View course content
+read_course_list                 -- View the list of courses
+read_messages                    -- View notifications sent to users
+site_admin                       -- Use the Site Admin section and admin all other accounts
+view_error_reports               -- View error reports
+view_statistics                  -- View statistics
+manage_feature_flags             -- Enable or disable features at an account level
+
+[For both Account-Level and Course-Level roles]
+ Note: Applicable enrollment types for course-level roles are given in brackets:
+       S = student, T = teacher, A = TA, D = designer, O = observer.
+       Lower-case letters indicate permissions that are off by default.
+       A missing letter indicates the permission cannot be enabled for the role
+       or any derived custom roles.
+change_course_state              -- [ TaD ] Change course state
+comment_on_others_submissions    -- [sTAD ] View all students' submissions and make comments on them
+create_collaborations            -- [STADo] Create student collaborations
+create_conferences               -- [STADo] Create web conferences
+manage_admin_users               -- [ Tad ] Add/remove other teachers, course designers or TAs to the course
+manage_assignments               -- [ TADo] Manage (add / edit / delete) assignments and quizzes
+manage_calendar                  -- [sTADo] Add, edit and delete events on the course calendar
+manage_content                   -- [ TADo] Manage all other course content
+manage_files                     -- [ TADo] Manage (add / edit / delete) course files
+manage_grades                    -- [ TA  ] Edit grades
+manage_groups                    -- [ TAD ] Manage (create / edit / delete) groups
+manage_interaction_alerts        -- [ Ta  ] Manage alerts
+manage_outcomes                  -- [sTaDo] Manage learning outcomes
+manage_sections                  -- [ TaD ] Manage (create / edit / delete) course sections
+manage_students                  -- [ TAD ] Add/remove students for the course
+manage_user_notes                -- [ TA  ] Manage faculty journal entries
+manage_rubrics                   -- [ TAD ] Edit assessing rubrics
+manage_wiki                      -- [ TADo] Manage (add / edit / delete) pages
+read_forum                       -- [STADO] View discussions
+moderate_forum                   -- [sTADo] Moderate discussions (delete/edit others' posts, lock topics)
+post_to_forum                    -- [STADo] Post to discussions
+read_announcements               -- [STADO] View announcements
+read_question_banks              -- [ TADo] View and link to question banks
+read_reports                     -- [ TAD ] View usage reports for the course
+read_roster                      -- [STADo] See the list of users
+read_sis                         -- [sTa  ] Read SIS data
+send_messages                    -- [STADo] Send messages to individual course members
+send_messages_all                -- [sTADo] Send messages to the entire class
+view_all_grades                  -- [ TAd ] View all grades
+view_group_pages                 -- [sTADo] View the group pages of all student groups
+lti_add_edit                     -- [ TAD ] LTI add and edit</code></pre>
+<p>Some of these permissions are applicable only for roles on the site admin
+account, on a root account, or for course-level roles with a particular
+base role type; if a specified permission is inapplicable, it will be
+ignored.</p>
+<p>Additional permissions may exist based on installed plugins.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][locked]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If the value is 1, permission &lt;X&gt; will be locked downstream (new
+roles in subaccounts cannot override the setting). For any other value,
+permission &lt;X&gt; is left unlocked. Ignored if permission &lt;X&gt; is
+already locked upstream. May occur multiple times with unique values for
+&lt;X&gt;.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][applies_to_self]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If the value is 1, permission &lt;X&gt; applies to the account this role is
+in. The default value is 1. Must be true if applies_to_descendants is
+false. This value is only returned if enabled is true.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][applies_to_descendants]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If the value is 1, permission &lt;X&gt; cascades down to sub accounts of
+the account this role is in. The default value is 1.  Must be true if
+applies_to_self is false.This value is only returned if enabled is true.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/roles.json' \
+     -H "Authorization: Bearer &lt;token&gt;" \
+     -F 'label=New Role' \
+     -F 'permissions[read_course_content][explicit]=1' \
+     -F 'permissions[read_course_content][enabled]=1' \
+     -F 'permissions[read_course_list][locked]=1' \
+     -F 'permissions[read_question_banks][explicit]=1' \
+     -F 'permissions[read_question_banks][enabled]=0' \
+     -F 'permissions[read_question_banks][locked]=1'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="roles.html#Role">Role</a>
+</div>

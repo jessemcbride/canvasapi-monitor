@@ -1,0 +1,27 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Group Categories" name="method.group_categories.index">
+<a href="#method.group_categories.index" name="method.group_categories.index">
+      List group categories for a context
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/group_categories_controller.rb">GroupCategoriesController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/group_categories
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/group_categories
+  </h3>
+<p>Returns a paginated list of group categories in a context</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/accounts/&lt;account_id&gt;/group_categories \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="group_categories.html#GroupCategory">GroupCategories</a>
+</div>

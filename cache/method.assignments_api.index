@@ -1,0 +1,96 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Assignments" name="method.assignments_api.index">
+<a href="#method.assignments_api.index" name="method.assignments_api.index">
+      List assignments
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/assignments_api_controller.rb">AssignmentsApiController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/assignments
+  </h3>
+<p>Returns the paginated list of assignments for the current context.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Associations to include with the assignment. The âassignment_visibilityâ
+option requires that the Differentiated Assignments course feature be
+turned on. If âobserved_usersâ is passed, submissions for observed users
+will also be included as an array.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">submission</code>, <code class="enum">assignment_visibility</code>, <code class="enum">all_dates</code>, <code class="enum">overrides</code>, <code class="enum">observed_users</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>search_term</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The partial title of the assignments to match and return.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>override_assignment_dates</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Apply assignment overrides for each assignment, defaults to true.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>needs_grading_count_by_section</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Split up âneeds_grading_countâ by sections into the
+âneeds_grading_count_by_sectionâ key, defaults to false</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>bucket</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>If included, only return certain assignments depending on due date and
+submission status.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">past</code>, <code class="enum">overdue</code>, <code class="enum">undated</code>, <code class="enum">ungraded</code>, <code class="enum">unsubmitted</code>, <code class="enum">upcoming</code>, <code class="enum">future</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>assignment_ids[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>if set, return only assignments specified</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a list of 
+
+<a href="assignments.html#Assignment">Assignments</a>
+</div>

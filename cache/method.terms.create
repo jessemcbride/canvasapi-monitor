@@ -1,0 +1,91 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Enrollment Terms" name="method.terms.create">
+<a href="#method.terms.create" name="method.terms.create">
+      Create enrollment term
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/terms_controller.rb">TermsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/terms
+  </h3>
+<p>Create a new enrollment term for the specified account.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>enrollment_term[name]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The name of the term.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_term[start_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>The day/time the term starts. Accepts times in ISO 8601 format, e.g.
+2015-01-10T18:48:00Z.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_term[end_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>The day/time the term ends. Accepts times in ISO 8601 format, e.g.
+2015-01-10T18:48:00Z.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_term[sis_term_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The unique SIS identifier for the term.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_term[overrides][enrollment_type][start_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>The day/time the term starts, overridden for the given enrollment type.
+<strong>enrollment_type</strong> can be one of StudentEnrollment,
+TeacherEnrollment, TaEnrollment, or DesignerEnrollment</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>enrollment_term[overrides][enrollment_type][end_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>The day/time the term ends, overridden for the given enrollment type.
+<strong>enrollment_type</strong> can be one of StudentEnrollment,
+TeacherEnrollment, TaEnrollment, or DesignerEnrollment</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="enrollment_terms.html#EnrollmentTerm">EnrollmentTerm</a>
+</div>

@@ -1,0 +1,23 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Provisional Grades" name="method.provisional_grades.select">
+<a href="#method.provisional_grades.select" name="method.provisional_grades.select">
+      Select provisional grade
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/provisional_grades_controller.rb">ProvisionalGradesController#select</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/:provisional_grade_id/select
+  </h3>
+<p>Choose which provisional grade the student should receive for a submission.
+The caller must have :moderate_grades rights.</p>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "assignment_id": 867,
+  "student_id": 5309,
+  "selected_provisional_grade_id": 53669
+}</code></pre>
+</div>
+</div>

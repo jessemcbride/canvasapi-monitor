@@ -1,0 +1,119 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Group Categories" name="method.group_categories.assign_unassigned_members">
+<a href="#method.group_categories.assign_unassigned_members" name="method.group_categories.assign_unassigned_members">
+      Assign unassigned members
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/group_categories_controller.rb">GroupCategoriesController#assign_unassigned_members</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/group_categories/:group_category_id/assign_unassigned_members
+  </h3>
+<p>Assign all unassigned members as evenly as possible among the existing
+student groups.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>sync</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>The assigning is done asynchronously by default. If you would like to
+override this and have the assigning done synchronously, set this value to
+true.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/group_categories/1/assign_unassigned_members \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js"># Progress (default)
+{
+    "completion": 0,
+    "context_id": 20,
+    "context_type": "GroupCategory",
+    "created_at": "2013-07-05T10:57:48-06:00",
+    "id": 2,
+    "message": null,
+    "tag": "assign_unassigned_members",
+    "updated_at": "2013-07-05T10:57:48-06:00",
+    "user_id": null,
+    "workflow_state": "running",
+    "url": "http://localhost:3000/api/v1/progress/2"
+}</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js"># New Group Memberships (when sync = true)
+[
+  {
+    "id": 65,
+    "new_members": [
+      {
+        "user_id": 2,
+        "name": "Sam",
+        "display_name": "Sam",
+        "sections": [
+          {
+            "section_id": 1,
+            "section_code": "Section 1"
+          }
+        ]
+      },
+      {
+        "user_id": 3,
+        "name": "Sue",
+        "display_name": "Sue",
+        "sections": [
+          {
+            "section_id": 2,
+            "section_code": "Section 2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "new_members": [
+      {
+        "user_id": 5,
+        "name": "Joe",
+        "display_name": "Joe",
+        "sections": [
+          {
+            "section_id": 2,
+            "section_code": "Section 2"
+          }
+        ]
+      },
+      {
+        "user_id": 11,
+        "name": "Cecil",
+        "display_name": "Cecil",
+        "sections": [
+          {
+            "section_id": 3,
+            "section_code": "Section 3"
+          }
+        ]
+      }
+    ]
+  }
+]</code></pre>
+</div>
+</div>

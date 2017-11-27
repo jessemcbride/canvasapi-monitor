@@ -1,0 +1,22 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Originality Reports" name="method.lti/originality_reports_api.show">
+<a href="#method.lti/originality_reports_api.show" name="method.lti/originality_reports_api.show">
+      Show an Originality Report
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/lti/originality_reports_api_controller.rb">Lti::OriginalityReportsApiController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/lti/assignments/:assignment_id/submissions/:submission_id/originality_report/:id
+  </h3>
+<h3 class="endpoint">
+    GET /api/lti/assignments/:assignment_id/files/:file_id/originality_report
+  </h3>
+<p>Get a single originality report</p>
+
+
+
+
+  Returns a 
+
+<a href="originality_reports.html#OriginalityReport">OriginalityReport</a>
+</div>

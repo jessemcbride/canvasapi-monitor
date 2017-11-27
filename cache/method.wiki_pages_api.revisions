@@ -1,0 +1,28 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Pages" name="method.wiki_pages_api.revisions">
+<a href="#method.wiki_pages_api.revisions" name="method.wiki_pages_api.revisions">
+      List revisions
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/wiki_pages_api_controller.rb">WikiPagesApiController#revisions</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/pages/:url/revisions
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/pages/:url/revisions
+  </h3>
+<p>A paginated list of the revisions of a page. Callers must have update
+rights on the page in order to see page history.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -H 'Authorization: Bearer &lt;token&gt;' \
+https://&lt;canvas&gt;/api/v1/courses/123/pages/the-page-url/revisions</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="pages.html#PageRevision">PageRevisions</a>
+</div>

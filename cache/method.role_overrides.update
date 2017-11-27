@@ -1,0 +1,111 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Roles" name="method.role_overrides.update">
+<a href="#method.role_overrides.update" name="method.role_overrides.update">
+      Update a role
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/role_overrides_controller.rb">RoleOverridesController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/accounts/:account_id/roles/:id
+  </h3>
+<p>Update permissions for an existing role.</p>
+<p>Recognized roles are:</p>
+<ul><li>
+<p>TeacherEnrollment</p>
+</li><li>
+<p>StudentEnrollment</p>
+</li><li>
+<p>TaEnrollment</p>
+</li><li>
+<p>ObserverEnrollment</p>
+</li><li>
+<p>DesignerEnrollment</p>
+</li><li>
+<p>AccountAdmin</p>
+</li><li>
+<p>Any previously created custom role</p>
+</li></ul>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>label</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The label for the role. Can only change the label of a custom role that
+belongs directly to the account.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][explicit]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>no description</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][enabled]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>These arguments are described in the documentation for the
+<a href="roles.html#method.role_overrides.add_role" title="add_role method">add_role method</a>.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][applies_to_self]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If the value is 1, permission &lt;X&gt; applies to the account this role is
+in. The default value is 1. Must be true if applies_to_descendants is
+false. This value is only returned if enabled is true.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>permissions[&lt;X&gt;][applies_to_descendants]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If the value is 1, permission &lt;X&gt; cascades down to sub accounts of
+the account this role is in. The default value is 1.  Must be true if
+applies_to_self is false.This value is only returned if enabled is true.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/accounts/:account_id/roles/2 \
+  -X PUT \
+  -H 'Authorization: Bearer &lt;access_token&gt;' \
+  -F 'label=New Role Name' \
+  -F 'permissions[manage_groups][explicit]=1' \
+  -F 'permissions[manage_groups][enabled]=1' \
+  -F 'permissions[manage_groups][locked]=1' \
+  -F 'permissions[send_messages][explicit]=1' \
+  -F 'permissions[send_messages][enabled]=0'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="roles.html#Role">Role</a>
+</div>

@@ -1,0 +1,24 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Enrollments" name="method.enrollments_api.reactivate">
+<a href="#method.enrollments_api.reactivate" name="method.enrollments_api.reactivate">
+      Re-activate an enrollment
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/enrollments_api_controller.rb">EnrollmentsApiController#reactivate</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/enrollments/:id/reactivate
+  </h3>
+<p>Activates an inactive enrollment</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/:course_id/enrollments/:enrollment_id/reactivate \
+  -X PUT</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="enrollments.html#Enrollment">Enrollment</a>
+</div>

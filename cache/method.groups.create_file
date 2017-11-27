@@ -1,0 +1,18 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Groups" name="method.groups.create_file">
+<a href="#method.groups.create_file" name="method.groups.create_file">
+      Upload a file
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/groups_controller.rb">GroupsController#create_file</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/groups/:group_id/files
+  </h3>
+<p>Upload a file to the group.</p>
+<p>This API endpoint is the first step in uploading a file to a group. See the
+<a href="file_uploads.html" title="File Upload Documentation">File Upload Documentation</a> for details on the file
+upload workflow.</p>
+<p>Only those with the âManage Filesâ permission on a group can upload files
+to the group. By default, this is anybody participating in the group, or
+any admin over the group.</p>
+</div>

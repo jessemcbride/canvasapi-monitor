@@ -1,0 +1,43 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Assignment Groups" name="method.assignment_groups_api.destroy">
+<a href="#method.assignment_groups_api.destroy" name="method.assignment_groups_api.destroy">
+      Destroy an Assignment Group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/assignment_groups_api_controller.rb">AssignmentGroupsApiController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/assignment_groups/:assignment_group_id
+  </h3>
+<p>Deletes the assignment group with the given id.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>move_assignments_to</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The ID of an active Assignment Group to which the assignments that are
+currently assigned to the destroyed Assignment Group will be assigned.
+NOTE: If this argument is not provided, any assignments in this Assignment
+Group will be deleted.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="assignment_groups.html#AssignmentGroup">AssignmentGroup</a>
+</div>

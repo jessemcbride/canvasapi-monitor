@@ -1,0 +1,105 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Usage Rights" name="method.usage_rights.set_usage_rights">
+<a href="#method.usage_rights.set_usage_rights" name="method.usage_rights.set_usage_rights">
+      Set usage rights
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/usage_rights_controller.rb">UsageRightsController#set_usage_rights</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/usage_rights
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/groups/:group_id/usage_rights
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/users/:user_id/usage_rights
+  </h3>
+<p>Sets copyright and license information for one or more files</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>file_ids[]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>List of ids of files to set usage rights for.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>folder_ids[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>List of ids of folders to search for files to set usage rights for. Note
+that new files uploaded to these folders do not automatically inherit these
+rights.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>publish</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether the file(s) or folder(s) should be published on save, provided that
+usage rights have been specified (set to `true` to publish on save).</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>usage_rights[use_justification]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The intellectual property justification for using the files in Canvas</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">own_copyright</code>, <code class="enum">used_by_permission</code>, <code class="enum">fair_use</code>, <code class="enum">public_domain</code>, <code class="enum">creative_commons</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>usage_rights[legal_copyright]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The legal copyright line for the files</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>usage_rights[license]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The license that applies to the files. See the
+<a href="files.html#method.usage_rights.licenses" title="List licenses endpoint">List licenses endpoint</a> for the
+supported license types.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="files.html#UsageRights">UsageRights</a>
+</div>

@@ -1,0 +1,14 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Assignment Overrides" name="method.assignment_overrides.group_alias">
+<a href="#method.assignment_overrides.group_alias" name="method.assignment_overrides.group_alias">
+      Redirect to the assignment override for a group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/assignment_overrides_controller.rb">AssignmentOverridesController#group_alias</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/assignments/:assignment_id/override
+  </h3>
+<p>Responds with a redirect to the override for the given group, if any (404
+otherwise).</p>
+</div>

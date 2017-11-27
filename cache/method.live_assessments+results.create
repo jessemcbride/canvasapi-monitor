@@ -1,0 +1,39 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="LiveAssessments" name="method.live_assessments/results.create">
+<a href="#method.live_assessments/results.create" name="method.live_assessments/results.create">
+      Create live assessment results
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/live_assessments/results_controller.rb">LiveAssessments::ResultsController#create</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/live_assessments/:assessment_id/results
+  </h3>
+<p>Creates live assessment results and adds them to a live assessment</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">{
+  "results": [{
+    "passed": false,
+    "assessed_at": "2014-05-26T14:57:23-07:00",
+    "links": {
+      "user": "15"
+    }
+  },{
+    "passed": true,
+    "assessed_at": "2014-05-26T13:05:40-07:00",
+    "links": {
+      "user": "16"
+    }
+  }]
+}</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "results": [Result]
+}</code></pre>
+</div>
+</div>

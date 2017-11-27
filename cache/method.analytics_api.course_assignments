@@ -1,0 +1,89 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Analytics" name="method.analytics_api.course_assignments">
+<a href="#method.analytics_api.course_assignments" name="method.analytics_api.course_assignments">
+      Get course-level assignment data
+    </a>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/analytics/assignments
+  </h3>
+<p>Returns a list of assignments for the course sorted by due date. For each
+assignment returns basic assignment information, the grade breakdown, and a
+breakdown of on-time/late status of homework submissions.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>async</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>If async is true, then the course_assignments call can happen asynch-
+ronously and MAY return a response containing a progress_url key instead of
+an assignments array. If it does, then it is the caller's
+responsibility to poll the API again to see if the progress is complete. If
+the data is ready (possibly even on the first async call) then it will be
+passed back normally, as documented in the example response.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/analytics/assignments \
+    -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">[
+  {
+    "assignment_id": 1234,
+    "title": "Assignment 1",
+    "points_possible": 10,
+    "due_at": "2012-01-25T22:00:00-07:00",
+    "unlock_at": "2012-01-20T22:00:00-07:00",
+    "muted": false,
+    "min_score": 2,
+    "max_score": 10,
+    "median": 7,
+    "first_quartile": 4,
+    "third_quartile": 8,
+    "tardiness_breakdown": {
+      "on_time": 0.75,
+      "missing": 0.1,
+      "late": 0.15
+    }
+  },
+  {
+    "assignment_id": 1235,
+    "title": "Assignment 2",
+    "points_possible": 15,
+    "due_at": "2012-01-26T22:00:00-07:00",
+    "unlock_at": null,
+    "muted": true,
+    "min_score": 8,
+    "max_score": 8,
+    "median": 8,
+    "first_quartile": 8,
+    "third_quartile": 8,
+    "tardiness_breakdown": {
+      "on_time": 0.65,
+      "missing": 0.12,
+      "late": 0.23
+      "total": 275
+    }
+  }
+]</code></pre>
+</div>
+</div>

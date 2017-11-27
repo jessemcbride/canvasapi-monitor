@@ -1,0 +1,72 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quiz Submission Questions" name="method.quizzes/quiz_submission_questions.flag">
+<a href="#method.quizzes/quiz_submission_questions.flag" name="method.quizzes/quiz_submission_questions.flag">
+      Flagging a question.
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quiz_submission_questions_controller.rb">Quizzes::QuizSubmissionQuestionsController#flag</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    PUT /api/v1/quiz_submissions/:quiz_submission_id/questions/:id/flag
+  </h3>
+<p>Set a flag on a quiz question to indicate that you want to return to it
+later.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>attempt</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The attempt number of the quiz submission being taken. Note that this must
+be the latest attempt index, as questions for earlier attempts can not be
+modified.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>validation_token</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The unique validation token you received when the Quiz Submission was
+created.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>access_code</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Access code for the Quiz, if any.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">{
+  "attempt": 1,
+  "validation_token": "YOUR_VALIDATION_TOKEN",
+  "access_code": null
+}</code></pre>
+</div>
+</div>

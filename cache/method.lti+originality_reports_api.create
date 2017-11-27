@@ -1,0 +1,109 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Originality Reports" name="method.lti/originality_reports_api.create">
+<a href="#method.lti/originality_reports_api.create" name="method.lti/originality_reports_api.create">
+      Create an Originality Report
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/lti/originality_reports_api_controller.rb">Lti::OriginalityReportsApiController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/lti/assignments/:assignment_id/submissions/:submission_id/originality_report
+  </h3>
+<p>Create a new OriginalityReport for the specified file</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>originality_report[file_id]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The id of the file being given an originality score.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>originality_report[originality_score]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>Float</td>
+<td class="param-desc">
+<p>A number between 0 and 100 representing the measure of the specified
+file's originality.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>originality_report[originality_report_url]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The URL where the originality report for the specified file may be found.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>originality_report[originality_report_file_id]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The ID of the file within Canvas that contains the originality report for
+the submitted file provided in the request URL.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>originality_report[tool_setting][resource_type_code]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The resource type code of the resource handler Canvas should use for the
+LTI launch for viewing originality reports. If set Canvas will launch to
+the message with type 'basic-lti-launch-request' in the specified
+resource handler rather than using the originality_report_url.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>originality_report[tool_setting][resource_url]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The URL Canvas should launch to when showing an LTI originality report.
+Note that this value is inferred from the specified resource handler's
+message âpathâ value (See `resource_type_code`) unless it is specified. If
+this parameter is used a `resource_type_code` must also be specified.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>originality_report[workflow_state]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>May be set to âpendingâ, âerrorâ, or âscoredâ. If an originality score is
+provided a workflow state of âscoredâ will be inferred.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="originality_reports.html#OriginalityReport">OriginalityReport</a>
+</div>

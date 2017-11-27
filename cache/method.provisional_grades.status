@@ -1,0 +1,46 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Provisional Grades" name="method.provisional_grades.status">
+<a href="#method.provisional_grades.status" name="method.provisional_grades.status">
+      Show provisional grade status for a student
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/provisional_grades_controller.rb">ProvisionalGradesController#status</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/status
+  </h3>
+<p>Tell whether the student's submission needs one or more provisional
+grades.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>student_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The id of the student to show the status for</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/1/assignments/2/provisional_grades/status?student_id=1'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{ "needs_provisional_grade": false }</code></pre>
+</div>
+</div>

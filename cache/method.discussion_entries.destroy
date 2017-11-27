@@ -1,0 +1,26 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_entries.destroy">
+<a href="#method.discussion_entries.destroy" name="method.discussion_entries.destroy">
+      Delete an entry
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_entries_controller.rb">DiscussionEntriesController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/discussion_topics/:topic_id/entries/:id
+  </h3>
+<h3 class="endpoint">
+    DELETE /api/v1/groups/:group_id/discussion_topics/:topic_id/entries/:id
+  </h3>
+<p>Delete a discussion entry.</p>
+<p>The entry must have been created by the current user, or the current user
+must have admin rights to the discussion. If the delete is not allowed, a
+401 will be returned.</p>
+<p>The discussion will be marked deleted, and the user_id and message will be
+cleared out.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl -X DELETE 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/discussion_topics/&lt;topic_id&gt;/entries/&lt;entry_id&gt;' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+</div>

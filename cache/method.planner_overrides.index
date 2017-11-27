@@ -1,0 +1,19 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Planner override" name="method.planner_overrides.index">
+<a href="#method.planner_overrides.index" name="method.planner_overrides.index">
+      List planner overrides
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/planner_overrides_controller.rb">PlannerOverridesController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/planner/overrides
+  </h3>
+<p>Retrieve a planner override for the current user</p>
+
+
+
+
+  Returns a list of 
+
+<a href="planner_override.html#PlannerOverride">PlannerOverrides</a>
+</div>

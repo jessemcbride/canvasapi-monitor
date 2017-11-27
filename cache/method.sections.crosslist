@@ -1,0 +1,21 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Sections" name="method.sections.crosslist">
+<a href="#method.sections.crosslist" name="method.sections.crosslist">
+      Cross-list a Section
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/sections_controller.rb">SectionsController#crosslist</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/sections/:id/crosslist/:new_course_id
+  </h3>
+<p>Move the Section to another course.  The new course may be in a different
+account (department), but must belong to the same root account
+(institution).</p>
+
+
+
+
+  Returns a 
+
+<a href="sections.html#Section">Section</a>
+</div>

@@ -1,0 +1,66 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Outcome Groups" name="method.outcome_groups_api.import">
+<a href="#method.outcome_groups_api.import" name="method.outcome_groups_api.import">
+      Import an outcome group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/outcome_groups_api_controller.rb">OutcomeGroupsApiController#import</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/global/outcome_groups/:id/import
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/accounts/:account_id/outcome_groups/:id/import
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/outcome_groups/:id/import
+  </h3>
+<p>Creates a new subgroup of the outcome group with the same title and
+description as the source group, then creates links in that new subgroup to
+the same outcomes that are linked in the source group. Recurses on the
+subgroups of the source group, importing them each in turn into the new
+subgroup.</p>
+<p>Allows you to copy organizational structure, but does not create copies of
+the outcomes themselves, only new links.</p>
+<p>The source group must be either global, from the same context as this
+outcome group, or from an associated account. The source group cannot be
+the root outcome group of its context.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>source_outcome_group_id</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The ID of the source outcome group.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/accounts/2/outcome_groups/3/import.json' \
+     -X POST \
+     -F 'source_outcome_group_id=2' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="outcome_groups.html#OutcomeGroup">OutcomeGroup</a>
+</div>

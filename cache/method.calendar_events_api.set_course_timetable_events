@@ -1,0 +1,86 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Calendar Events" name="method.calendar_events_api.set_course_timetable_events">
+<a href="#method.calendar_events_api.set_course_timetable_events" name="method.calendar_events_api.set_course_timetable_events">
+      Create or update events directly for a course timetable
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/calendar_events_api_controller.rb">CalendarEventsApiController#set_course_timetable_events</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/calendar_events/timetable_events
+  </h3>
+<p>Creates and updates âtimetableâ events for a course or course section.
+Similar to <a href="calendar_events.html#method.calendar_events_api.set_course_timetable" title="setting a course timetable">setting a course timetable</a>, but instead of generating a list of events based on a
+timetable schedule, this endpoint expects a complete list of events.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>course_section_id</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Events will be created for the course section specified by
+course_section_id. If not present, events will be created for the entire
+course.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>events[]</td>
+<td>
+</td>
+<td>Array</td>
+<td class="param-desc">
+<p>An array of event objects to use.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>events[][start_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>Start time for the event</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>events[][end_at]</td>
+<td>
+</td>
+<td>DateTime</td>
+<td class="param-desc">
+<p>End time for the event</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>events[][location_name]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Location name for the event</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>events[][code]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A unique identifier that can be used to update the event at a later time If
+one is not specified, an identifier will be generated based on the start
+and end times</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

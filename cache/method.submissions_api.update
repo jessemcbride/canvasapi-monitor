@@ -1,0 +1,209 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Submissions" name="method.submissions_api.update">
+<a href="#method.submissions_api.update" name="method.submissions_api.update">
+      Grade or comment on a submission
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/submissions_api_controller.rb">SubmissionsApiController#update</a></span>
+</h2>
+<h3 class="endpoint">
+    PUT /api/v1/courses/:course_id/assignments/:assignment_id/submissions/:user_id
+  </h3>
+<h3 class="endpoint">
+    PUT /api/v1/sections/:section_id/assignments/:assignment_id/submissions/:user_id
+  </h3>
+<p>Comment on and/or update the grading for a student's assignment
+submission. If any submission or rubric_assessment arguments are provided,
+the user must have permission to manage grades in the appropriate context
+(course or section).</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>comment[text_comment]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Add a textual comment to the submission.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>comment[group_comment]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Whether or not this comment should be sent to the entire group (defaults to
+false). Ignored if this is not a group assignment or if no text_comment is
+provided.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>comment[media_comment_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Add an audio/video comment to the submission. Media comments can be added
+via this API, however, note that there is not yet an API to generate or
+list existing media comments, so this functionality is currently of limited
+use.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>comment[media_comment_type]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The type of media comment being added.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">audio</code>, <code class="enum">video</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>comment[file_ids][]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Attach files to this comment that were previously uploaded using the
+Submission Comment API's files action</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include[visibility]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Whether this assignment is visible to the owner of the submission</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>submission[posted_grade]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Assign a score to the submission, updating both the âscoreâ and âgradeâ
+fields on the submission record. This parameter can be passed in a few
+different formats:</p>
+<dl class="rdoc-list note-list"><dt>points
+<dd>
+<p>A floating point or integral value, such as â13.5â. The grade</p>
+</dd></dt></dl>
+<pre class="code ruby"><code class="ruby">will be interpreted directly as the score of the assignment.
+Values above assignment.points_possible are allowed, for awarding
+extra credit.</code></pre>
+<dl class="rdoc-list note-list"><dt>percentage
+<dd>
+<p>A floating point value appended with a percent sign, such as</p>
+</dd></dt></dl>
+<pre class="code ruby"><code class="ruby">"40%". The grade will be interpreted as a percentage score on the
+assignment, where 100% == assignment.points_possible. Values above 100%
+are allowed, for awarding extra credit.</code></pre>
+<dl class="rdoc-list note-list"><dt>letter grade
+<dd>
+<p>A letter grade, following the assignment's defined letter</p>
+</dd></dt></dl>
+<pre class="code ruby"><code class="ruby">grading scheme. For example, "A-". The resulting score will be the high
+end of the defined range for the letter grade. For instance, if "B" is
+defined as 86% to 84%, a letter grade of "B" will be worth 86%. The
+letter grade will be rejected if the assignment does not have a defined
+letter grading scheme. For more fine-grained control of scores, pass in
+points or percentage rather than the letter grade.</code></pre>
+<dl class="rdoc-list note-list"><dt>âpass/complete/fail/incompleteâ
+<dd>
+<p>A string value of âpassâ or âcompleteâ</p>
+</dd></dt></dl>
+<pre class="code ruby"><code class="ruby">will give a score of 100%. "fail" or "incomplete" will give a score of
+0.</code></pre>
+<p>Note that assignments with grading_type of âpass_failâ can only be assigned
+a score of 0 or assignment.points_possible, nothing inbetween. If a
+posted_grade in the âpointsâ or âpercentageâ format is sent, the grade will
+only be accepted if the grade equals one of those two values.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>submission[excuse]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Sets the âexcusedâ status of an assignment.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>submission[late_policy_status]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Sets the late policy status to either âlateâ, âmissingâ, ânoneâ, or null.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>submission[seconds_late_override]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Sets the seconds late if late policy status is âlateâ</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>rubric_assessment</td>
+<td>
+</td>
+<td>RubricAssessment</td>
+<td class="param-desc">
+<p>Assign a rubric assessment to this assignment submission. The
+sub-parameters here depend on the rubric for the assignment. The general
+format is, for each row in the rubric:</p>
+<p>The points awarded for this row.</p>
+<pre class="code ruby"><code class="ruby"><span class="id identifier rubyid_rubric_assessment">rubric_assessment</span><span class="lbracket">[</span><span class="id identifier rubyid_criterion_id">criterion_id</span><span class="rbracket">]</span><span class="lbracket">[</span><span class="id identifier rubyid_points">points</span><span class="rbracket">]</span>
+</code></pre>
+<p>Comments to add for this row.</p>
+<pre class="code ruby"><code class="ruby"><span class="id identifier rubyid_rubric_assessment">rubric_assessment</span><span class="lbracket">[</span><span class="id identifier rubyid_criterion_id">criterion_id</span><span class="rbracket">]</span><span class="lbracket">[</span><span class="id identifier rubyid_comments">comments</span><span class="rbracket">]</span>
+</code></pre>
+<p>For example, if the assignment rubric is (in JSON format):</p>
+<pre class="code javascript"><code class="javascript">[
+  {
+    'id': 'crit1',
+    'points': 10,
+    'description': 'Criterion 1',
+    'ratings':
+    [
+      { 'description': 'Good', 'points': 10 },
+      { 'description': 'Poor', 'points': 3 }
+    ]
+  },
+  {
+    'id': 'crit2',
+    'points': 5,
+    'description': 'Criterion 2',
+    'ratings':
+    [
+      { 'description': 'Complete', 'points': 5 },
+      { 'description': 'Incomplete', 'points': 0 }
+    ]
+  }
+]
+</code></pre>
+<p>Then a possible set of values for rubric_assessment would be:</p>
+<pre class="code ruby"><code class="ruby">rubric_assessment[crit1][points]=3&amp;rubric_assessment[crit2][points]=5&amp;rubric_assessment[crit2][comments]=Well%20Done.</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>

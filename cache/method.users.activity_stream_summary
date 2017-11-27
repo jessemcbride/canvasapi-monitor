@@ -1,0 +1,28 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Users" name="method.users.activity_stream_summary">
+<a href="#method.users.activity_stream_summary" name="method.users.activity_stream_summary">
+      Activity stream summary
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/users_controller.rb">UsersController#activity_stream_summary</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/users/self/activity_stream/summary
+  </h3>
+<p>Returns a summary of the current user's global activity stream.</p>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">[
+  {
+    "type": "DiscussionTopic",
+    "unread_count": 2,
+    "count": 7
+  },
+  {
+    "type": "Conversation",
+    "unread_count": 0,
+    "count": 3
+  }
+]</code></pre>
+</div>
+</div>

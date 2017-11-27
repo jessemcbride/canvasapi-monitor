@@ -1,0 +1,44 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Folders" name="method.folders.resolve_path">
+<a href="#method.folders.resolve_path" name="method.folders.resolve_path">
+      Resolve path
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/folders_controller.rb">FoldersController#resolve_path</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/folders/by_path/*full_path
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/folders/by_path
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/folders/by_path/*full_path
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/folders/by_path
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/folders/by_path/*full_path
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/folders/by_path
+  </h3>
+<p>Given the full path to a folder, returns a list of all Folders in the path
+hierarchy, starting at the root folder, and ending at the requested folder.
+The given path is relative to the context's root folder and does not
+include the root folder's name (e.g., âcourse filesâ). If an empty path
+is given, the context's root folder alone is returned. Otherwise, if no
+folder exists with the given full path, a Not Found error is returned.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/folders/by_path/foo/bar/baz' \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="files.html#Folder">Folders</a>
+</div>

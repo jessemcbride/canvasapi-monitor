@@ -1,0 +1,26 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Collaborations" name="method.collaborations.potential_collaborators">
+<a href="#method.collaborations.potential_collaborators" name="method.collaborations.potential_collaborators">
+      List potential members
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/collaborations_controller.rb">CollaborationsController#potential_collaborators</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/potential_collaborators
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/potential_collaborators
+  </h3>
+<p>A paginated list of the users who can potentially be added to a
+collaboration in the given context.</p>
+<p>For courses, this consists of all enrolled users.  For groups, it is
+comprised of the group members plus the admins of the course containing the
+group.</p>
+
+
+
+
+  Returns a list of 
+
+<a href="users.html#User">Users</a>
+</div>

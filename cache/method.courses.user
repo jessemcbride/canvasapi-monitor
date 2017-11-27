@@ -1,0 +1,21 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Courses" name="method.courses.user">
+<a href="#method.courses.user" name="method.courses.user">
+      Get single user
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/courses_controller.rb">CoursesController#user</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/users/:id
+  </h3>
+<p>Return information on a single user.</p>
+<p>Accepts the same include[] parameters as the :users: action, and returns a
+single user with the same fields as that action.</p>
+
+
+
+
+  Returns a 
+
+<a href="users.html#User">User</a>
+</div>

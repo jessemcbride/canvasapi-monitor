@@ -1,0 +1,19 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Custom Gradebook Columns" name="method.custom_gradebook_columns_api.destroy">
+<a href="#method.custom_gradebook_columns_api.destroy" name="method.custom_gradebook_columns_api.destroy">
+      Delete a custom gradebook column
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/custom_gradebook_columns_api_controller.rb">CustomGradebookColumnsApiController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/custom_gradebook_columns/:id
+  </h3>
+<p>Permanently deletes a custom column and its associated data</p>
+
+
+
+
+  Returns a 
+
+<a href="custom_gradebook_columns.html#CustomColumn">CustomColumn</a>
+</div>

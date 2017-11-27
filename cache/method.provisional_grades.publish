@@ -1,0 +1,25 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Provisional Grades" name="method.provisional_grades.publish">
+<a href="#method.provisional_grades.publish" name="method.provisional_grades.publish">
+      Publish provisional grades for an assignment
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/provisional_grades_controller.rb">ProvisionalGradesController#publish</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/assignments/:assignment_id/provisional_grades/publish
+  </h3>
+<p>Publish the selected provisional grade for all submissions to an
+assignment. Use the âSelect provisional gradeâ endpoint to choose which
+provisional grade to publish for a particular submission.</p>
+<p>Students not in the moderation set will have their one and only provisional
+grade published.</p>
+<p>WARNING: This is irreversible. This will overwrite existing grades in the
+gradebook.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/1/assignments/2/provisional_grades/publish' \
+     -X POST</code></pre>
+</div>
+</div>

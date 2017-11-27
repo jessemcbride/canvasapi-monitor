@@ -1,0 +1,65 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Assignment Groups" name="method.assignment_groups_api.show">
+<a href="#method.assignment_groups_api.show" name="method.assignment_groups_api.show">
+      Get an Assignment Group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/assignment_groups_api_controller.rb">AssignmentGroupsApiController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/assignment_groups/:assignment_group_id
+  </h3>
+<p>Returns the assignment group with the given id.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Associations to include with the group. âdiscussion_topicâ and
+âassignment_visibilityâ and âsubmissionâ are only valid if âassignmentsâ is
+also included. The âassignment_visibilityâ option additionally requires
+that the Differentiated Assignments course feature be turned on.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">assignments</code>, <code class="enum">discussion_topic</code>, <code class="enum">assignment_visibility</code>, <code class="enum">submission</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>override_assignment_dates</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Apply assignment overrides for each assignment, defaults to true.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grading_period_id</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The id of the grading period in which assignment groups are being requested
+(Requires grading periods to exist on the account)</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="assignment_groups.html#AssignmentGroup">AssignmentGroup</a>
+</div>

@@ -1,0 +1,20 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quiz Question Groups" name="method.quizzes/quiz_groups.show">
+<a href="#method.quizzes/quiz_groups.show" name="method.quizzes/quiz_groups.show">
+      Get a single quiz group
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quiz_groups_controller.rb">Quizzes::QuizGroupsController#show</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/quizzes/:quiz_id/groups/:id
+  </h3>
+<p>Returns details of the quiz group with the given id.</p>
+
+
+
+
+  Returns a 
+
+<a href="quiz_question_groups.html#QuizGroup">QuizGroup</a>
+</div>

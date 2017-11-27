@@ -1,0 +1,90 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Error Reports" name="method.errors.create">
+<a href="#method.errors.create" name="method.errors.create">
+      Create Error Report
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/errors_controller.rb">ErrorsController#create</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/error_reports
+  </h3>
+<p>Create a new error report documenting an experienced problem</p>
+<p>Performs the same action as when a user uses the âhelp -&gt; report a
+problemâ dialog.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>error[subject]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The summary of the problem</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>error[url]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>URL from which the report was issued</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>error[email]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Email address for the reporting user</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>error[comments]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The long version of the story from the user one what they experienced</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>error[http_env]</td>
+<td>
+</td>
+<td>SerializedHash</td>
+<td class="param-desc">
+<p>A collection of metadata about the users' environment.  If not
+provided, canvas will collect it based on information found in the request.
+(Doesn't have to be HTTPENV info, could be anything JSON object that
+can be serialized as a hash, a mobile app might include relevant metadata
+for itself)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash"># Create error report
+curl 'https://&lt;canvas&gt;/api/v1/error_reports' \
+      -X POST \
+      -F 'error[subject]="things are broken"' \
+      -F 'error[url]=http://&lt;canvas&gt;/courses/1' \
+      -F 'error[description]="All my thoughts on what I saw"' \
+      -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+</div>

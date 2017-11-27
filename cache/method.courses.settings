@@ -1,0 +1,34 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Courses" name="method.courses.settings">
+<a href="#method.courses.settings" name="method.courses.settings">
+      Get course settings
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/courses_controller.rb">CoursesController#settings</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/settings
+  </h3>
+<p>Returns some of a course's settings.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/settings \
+  -X GET \
+  -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "allow_student_discussion_topics": true,
+  "allow_student_forum_attachments": false,
+  "allow_student_discussion_editing": true,
+  "grading_standard_enabled": true,
+  "grading_standard_id": 137,
+  "allow_student_organized_groups": true,
+  "hide_final_grades": false,
+  "hide_distribution_graphs": false,
+  "lock_all_announcements": true
+}</code></pre>
+</div>
+</div>

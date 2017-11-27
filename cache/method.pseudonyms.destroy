@@ -1,0 +1,30 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Logins" name="method.pseudonyms.destroy">
+<a href="#method.pseudonyms.destroy" name="method.pseudonyms.destroy">
+      Delete a user login
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/pseudonyms_controller.rb">PseudonymsController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/users/:user_id/logins/:id
+  </h3>
+<p>Delete an existing login.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/users/:user_id/logins/:login_id \
+  -H "Authorization: Bearer &lt;ACCESS-TOKEN&gt;" \
+  -X DELETE</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "unique_id": "bieber@example.com",
+  "sis_user_id": null,
+  "account_id": 1,
+  "id": 12345,
+  "user_id": 2
+}</code></pre>
+</div>
+</div>

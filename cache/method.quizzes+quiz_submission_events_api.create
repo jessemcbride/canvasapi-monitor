@@ -1,0 +1,57 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quiz Submission Events" name="method.quizzes/quiz_submission_events_api.create">
+<a href="#method.quizzes/quiz_submission_events_api.create" name="method.quizzes/quiz_submission_events_api.create">
+      Submit captured events
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quiz_submission_events_api_controller.rb">Quizzes::QuizSubmissionEventsApiController#create</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/quizzes/:quiz_id/submissions/:id/events
+  </h3>
+<p>Store a set of events which were captured during a quiz taking session.</p>
+<p>On success, the response will be 204 No Content with an empty body.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>quiz_submission_events[]</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>Array</td>
+<td class="param-desc">
+<p>The submission events to be recorded</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">{
+  "quiz_submission_events":
+  [
+    {
+      "client_timestamp": "2014-10-08T19:29:58Z",
+      "event_type": "question_answered",
+      "event_data" : {"answer": "42"}
+    }, {
+      "client_timestamp": "2014-10-08T19:30:17Z",
+      "event_type": "question_flagged",
+      "event_data" : { "question_id": "1", "flagged": true }
+    }
+  ]
+}</code></pre>
+</div>
+</div>

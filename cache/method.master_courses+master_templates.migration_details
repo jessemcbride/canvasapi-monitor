@@ -1,0 +1,27 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Blueprint Course History" name="method.master_courses/master_templates.migration_details">
+<a href="#method.master_courses/master_templates.migration_details" name="method.master_courses/master_templates.migration_details">
+      Get migration details
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/master_courses/master_templates_controller.rb">MasterCourses::MasterTemplatesController#migration_details</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/blueprint_templates/:template_id/migrations/:id/details
+  </h3>
+<p>Show the changes that were propagated in a blueprint migration. This
+endpoint can be called on a blueprint course. See also
+<a href="blueprint_courses.html#method.master_courses/master_templates.import_details" title="the associated course side">the associated course side</a>.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/1/blueprint_templates/default/migrations/2/details \
+-H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="blueprint_courses.html#ChangeRecord">ChangeRecords</a>
+</div>

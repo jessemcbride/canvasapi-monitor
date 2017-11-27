@@ -1,0 +1,61 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Groups" name="method.groups.users">
+<a href="#method.groups.users" name="method.groups.users">
+      List group's users
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/groups_controller.rb">GroupsController#users</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/users
+  </h3>
+<p>Returns a paginated list of users in the group.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>search_term</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The partial name or full ID of the users to match and return in the results
+list. Must be at least 3 characters.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>include[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<ul><li>
+<p>âavatar_urlâ: Include users' avatar_urls.</p>
+</li></ul>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">avatar_url</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/groups/1/users \
+     -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="users.html#User">Users</a>
+</div>

@@ -1,0 +1,50 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Favorites" name="method.favorites.remove_favorite_course">
+<a href="#method.favorites.remove_favorite_course" name="method.favorites.remove_favorite_course">
+      Remove course from favorites
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/favorites_controller.rb">FavoritesController#remove_favorite_course</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/users/self/favorites/courses/:id
+  </h3>
+<p>Remove a course from the current user's favorites.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>id</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>the ID or SIS ID of the course to remove</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/users/self/favorites/courses/1170 \
+  -X DELETE \
+  -H 'Authorization: Bearer &lt;ACCESS_TOKEN&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="favorites.html#Favorite">Favorite</a>
+</div>

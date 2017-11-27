@@ -1,0 +1,44 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Quiz Questions" name="method.quizzes/quiz_questions.show">
+<a href="#method.quizzes/quiz_questions.show" name="method.quizzes/quiz_questions.show">
+      Get a single quiz question
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/quiz_questions_controller.rb">Quizzes::QuizQuestionsController#show</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/quizzes/:quiz_id/questions/:id
+  </h3>
+<p>Returns the quiz question with the given id</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>id</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The quiz question unique identifier.</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+  Returns a 
+
+<a href="quiz_questions.html#QuizQuestion">QuizQuestion</a>
+</div>

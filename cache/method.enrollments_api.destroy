@@ -1,0 +1,53 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Enrollments" name="method.enrollments_api.destroy">
+<a href="#method.enrollments_api.destroy" name="method.enrollments_api.destroy">
+      Conclude, deactivate, or delete an enrollment
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/enrollments_api_controller.rb">EnrollmentsApiController#destroy</a></span>
+</h2>
+<h3 class="endpoint">
+    DELETE /api/v1/courses/:course_id/enrollments/:id
+  </h3>
+<p>Conclude, deactivate, or delete an enrollment. If the <code>task</code>
+argument isn't given, the enrollment will be concluded.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>task</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>The action to take on the enrollment. When inactive, a user will still
+appear in the course roster to admins, but be unable to participate.
+(âinactivateâ and âdeactivateâ are equivalent tasks)</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">conclude</code>, <code class="enum">delete</code>, <code class="enum">inactivate</code>, <code class="enum">deactivate</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/:course_id/enrollments/:enrollment_id \
+  -X DELETE \
+  -F 'task=conclude'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="enrollments.html#Enrollment">Enrollment</a>
+</div>

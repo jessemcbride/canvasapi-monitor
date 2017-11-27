@@ -1,0 +1,30 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Feature Flags" name="method.feature_flags.enabled_features">
+<a href="#method.feature_flags.enabled_features" name="method.feature_flags.enabled_features">
+      List enabled features
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/feature_flags_controller.rb">FeatureFlagsController#enabled_features</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/features/enabled
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/features/enabled
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/features/enabled
+  </h3>
+<p>A paginated list of all features that are enabled on a given Account,
+Course, or User. Only the feature names are returned.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'http://&lt;canvas&gt;/api/v1/courses/1/features/enabled' \
+  -H "Authorization: Bearer "</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">["fancy_wickets", "automatic_essay_grading", "telepathic_navigation"]</code></pre>
+</div>
+</div>

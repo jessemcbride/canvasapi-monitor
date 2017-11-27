@@ -1,0 +1,28 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Grading Standards" name="method.grading_standards_api.context_show">
+<a href="#method.grading_standards_api.context_show" name="method.grading_standards_api.context_show">
+      Get a single grading standard in a context.
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/grading_standards_api_controller.rb">GradingStandardsApiController#context_show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/grading_standards/:grading_standard_id
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/grading_standards/:grading_standard_id
+  </h3>
+<p>Returns a grading standard for the given context that is visible to the
+user.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/1/grading_standards/5 \
+  -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="grading_standards.html#GradingStandard">GradingStandard</a>
+</div>

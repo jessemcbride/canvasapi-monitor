@@ -1,0 +1,31 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Feature Flags" name="method.feature_flags.index">
+<a href="#method.feature_flags.index" name="method.feature_flags.index">
+      List features
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/feature_flags_controller.rb">FeatureFlagsController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/features
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/accounts/:account_id/features
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/features
+  </h3>
+<p>A paginated list of all features that apply to a given Account, Course, or
+User.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'http://&lt;canvas&gt;/api/v1/courses/1/features' \
+  -H "Authorization: Bearer "</code></pre>
+</div>
+
+
+
+  Returns a list of 
+
+<a href="feature_flags.html#Feature">Features</a>
+</div>

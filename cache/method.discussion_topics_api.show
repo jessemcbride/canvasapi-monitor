@@ -1,0 +1,22 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Discussion Topics" name="method.discussion_topics_api.show">
+<a href="#method.discussion_topics_api.show" name="method.discussion_topics_api.show">
+      Get a single topic
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/discussion_topics_api_controller.rb">DiscussionTopicsApiController#show</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/courses/:course_id/discussion_topics/:topic_id
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/groups/:group_id/discussion_topics/:topic_id
+  </h3>
+<p>Returns data on an individual discussion topic. See the List action for the
+response formatting.</p>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/courses/&lt;course_id&gt;/discussion_topics/&lt;topic_id&gt; \
+    -H 'Authorization: Bearer &lt;token&gt;'</code></pre>
+</div>
+</div>

@@ -1,0 +1,39 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Conversations" name="method.conversations.batches">
+<a href="#method.conversations.batches" name="method.conversations.batches">
+      Get running batches
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/conversations_controller.rb">ConversationsController#batches</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/conversations/batches
+  </h3>
+<p>Returns any currently running conversation batches for the current user.
+Conversation batches are created when a bulk private message is sent
+asynchronously (see the mode argument to the
+<a href="conversations.html#method.conversations.create" title="create API action">create API action</a>).</p>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">[
+  {
+    "id": 1,
+    "subject": "conversations api example",
+    "workflow_state": "created",
+    "completion": 0.1234,
+    "tags": [],
+    "message":
+    {
+      "id": 1,
+      "created_at": "2011-09-02T10:00:00Z",
+      "body": "quick reminder, no class tomorrow",
+      "author_id": 1,
+      "generated": false,
+      "media_comment": null,
+      "forwarded_messages": [],
+      "attachments": []
+    }
+  }
+]</code></pre>
+</div>
+</div>

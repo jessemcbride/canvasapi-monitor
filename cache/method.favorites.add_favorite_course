@@ -1,0 +1,53 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Favorites" name="method.favorites.add_favorite_course">
+<a href="#method.favorites.add_favorite_course" name="method.favorites.add_favorite_course">
+      Add course to favorites
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/favorites_controller.rb">FavoritesController#add_favorite_course</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/users/self/favorites/courses/:id
+  </h3>
+<p>Add a course to the current user's favorites.  If the course is already
+in the user's favorites, nothing happens.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>id</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>string</td>
+<td class="param-desc">
+<p>The ID or SIS ID of the course to add.  The current user must be registered
+in the course.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl https://&lt;canvas&gt;/api/v1/users/self/favorites/courses/1170 \
+  -X POST \
+  -H 'Authorization: Bearer &lt;ACCESS_TOKEN&gt;' \
+  -H 'Content-Length: 0'</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="favorites.html#Favorite">Favorite</a>
+</div>

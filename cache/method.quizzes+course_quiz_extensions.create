@@ -1,0 +1,128 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Course Quiz Extensions" name="method.quizzes/course_quiz_extensions.create">
+<a href="#method.quizzes/course_quiz_extensions.create" name="method.quizzes/course_quiz_extensions.create">
+      Set extensions for student quiz submissions
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/quizzes/course_quiz_extensions_controller.rb">Quizzes::CourseQuizExtensionsController#create</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/quiz_extensions
+  </h3>
+<p><strong>Responses</strong></p>
+<ul><li>
+<p><strong>200 OK</strong> if the request was successful</p>
+</li><li>
+<p><strong>403 Forbidden</strong> if you are not allowed to extend quizzes for
+this course</p>
+</li></ul>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>user_id</td>
+<td>
+        
+        Required
+        
+      </td>
+<td>integer</td>
+<td class="param-desc">
+<p>The ID of the user we want to add quiz extensions for.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>extra_attempts</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Number of times the student is allowed to re-take the quiz over the
+multiple-attempt limit. This is limited to 1000 attempts or less.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>extra_time</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The number of extra minutes to allow for all attempts. This will add to the
+existing time limit on the submission. This is limited to 10080 minutes (1
+week)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>manually_unlocked</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>Allow the student to take the quiz even if it's locked for everyone
+else.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>extend_from_now</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The number of minutes to extend the quiz from the current time. This is
+mutually exclusive to extend_from_end_at. This is limited to 1440 minutes
+(24 hours)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>extend_from_end_at</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>The number of minutes to extend the quiz beyond the quiz's current
+ending time. This is mutually exclusive to extend_from_now. This is limited
+to 1440 minutes (24 hours)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">{
+  "quiz_extensions": [{
+    "user_id": 3,
+    "extra_attempts": 2,
+    "extra_time": 20,
+    "manually_unlocked": true
+  },{
+    "user_id": 2,
+    "extra_attempts": 2,
+    "extra_time": 20,
+    "manually_unlocked": false
+  }]
+}</code></pre>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">{
+  "quiz_extensions": [{
+    "user_id": 3,
+    "extend_from_now": 20
+  }]
+}</code></pre>
+</div>
+<div class="examples example_response">
+<h4>Example Response:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-js">{
+  "quiz_extensions": [QuizExtension]
+}</code></pre>
+</div>
+</div>

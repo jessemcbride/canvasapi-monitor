@@ -1,0 +1,17 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Courses" name="method.courses.create_file">
+<a href="#method.courses.create_file" name="method.courses.create_file">
+      Upload a file
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/courses_controller.rb">CoursesController#create_file</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/files
+  </h3>
+<p>Upload a file to the course.</p>
+<p>This API endpoint is the first step in uploading a file to a course. See
+the <a href="file_uploads.html" title="File Upload Documentation">File Upload Documentation</a> for details on the
+file upload workflow.</p>
+<p>Only those with the âManage Filesâ permission on a course can upload files
+to the course. By default, this is Teachers, TAs and Designers.</p>
+</div>

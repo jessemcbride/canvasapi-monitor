@@ -1,0 +1,90 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Calendar Events" name="method.calendar_events_api.set_course_timetable">
+<a href="#method.calendar_events_api.set_course_timetable" name="method.calendar_events_api.set_course_timetable">
+      Set a course timetable
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/calendar_events_api_controller.rb">CalendarEventsApiController#set_course_timetable</a></span>
+</h2>
+<h3 class="beta">BETA: This API endpoint is not finalized, and there could be breaking changes before its final release.</h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/calendar_events/timetable
+  </h3>
+<p>Creates and updates âtimetableâ events for a course. Can automaticaly
+generate a series of calendar events based on simple schedules (e.g.
+âMonday and Wednesday at 2:00pmâ )</p>
+<p>Existing timetable events for the course and course sections will be
+updated if they still are part of the timetable. Otherwise, they will be
+deleted.</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>timetables[course_section_id][]</td>
+<td>
+</td>
+<td>Array</td>
+<td class="param-desc">
+<p>An array of timetable objects for the course section specified by
+course_section_id. If course_section_id is set to âallâ, events will be
+created for the entire course.</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>timetables[course_section_id][][weekdays]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A comma-separated list of abbreviated weekdays (Mon-Monday, Tue-Tuesday,
+Wed-Wednesday, Thu-Thursday, Fri-Friday, Sat-Saturday, Sun-Sunday)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>timetables[course_section_id][][start_time]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Time to start each event at (e.g. â9:00 amâ)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>timetables[course_section_id][][end_time]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>Time to end each event at (e.g. â9:00 amâ)</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>timetables[course_section_id][][location_name]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A location name to set for each event</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/calendar_events/timetable' \
+     -X POST \
+     -F 'timetables[all][][weekdays]=Mon,Wed,Fri' \
+     -F 'timetables[all][][start_time]=11:00 am' \
+     -F 'timetables[all][][end_time]=11:50 am' \
+     -F 'timetables[all][][location_name]=Room 237' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+</div>

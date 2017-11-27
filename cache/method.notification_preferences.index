@@ -1,0 +1,22 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Notification Preferences" name="method.notification_preferences.index">
+<a href="#method.notification_preferences.index" name="method.notification_preferences.index">
+      List preferences
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/notification_preferences_controller.rb">NotificationPreferencesController#index</a></span>
+</h2>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/communication_channels/:communication_channel_id/notification_preferences
+  </h3>
+<h3 class="endpoint">
+    GET /api/v1/users/:user_id/communication_channels/:type/:address/notification_preferences
+  </h3>
+<p>Fetch all preferences for the given communication channel</p>
+
+
+
+
+  Returns a list of 
+
+<a href="notification_preferences.html#NotificationPreference">NotificationPreferences</a>
+</div>

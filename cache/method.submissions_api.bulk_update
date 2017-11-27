@@ -1,0 +1,141 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Submissions" name="method.submissions_api.bulk_update">
+<a href="#method.submissions_api.bulk_update" name="method.submissions_api.bulk_update">
+      Grade or comment on multiple submissions
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/submissions_api_controller.rb">SubmissionsApiController#bulk_update</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/submissions/update_grades
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/assignments/:assignment_id/submissions/update_grades
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/sections/:section_id/submissions/update_grades
+  </h3>
+<h3 class="endpoint">
+    POST /api/v1/sections/:section_id/assignments/:assignment_id/submissions/update_grades
+  </h3>
+<p>Update the grading and comments on multiple student's assignment
+submissions in an asynchronous job.</p>
+<p>The user must have permission to manage grades in the appropriate context
+(course or section).</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][posted_grade]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>See documentation for the posted_grade argument in the
+<a href="submissions.html#method.submissions_api.update" title="Submissions Update">Submissions Update</a> documentation</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][excuse]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>See documentation for the excuse argument in the
+<a href="submissions.html#method.submissions_api.update" title="Submissions Update">Submissions Update</a> documentation</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][rubric_assessment]</td>
+<td>
+</td>
+<td>RubricAssessment</td>
+<td class="param-desc">
+<p>See documentation for the rubric_assessment argument in the
+<a href="submissions.html#method.submissions_api.update" title="Submissions Update">Submissions Update</a> documentation</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][text_comment]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>no description</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][group_comment]</td>
+<td>
+</td>
+<td>boolean</td>
+<td class="param-desc">
+<p>no description</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][media_comment_id]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>no description</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][media_comment_type]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>no description</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">audio</code>, <code class="enum">video</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][file_ids][]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>See documentation for the comment[] arguments in the
+<a href="submissions.html#method.submissions_api.update" title="Submissions Update">Submissions Update</a> documentation</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>grade_data[&lt;student_id&gt;][assignment_id]</td>
+<td>
+</td>
+<td>integer</td>
+<td class="param-desc">
+<p>Specifies which assignment to grade.  This argument is not necessary when
+using the assignment-specific endpoints.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="examples">
+<h4>Example Request:</h4>
+<h4><div class="inline"></div></h4>
+<pre class="example code prettyprint"><code class="language-bash">curl 'https://&lt;canvas&gt;/api/v1/courses/1/assignments/2/submissions/update_grades' \
+     -X POST \
+     -F 'grade_data[3][posted_grade]=88' \
+     -F 'grade_data[4][posted_grade]=95' \
+     -H "Authorization: Bearer &lt;token&gt;"</code></pre>
+</div>
+
+
+
+  Returns a 
+
+<a href="progress.html#Progress">Progress</a>
+</div>

@@ -1,0 +1,64 @@
+<div class="method_details ">
+<h2 class="api_method_name" data-subtopic="Courses" name="method.content_imports.copy_course_content">
+<a href="#method.content_imports.copy_course_content" name="method.content_imports.copy_course_content">
+      Copy course content
+    </a>
+<span class="defined-in"><a href="https://github.com/instructure/canvas-lms/blob/master/app/controllers/content_imports_controller.rb">ContentImportsController#copy_course_content</a></span>
+</h2>
+<h3 class="endpoint">
+    POST /api/v1/courses/:course_id/course_copy
+  </h3>
+<p>DEPRECATED: Please use the <a href="content_migrations.html#method.content_migrations.create" title="Content Migrations API">Content Migrations API</a></p>
+<p>Copies content from one course into another. The default is to copy all
+course content. You can control specific types to copy by using either the
+'except' option or the 'only' option.</p>
+<p>The response is the same as the course copy status endpoint</p>
+<h4>Request Parameters:</h4>
+<table class="request-params">
+<thead>
+<tr>
+<th class="param-name">Parameter</th>
+<th class="param-req"></th>
+<th class="param-type">Type</th>
+<th class="param-desc">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="request-param">
+<td>source_course</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>ID or SIS-ID of the course to copy the content from</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>except[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A list of the course content types to exclude, all areas not listed will be
+copied.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">course_settings</code>, <code class="enum">assignments</code>, <code class="enum">external_tools</code>, <code class="enum">files</code>, <code class="enum">topics</code>, <code class="enum">calendar_events</code>, <code class="enum">quizzes</code>, <code class="enum">wiki_pages</code>, <code class="enum">modules</code>, <code class="enum">outcomes</code>
+</p>
+</td>
+</tr>
+<tr class="request-param">
+<td>only[]</td>
+<td>
+</td>
+<td>string</td>
+<td class="param-desc">
+<p>A list of the course content types to copy, all areas not listed will not
+be copied.</p>
+<p class="param-values">
+<span class="allowed">Allowed values:</span> <code class="enum">course_settings</code>, <code class="enum">assignments</code>, <code class="enum">external_tools</code>, <code class="enum">files</code>, <code class="enum">topics</code>, <code class="enum">calendar_events</code>, <code class="enum">quizzes</code>, <code class="enum">wiki_pages</code>, <code class="enum">modules</code>, <code class="enum">outcomes</code>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
