@@ -32,7 +32,7 @@ url = "https://canvas.instructure.com/doc/api/all_resources.html"
 cache_location = os.path.join(path, 'cache')
 
 try:
-    first_run = bool(os.listdir(cache_location))
+    first_run = not bool(os.listdir(cache_location))
 except OSError:
     os.mkdir(cache_location)
     first_run = True
