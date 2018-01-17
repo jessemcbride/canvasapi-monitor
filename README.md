@@ -1,5 +1,7 @@
 # canvasapi-monitor
 
+![Example script output](https://i.imgur.com/AFQ4A7f.png)
+
 This script monitors the Canvas API documentation and then posts any detected changes to a Slack channel.
 
 ## Configuration
