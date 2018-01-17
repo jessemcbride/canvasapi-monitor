@@ -63,6 +63,7 @@ for method in methods:
         logger.warning(
             "Couldn't find method name for method:\n%s" % method
         )
+        continue
 
     path = os.path.join(cache_location, identifier.replace('/', '+'))
 
