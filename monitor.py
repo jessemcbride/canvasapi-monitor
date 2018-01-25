@@ -1,3 +1,4 @@
+import difflib
 import logging
 import os
 
@@ -70,8 +71,19 @@ for method in methods:
     try:
         cached = open(path, 'r+')
 
-        if cached.read() != str(method):
-            changes.append({'method': name, 'url': method_url})
+        old_text = cached.readlines()
+        if "".join(old_text) != str(method):
+            new_text = str(method).splitlines(True)
+            diffs = difflib.unified_diff(
+                old_text,
+                new_text,
+                fromfile='Cache',
+                tofile='Canvas'
+            )
+
+            diff_text = "".join(diffs)
+
+            changes.append({'method': name, 'url': method_url, 'diff': diff_text})
 
         cached.seek(0)
         cached.truncate()
@@ -82,7 +94,8 @@ for method in methods:
         cached = open(path, 'w+')
         cached.write(str(method))
         cached.close()
-        changes.append({'method': name, 'url': method_url})
+        # TODO: consider what to diff when new method
+        changes.append({'method': name, 'url': method_url, 'diff': None})
 
 if first_run:
     logger.info("`first_run` was true - not sending out notifications")
@@ -93,7 +106,8 @@ if changes:
     message = "Detected modified endpoint" + plural + ":\n"
 
     for change in changes:
-        message += '\n<%s|%s>' % (change['url'], change['method'])
+        message += '\n<{}|{}>'.format(change['url'], change['method'])
+        message += '\n```{}```'.format(change['diff'])
 
     slack.notify(text=message)
 else:
